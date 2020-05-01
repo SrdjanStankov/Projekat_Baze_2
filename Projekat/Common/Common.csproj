@@ -43,6 +43,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ICommunication.cs" />
+    <Compile Include="Models\Brod.cs" />
+    <Compile Include="Models\Brodogoradiliste.cs" />
+    <Compile Include="Models\Brodska_Linija.cs" />
+    <Compile Include="Models\Kapetan.cs" />
+    <Compile Include="Models\Kormilar.cs" />
+    <Compile Include="Models\Kruzer.cs" />
+    <Compile Include="Models\Mornar.cs" />
+    <Compile Include="Models\Pol.cs" />
+    <Compile Include="Models\Posada.cs" />
+    <Compile Include="Models\Tanker.cs" />
+    <Compile Include="Models\Teretni_Brod.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

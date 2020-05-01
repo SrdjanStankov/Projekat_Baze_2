@@ -62,6 +62,7 @@
     <Compile Include="Brodogradiliste.cs">
       <DependentUpon>ShipModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="BrodRepository.cs" />
     <Compile Include="Brodska_Linija.cs">
       <DependentUpon>ShipModel.tt</DependentUpon>
     </Compile>

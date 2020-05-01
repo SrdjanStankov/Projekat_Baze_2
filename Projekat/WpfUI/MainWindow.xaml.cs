@@ -16,7 +16,7 @@ namespace WpfUI
 
         private void ConnectBtnClick(object sender, RoutedEventArgs e)
         {
-            ChannelFactory<ICommunication> factory = new ChannelFactory<ICommunication>("Client");
+            var factory = new ChannelFactory<ICommunication>("Client");
             var proxy = factory.CreateChannel();
 
             proxy.Comunicate();

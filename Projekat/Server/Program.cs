@@ -1,15 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ServiceModel;
 
 namespace Server
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static ServiceHost host;
+
+        private static void Main()
         {
+            Console.WriteLine("Server is starting . . .");
+            host = new ServiceHost(typeof(Server));
+            host.Open();
+            Console.WriteLine(host.BaseAddresses.Count);
+            Console.WriteLine("Server started!");
+            Console.ReadLine();
+            Console.WriteLine("Server is closing . . .");
+            host.Close();
+            Console.WriteLine("Server closed!");
+            Console.ReadLine();
         }
     }
 }

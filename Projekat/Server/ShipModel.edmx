@@ -1,0 +1,911 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Projekat_Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Brod">
+          <Key>
+            <PropertyRef Name="IDBroda" />
+          </Key>
+          <Property Name="IDBroda" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Ime" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="GodGrad" Type="date" Nullable="false" />
+          <Property Name="MaxBrzina" Type="int" />
+          <Property Name="Duzina" Type="int" />
+          <Property Name="Sirina" Type="int" />
+          <Property Name="IDBrodog" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Brodogradiliste">
+          <Key>
+            <PropertyRef Name="IDBrodog" />
+          </Key>
+          <Property Name="IDBrodog" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Naziv" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Lokacija" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="BrNaprBrod" Type="int" />
+          <Property Name="BrPrist" Type="int" />
+          <Property Name="PosedSuvDok" Type="bit" />
+        </EntityType>
+        <EntityType Name="Brodska_Linija">
+          <Key>
+            <PropertyRef Name="BrLin" />
+          </Key>
+          <Property Name="BrLin" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Naziv" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Tip" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Polazna_tacka" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Krajnja_tacka" Type="nvarchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Kapetan">
+          <Key>
+            <PropertyRef Name="JMBG" />
+          </Key>
+          <Property Name="JMBG" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="Ime" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Prezime" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Pol" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="GodRodj" Type="date" />
+          <Property Name="BrLin" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IDBroda" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Kormilar">
+          <Key>
+            <PropertyRef Name="JMBG" />
+          </Key>
+          <Property Name="JMBG" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="Ime" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Prezime" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Pol" Type="varchar" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Kruzer">
+          <Key>
+            <PropertyRef Name="IDBroda" />
+          </Key>
+          <Property Name="IDBroda" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="BrPutnika" Type="int" />
+          <Property Name="BrOsoblja" Type="int" />
+        </EntityType>
+        <EntityType Name="Mornar">
+          <Key>
+            <PropertyRef Name="JMBG" />
+          </Key>
+          <Property Name="JMBG" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="Ime" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Prezime" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Pol" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="Rank" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ID" Type="uniqueidentifier" />
+          <Property Name="IDBroda" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="Popravlja">
+          <Key>
+            <PropertyRef Name="IDBroda" />
+            <PropertyRef Name="BrLin" />
+            <PropertyRef Name="IDBrodog" />
+          </Key>
+          <Property Name="IDBroda" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="BrLin" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IDBrodog" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Posada">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Ime" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="Kapacitet" Type="int" />
+          <Property Name="JMBG_Kormilar" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="JMBG_Kapetan" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="IDBroda" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Poseduje">
+          <Key>
+            <PropertyRef Name="IDBroda" />
+            <PropertyRef Name="BrLin" />
+          </Key>
+          <Property Name="IDBroda" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="BrLin" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tanker">
+          <Key>
+            <PropertyRef Name="IDBroda" />
+          </Key>
+          <Property Name="IDBroda" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Nosivost" Type="int" />
+          <Property Name="TipTeret" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Teretni_Brod">
+          <Key>
+            <PropertyRef Name="IDBroda" />
+          </Key>
+          <Property Name="IDBroda" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="KapacTeret" Type="int" />
+          <Property Name="StatUtov" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK__Brod__IDBrodog__31EC6D26">
+          <End Role="Brodogradiliste" Type="Self.Brodogradiliste" Multiplicity="1" />
+          <End Role="Brod" Type="Self.Brod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brodogradiliste">
+              <PropertyRef Name="IDBrodog" />
+            </Principal>
+            <Dependent Role="Brod">
+              <PropertyRef Name="IDBrodog" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Kapetan__BrLin__4222D4EF">
+          <End Role="Brodska_Linija" Type="Self.Brodska_Linija" Multiplicity="1" />
+          <End Role="Kapetan" Type="Self.Kapetan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brodska_Linija">
+              <PropertyRef Name="BrLin" />
+            </Principal>
+            <Dependent Role="Kapetan">
+              <PropertyRef Name="BrLin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Kapetan__IDBroda__4316F928">
+          <End Role="Brod" Type="Self.Brod" Multiplicity="1" />
+          <End Role="Kapetan" Type="Self.Kapetan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brod">
+              <PropertyRef Name="IDBroda" />
+            </Principal>
+            <Dependent Role="Kapetan">
+              <PropertyRef Name="IDBroda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Kruzer__IDBroda__3E52440B">
+          <End Role="Brod" Type="Self.Brod" Multiplicity="1" />
+          <End Role="Kruzer" Type="Self.Kruzer" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Brod">
+              <PropertyRef Name="IDBroda" />
+            </Principal>
+            <Dependent Role="Kruzer">
+              <PropertyRef Name="IDBroda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Mornar__ID__4CA06362">
+          <End Role="Posada" Type="Self.Posada" Multiplicity="0..1" />
+          <End Role="Mornar" Type="Self.Mornar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Posada">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Mornar">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Mornar__IDBroda__4D94879B">
+          <End Role="Teretni_Brod" Type="Self.Teretni_Brod" Multiplicity="0..1" />
+          <End Role="Mornar" Type="Self.Mornar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teretni_Brod">
+              <PropertyRef Name="IDBroda" />
+            </Principal>
+            <Dependent Role="Mornar">
+              <PropertyRef Name="IDBroda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Popravlja__5535A963">
+          <End Role="Poseduje" Type="Self.Poseduje" Multiplicity="1" />
+          <End Role="Popravlja" Type="Self.Popravlja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Poseduje">
+              <PropertyRef Name="IDBroda" />
+              <PropertyRef Name="BrLin" />
+            </Principal>
+            <Dependent Role="Popravlja">
+              <PropertyRef Name="IDBroda" />
+              <PropertyRef Name="BrLin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Popravlja__IDBro__5441852A">
+          <End Role="Brodogradiliste" Type="Self.Brodogradiliste" Multiplicity="1" />
+          <End Role="Popravlja" Type="Self.Popravlja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brodogradiliste">
+              <PropertyRef Name="IDBrodog" />
+            </Principal>
+            <Dependent Role="Popravlja">
+              <PropertyRef Name="IDBrodog" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Posada__IDBroda__48CFD27E">
+          <End Role="Brod" Type="Self.Brod" Multiplicity="1" />
+          <End Role="Posada" Type="Self.Posada" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brod">
+              <PropertyRef Name="IDBroda" />
+            </Principal>
+            <Dependent Role="Posada">
+              <PropertyRef Name="IDBroda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Posada__JMBG_Kap__47DBAE45">
+          <End Role="Kapetan" Type="Self.Kapetan" Multiplicity="1" />
+          <End Role="Posada" Type="Self.Posada" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kapetan">
+              <PropertyRef Name="JMBG" />
+            </Principal>
+            <Dependent Role="Posada">
+              <PropertyRef Name="JMBG_Kapetan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Posada__JMBG_Kor__46E78A0C">
+          <End Role="Kormilar" Type="Self.Kormilar" Multiplicity="1" />
+          <End Role="Posada" Type="Self.Posada" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kormilar">
+              <PropertyRef Name="JMBG" />
+            </Principal>
+            <Dependent Role="Posada">
+              <PropertyRef Name="JMBG_Kormilar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Poseduje__BrLin__5165187F">
+          <End Role="Brodska_Linija" Type="Self.Brodska_Linija" Multiplicity="1" />
+          <End Role="Poseduje" Type="Self.Poseduje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brodska_Linija">
+              <PropertyRef Name="BrLin" />
+            </Principal>
+            <Dependent Role="Poseduje">
+              <PropertyRef Name="BrLin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Poseduje__IDBrod__5070F446">
+          <End Role="Brod" Type="Self.Brod" Multiplicity="1" />
+          <End Role="Poseduje" Type="Self.Poseduje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brod">
+              <PropertyRef Name="IDBroda" />
+            </Principal>
+            <Dependent Role="Poseduje">
+              <PropertyRef Name="IDBroda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tanker__IDBroda__398D8EEE">
+          <End Role="Brod" Type="Self.Brod" Multiplicity="1" />
+          <End Role="Tanker" Type="Self.Tanker" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Brod">
+              <PropertyRef Name="IDBroda" />
+            </Principal>
+            <Dependent Role="Tanker">
+              <PropertyRef Name="IDBroda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Teretni_B__IDBro__35BCFE0A">
+          <End Role="Brod" Type="Self.Brod" Multiplicity="1" />
+          <End Role="Teretni_Brod" Type="Self.Teretni_Brod" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Brod">
+              <PropertyRef Name="IDBroda" />
+            </Principal>
+            <Dependent Role="Teretni_Brod">
+              <PropertyRef Name="IDBroda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Projekat_ModelStoreContainer">
+          <EntitySet Name="Brod" EntityType="Self.Brod" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Brodogradiliste" EntityType="Self.Brodogradiliste" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Brodska_Linija" EntityType="Self.Brodska_Linija" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kapetan" EntityType="Self.Kapetan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kormilar" EntityType="Self.Kormilar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kruzer" EntityType="Self.Kruzer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Mornar" EntityType="Self.Mornar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Popravlja" EntityType="Self.Popravlja" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Posada" EntityType="Self.Posada" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Poseduje" EntityType="Self.Poseduje" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tanker" EntityType="Self.Tanker" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Teretni_Brod" EntityType="Self.Teretni_Brod" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Brod__IDBrodog__31EC6D26" Association="Self.FK__Brod__IDBrodog__31EC6D26">
+            <End Role="Brodogradiliste" EntitySet="Brodogradiliste" />
+            <End Role="Brod" EntitySet="Brod" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Kapetan__BrLin__4222D4EF" Association="Self.FK__Kapetan__BrLin__4222D4EF">
+            <End Role="Brodska_Linija" EntitySet="Brodska_Linija" />
+            <End Role="Kapetan" EntitySet="Kapetan" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Kapetan__IDBroda__4316F928" Association="Self.FK__Kapetan__IDBroda__4316F928">
+            <End Role="Brod" EntitySet="Brod" />
+            <End Role="Kapetan" EntitySet="Kapetan" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Kruzer__IDBroda__3E52440B" Association="Self.FK__Kruzer__IDBroda__3E52440B">
+            <End Role="Brod" EntitySet="Brod" />
+            <End Role="Kruzer" EntitySet="Kruzer" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Mornar__ID__4CA06362" Association="Self.FK__Mornar__ID__4CA06362">
+            <End Role="Posada" EntitySet="Posada" />
+            <End Role="Mornar" EntitySet="Mornar" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Mornar__IDBroda__4D94879B" Association="Self.FK__Mornar__IDBroda__4D94879B">
+            <End Role="Teretni_Brod" EntitySet="Teretni_Brod" />
+            <End Role="Mornar" EntitySet="Mornar" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Popravlja__5535A963" Association="Self.FK__Popravlja__5535A963">
+            <End Role="Poseduje" EntitySet="Poseduje" />
+            <End Role="Popravlja" EntitySet="Popravlja" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Popravlja__IDBro__5441852A" Association="Self.FK__Popravlja__IDBro__5441852A">
+            <End Role="Brodogradiliste" EntitySet="Brodogradiliste" />
+            <End Role="Popravlja" EntitySet="Popravlja" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Posada__IDBroda__48CFD27E" Association="Self.FK__Posada__IDBroda__48CFD27E">
+            <End Role="Brod" EntitySet="Brod" />
+            <End Role="Posada" EntitySet="Posada" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Posada__JMBG_Kap__47DBAE45" Association="Self.FK__Posada__JMBG_Kap__47DBAE45">
+            <End Role="Kapetan" EntitySet="Kapetan" />
+            <End Role="Posada" EntitySet="Posada" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Posada__JMBG_Kor__46E78A0C" Association="Self.FK__Posada__JMBG_Kor__46E78A0C">
+            <End Role="Kormilar" EntitySet="Kormilar" />
+            <End Role="Posada" EntitySet="Posada" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Poseduje__BrLin__5165187F" Association="Self.FK__Poseduje__BrLin__5165187F">
+            <End Role="Brodska_Linija" EntitySet="Brodska_Linija" />
+            <End Role="Poseduje" EntitySet="Poseduje" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Poseduje__IDBrod__5070F446" Association="Self.FK__Poseduje__IDBrod__5070F446">
+            <End Role="Brod" EntitySet="Brod" />
+            <End Role="Poseduje" EntitySet="Poseduje" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tanker__IDBroda__398D8EEE" Association="Self.FK__Tanker__IDBroda__398D8EEE">
+            <End Role="Brod" EntitySet="Brod" />
+            <End Role="Tanker" EntitySet="Tanker" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Teretni_B__IDBro__35BCFE0A" Association="Self.FK__Teretni_B__IDBro__35BCFE0A">
+            <End Role="Brod" EntitySet="Brod" />
+            <End Role="Teretni_Brod" EntitySet="Teretni_Brod" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Projekat_Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Brod">
+          <Key>
+            <PropertyRef Name="IDBroda" />
+          </Key>
+          <Property Name="IDBroda" Type="Guid" Nullable="false" />
+          <Property Name="Ime" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GodGrad" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="MaxBrzina" Type="Int32" />
+          <Property Name="Duzina" Type="Int32" />
+          <Property Name="Sirina" Type="Int32" />
+          <Property Name="IDBrodog" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Brodogradiliste" Relationship="Self.FK__Brod__IDBrodog__31EC6D26" FromRole="Brod" ToRole="Brodogradiliste" />
+          <NavigationProperty Name="Kapetan" Relationship="Self.FK__Kapetan__IDBroda__4316F928" FromRole="Brod" ToRole="Kapetan" />
+          <NavigationProperty Name="Kruzer" Relationship="Self.FK__Kruzer__IDBroda__3E52440B" FromRole="Brod" ToRole="Kruzer" />
+          <NavigationProperty Name="Posada" Relationship="Self.FK__Posada__IDBroda__48CFD27E" FromRole="Brod" ToRole="Posada" />
+          <NavigationProperty Name="Poseduje" Relationship="Self.FK__Poseduje__IDBrod__5070F446" FromRole="Brod" ToRole="Poseduje" />
+          <NavigationProperty Name="Tanker" Relationship="Self.FK__Tanker__IDBroda__398D8EEE" FromRole="Brod" ToRole="Tanker" />
+          <NavigationProperty Name="Teretni_Brod" Relationship="Self.FK__Teretni_B__IDBro__35BCFE0A" FromRole="Brod" ToRole="Teretni_Brod" />
+        </EntityType>
+        <EntityType Name="Brodogradiliste">
+          <Key>
+            <PropertyRef Name="IDBrodog" />
+          </Key>
+          <Property Name="IDBrodog" Type="Guid" Nullable="false" />
+          <Property Name="Naziv" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Lokacija" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BrNaprBrod" Type="Int32" />
+          <Property Name="BrPrist" Type="Int32" />
+          <Property Name="PosedSuvDok" Type="Boolean" />
+          <NavigationProperty Name="Brod" Relationship="Self.FK__Brod__IDBrodog__31EC6D26" FromRole="Brodogradiliste" ToRole="Brod" />
+          <NavigationProperty Name="Poseduje" Relationship="Self.Popravlja" FromRole="Brodogradiliste" ToRole="Poseduje" />
+        </EntityType>
+        <EntityType Name="Brodska_Linija">
+          <Key>
+            <PropertyRef Name="BrLin" />
+          </Key>
+          <Property Name="BrLin" Type="Guid" Nullable="false" />
+          <Property Name="Naziv" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Tip" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Polazna_tacka" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Krajnja_tacka" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Kapetan" Relationship="Self.FK__Kapetan__BrLin__4222D4EF" FromRole="Brodska_Linija" ToRole="Kapetan" />
+          <NavigationProperty Name="Poseduje" Relationship="Self.FK__Poseduje__BrLin__5165187F" FromRole="Brodska_Linija" ToRole="Poseduje" />
+        </EntityType>
+        <EntityType Name="Kapetan">
+          <Key>
+            <PropertyRef Name="JMBG" />
+          </Key>
+          <Property Name="JMBG" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ime" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Prezime" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Pol" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GodRodj" Type="DateTime" Precision="0" />
+          <Property Name="BrLin" Type="Guid" Nullable="false" />
+          <Property Name="IDBroda" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Brod" Relationship="Self.FK__Kapetan__IDBroda__4316F928" FromRole="Kapetan" ToRole="Brod" />
+          <NavigationProperty Name="Brodska_Linija" Relationship="Self.FK__Kapetan__BrLin__4222D4EF" FromRole="Kapetan" ToRole="Brodska_Linija" />
+          <NavigationProperty Name="Posada" Relationship="Self.FK__Posada__JMBG_Kap__47DBAE45" FromRole="Kapetan" ToRole="Posada" />
+        </EntityType>
+        <EntityType Name="Kormilar">
+          <Key>
+            <PropertyRef Name="JMBG" />
+          </Key>
+          <Property Name="JMBG" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ime" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Prezime" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Pol" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Posada" Relationship="Self.FK__Posada__JMBG_Kor__46E78A0C" FromRole="Kormilar" ToRole="Posada" />
+        </EntityType>
+        <EntityType Name="Kruzer">
+          <Key>
+            <PropertyRef Name="IDBroda" />
+          </Key>
+          <Property Name="IDBroda" Type="Guid" Nullable="false" />
+          <Property Name="BrPutnika" Type="Int32" />
+          <Property Name="BrOsoblja" Type="Int32" />
+          <NavigationProperty Name="Brod" Relationship="Self.FK__Kruzer__IDBroda__3E52440B" FromRole="Kruzer" ToRole="Brod" />
+        </EntityType>
+        <EntityType Name="Mornar">
+          <Key>
+            <PropertyRef Name="JMBG" />
+          </Key>
+          <Property Name="JMBG" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ime" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Prezime" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Pol" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Rank" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID" Type="Guid" />
+          <Property Name="IDBroda" Type="Guid" />
+          <NavigationProperty Name="Posada" Relationship="Self.FK__Mornar__ID__4CA06362" FromRole="Mornar" ToRole="Posada" />
+          <NavigationProperty Name="Teretni_Brod" Relationship="Self.FK__Mornar__IDBroda__4D94879B" FromRole="Mornar" ToRole="Teretni_Brod" />
+        </EntityType>
+        <EntityType Name="Posada">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="Ime" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Kapacitet" Type="Int32" />
+          <Property Name="JMBG_Kormilar" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="JMBG_Kapetan" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IDBroda" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Brod" Relationship="Self.FK__Posada__IDBroda__48CFD27E" FromRole="Posada" ToRole="Brod" />
+          <NavigationProperty Name="Kapetan" Relationship="Self.FK__Posada__JMBG_Kap__47DBAE45" FromRole="Posada" ToRole="Kapetan" />
+          <NavigationProperty Name="Kormilar" Relationship="Self.FK__Posada__JMBG_Kor__46E78A0C" FromRole="Posada" ToRole="Kormilar" />
+          <NavigationProperty Name="Mornar" Relationship="Self.FK__Mornar__ID__4CA06362" FromRole="Posada" ToRole="Mornar" />
+        </EntityType>
+        <EntityType Name="Poseduje">
+          <Key>
+            <PropertyRef Name="IDBroda" />
+            <PropertyRef Name="BrLin" />
+          </Key>
+          <Property Name="IDBroda" Type="Guid" Nullable="false" />
+          <Property Name="BrLin" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Brod" Relationship="Self.FK__Poseduje__IDBrod__5070F446" FromRole="Poseduje" ToRole="Brod" />
+          <NavigationProperty Name="Brodska_Linija" Relationship="Self.FK__Poseduje__BrLin__5165187F" FromRole="Poseduje" ToRole="Brodska_Linija" />
+          <NavigationProperty Name="Brodogradiliste" Relationship="Self.Popravlja" FromRole="Poseduje" ToRole="Brodogradiliste" />
+        </EntityType>
+        <EntityType Name="Tanker">
+          <Key>
+            <PropertyRef Name="IDBroda" />
+          </Key>
+          <Property Name="IDBroda" Type="Guid" Nullable="false" />
+          <Property Name="Nosivost" Type="Int32" />
+          <Property Name="TipTeret" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Brod" Relationship="Self.FK__Tanker__IDBroda__398D8EEE" FromRole="Tanker" ToRole="Brod" />
+        </EntityType>
+        <EntityType Name="Teretni_Brod">
+          <Key>
+            <PropertyRef Name="IDBroda" />
+          </Key>
+          <Property Name="IDBroda" Type="Guid" Nullable="false" />
+          <Property Name="KapacTeret" Type="Int32" />
+          <Property Name="StatUtov" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Brod" Relationship="Self.FK__Teretni_B__IDBro__35BCFE0A" FromRole="Teretni_Brod" ToRole="Brod" />
+          <NavigationProperty Name="Mornar" Relationship="Self.FK__Mornar__IDBroda__4D94879B" FromRole="Teretni_Brod" ToRole="Mornar" />
+        </EntityType>
+        <Association Name="FK__Brod__IDBrodog__31EC6D26">
+          <End Role="Brodogradiliste" Type="Self.Brodogradiliste" Multiplicity="1" />
+          <End Role="Brod" Type="Self.Brod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brodogradiliste">
+              <PropertyRef Name="IDBrodog" />
+            </Principal>
+            <Dependent Role="Brod">
+              <PropertyRef Name="IDBrodog" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Kapetan__IDBroda__4316F928">
+          <End Role="Brod" Type="Self.Brod" Multiplicity="1" />
+          <End Role="Kapetan" Type="Self.Kapetan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brod">
+              <PropertyRef Name="IDBroda" />
+            </Principal>
+            <Dependent Role="Kapetan">
+              <PropertyRef Name="IDBroda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Kruzer__IDBroda__3E52440B">
+          <End Role="Brod" Type="Self.Brod" Multiplicity="1" />
+          <End Role="Kruzer" Type="Self.Kruzer" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Brod">
+              <PropertyRef Name="IDBroda" />
+            </Principal>
+            <Dependent Role="Kruzer">
+              <PropertyRef Name="IDBroda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Posada__IDBroda__48CFD27E">
+          <End Role="Brod" Type="Self.Brod" Multiplicity="1" />
+          <End Role="Posada" Type="Self.Posada" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brod">
+              <PropertyRef Name="IDBroda" />
+            </Principal>
+            <Dependent Role="Posada">
+              <PropertyRef Name="IDBroda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Poseduje__IDBrod__5070F446">
+          <End Role="Brod" Type="Self.Brod" Multiplicity="1" />
+          <End Role="Poseduje" Type="Self.Poseduje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brod">
+              <PropertyRef Name="IDBroda" />
+            </Principal>
+            <Dependent Role="Poseduje">
+              <PropertyRef Name="IDBroda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tanker__IDBroda__398D8EEE">
+          <End Role="Brod" Type="Self.Brod" Multiplicity="1" />
+          <End Role="Tanker" Type="Self.Tanker" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Brod">
+              <PropertyRef Name="IDBroda" />
+            </Principal>
+            <Dependent Role="Tanker">
+              <PropertyRef Name="IDBroda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Teretni_B__IDBro__35BCFE0A">
+          <End Role="Brod" Type="Self.Brod" Multiplicity="1" />
+          <End Role="Teretni_Brod" Type="Self.Teretni_Brod" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Brod">
+              <PropertyRef Name="IDBroda" />
+            </Principal>
+            <Dependent Role="Teretni_Brod">
+              <PropertyRef Name="IDBroda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Kapetan__BrLin__4222D4EF">
+          <End Role="Brodska_Linija" Type="Self.Brodska_Linija" Multiplicity="1" />
+          <End Role="Kapetan" Type="Self.Kapetan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brodska_Linija">
+              <PropertyRef Name="BrLin" />
+            </Principal>
+            <Dependent Role="Kapetan">
+              <PropertyRef Name="BrLin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Poseduje__BrLin__5165187F">
+          <End Role="Brodska_Linija" Type="Self.Brodska_Linija" Multiplicity="1" />
+          <End Role="Poseduje" Type="Self.Poseduje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brodska_Linija">
+              <PropertyRef Name="BrLin" />
+            </Principal>
+            <Dependent Role="Poseduje">
+              <PropertyRef Name="BrLin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Posada__JMBG_Kap__47DBAE45">
+          <End Role="Kapetan" Type="Self.Kapetan" Multiplicity="1" />
+          <End Role="Posada" Type="Self.Posada" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kapetan">
+              <PropertyRef Name="JMBG" />
+            </Principal>
+            <Dependent Role="Posada">
+              <PropertyRef Name="JMBG_Kapetan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Posada__JMBG_Kor__46E78A0C">
+          <End Role="Kormilar" Type="Self.Kormilar" Multiplicity="1" />
+          <End Role="Posada" Type="Self.Posada" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kormilar">
+              <PropertyRef Name="JMBG" />
+            </Principal>
+            <Dependent Role="Posada">
+              <PropertyRef Name="JMBG_Kormilar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Mornar__ID__4CA06362">
+          <End Role="Posada" Type="Self.Posada" Multiplicity="0..1" />
+          <End Role="Mornar" Type="Self.Mornar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Posada">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Mornar">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Mornar__IDBroda__4D94879B">
+          <End Role="Teretni_Brod" Type="Self.Teretni_Brod" Multiplicity="0..1" />
+          <End Role="Mornar" Type="Self.Mornar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teretni_Brod">
+              <PropertyRef Name="IDBroda" />
+            </Principal>
+            <Dependent Role="Mornar">
+              <PropertyRef Name="IDBroda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Popravlja">
+          <End Role="Poseduje" Type="Self.Poseduje" Multiplicity="*" />
+          <End Role="Brodogradiliste" Type="Self.Brodogradiliste" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="Projekat_Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Brod" EntityType="Self.Brod" />
+          <EntitySet Name="Brodogradiliste" EntityType="Self.Brodogradiliste" />
+          <EntitySet Name="Brodska_Linija" EntityType="Self.Brodska_Linija" />
+          <EntitySet Name="Kapetan" EntityType="Self.Kapetan" />
+          <EntitySet Name="Kormilar" EntityType="Self.Kormilar" />
+          <EntitySet Name="Kruzer" EntityType="Self.Kruzer" />
+          <EntitySet Name="Mornar" EntityType="Self.Mornar" />
+          <EntitySet Name="Posada" EntityType="Self.Posada" />
+          <EntitySet Name="Poseduje" EntityType="Self.Poseduje" />
+          <EntitySet Name="Tanker" EntityType="Self.Tanker" />
+          <EntitySet Name="Teretni_Brod" EntityType="Self.Teretni_Brod" />
+          <AssociationSet Name="FK__Brod__IDBrodog__31EC6D26" Association="Self.FK__Brod__IDBrodog__31EC6D26">
+            <End Role="Brodogradiliste" EntitySet="Brodogradiliste" />
+            <End Role="Brod" EntitySet="Brod" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Kapetan__IDBroda__4316F928" Association="Self.FK__Kapetan__IDBroda__4316F928">
+            <End Role="Brod" EntitySet="Brod" />
+            <End Role="Kapetan" EntitySet="Kapetan" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Kruzer__IDBroda__3E52440B" Association="Self.FK__Kruzer__IDBroda__3E52440B">
+            <End Role="Brod" EntitySet="Brod" />
+            <End Role="Kruzer" EntitySet="Kruzer" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Posada__IDBroda__48CFD27E" Association="Self.FK__Posada__IDBroda__48CFD27E">
+            <End Role="Brod" EntitySet="Brod" />
+            <End Role="Posada" EntitySet="Posada" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Poseduje__IDBrod__5070F446" Association="Self.FK__Poseduje__IDBrod__5070F446">
+            <End Role="Brod" EntitySet="Brod" />
+            <End Role="Poseduje" EntitySet="Poseduje" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tanker__IDBroda__398D8EEE" Association="Self.FK__Tanker__IDBroda__398D8EEE">
+            <End Role="Brod" EntitySet="Brod" />
+            <End Role="Tanker" EntitySet="Tanker" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Teretni_B__IDBro__35BCFE0A" Association="Self.FK__Teretni_B__IDBro__35BCFE0A">
+            <End Role="Brod" EntitySet="Brod" />
+            <End Role="Teretni_Brod" EntitySet="Teretni_Brod" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Kapetan__BrLin__4222D4EF" Association="Self.FK__Kapetan__BrLin__4222D4EF">
+            <End Role="Brodska_Linija" EntitySet="Brodska_Linija" />
+            <End Role="Kapetan" EntitySet="Kapetan" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Poseduje__BrLin__5165187F" Association="Self.FK__Poseduje__BrLin__5165187F">
+            <End Role="Brodska_Linija" EntitySet="Brodska_Linija" />
+            <End Role="Poseduje" EntitySet="Poseduje" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Posada__JMBG_Kap__47DBAE45" Association="Self.FK__Posada__JMBG_Kap__47DBAE45">
+            <End Role="Kapetan" EntitySet="Kapetan" />
+            <End Role="Posada" EntitySet="Posada" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Posada__JMBG_Kor__46E78A0C" Association="Self.FK__Posada__JMBG_Kor__46E78A0C">
+            <End Role="Kormilar" EntitySet="Kormilar" />
+            <End Role="Posada" EntitySet="Posada" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Mornar__ID__4CA06362" Association="Self.FK__Mornar__ID__4CA06362">
+            <End Role="Posada" EntitySet="Posada" />
+            <End Role="Mornar" EntitySet="Mornar" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Mornar__IDBroda__4D94879B" Association="Self.FK__Mornar__IDBroda__4D94879B">
+            <End Role="Teretni_Brod" EntitySet="Teretni_Brod" />
+            <End Role="Mornar" EntitySet="Mornar" />
+          </AssociationSet>
+          <AssociationSet Name="Popravlja" Association="Self.Popravlja">
+            <End Role="Poseduje" EntitySet="Poseduje" />
+            <End Role="Brodogradiliste" EntitySet="Brodogradiliste" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Projekat_ModelStoreContainer" CdmEntityContainer="Projekat_Entities">
+          <EntitySetMapping Name="Brod">
+            <EntityTypeMapping TypeName="Projekat_Model.Brod">
+              <MappingFragment StoreEntitySet="Brod">
+                <ScalarProperty Name="IDBroda" ColumnName="IDBroda" />
+                <ScalarProperty Name="Ime" ColumnName="Ime" />
+                <ScalarProperty Name="GodGrad" ColumnName="GodGrad" />
+                <ScalarProperty Name="MaxBrzina" ColumnName="MaxBrzina" />
+                <ScalarProperty Name="Duzina" ColumnName="Duzina" />
+                <ScalarProperty Name="Sirina" ColumnName="Sirina" />
+                <ScalarProperty Name="IDBrodog" ColumnName="IDBrodog" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Brodogradiliste">
+            <EntityTypeMapping TypeName="Projekat_Model.Brodogradiliste">
+              <MappingFragment StoreEntitySet="Brodogradiliste">
+                <ScalarProperty Name="IDBrodog" ColumnName="IDBrodog" />
+                <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+                <ScalarProperty Name="Lokacija" ColumnName="Lokacija" />
+                <ScalarProperty Name="BrNaprBrod" ColumnName="BrNaprBrod" />
+                <ScalarProperty Name="BrPrist" ColumnName="BrPrist" />
+                <ScalarProperty Name="PosedSuvDok" ColumnName="PosedSuvDok" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Brodska_Linija">
+            <EntityTypeMapping TypeName="Projekat_Model.Brodska_Linija">
+              <MappingFragment StoreEntitySet="Brodska_Linija">
+                <ScalarProperty Name="BrLin" ColumnName="BrLin" />
+                <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+                <ScalarProperty Name="Tip" ColumnName="Tip" />
+                <ScalarProperty Name="Polazna_tacka" ColumnName="Polazna_tacka" />
+                <ScalarProperty Name="Krajnja_tacka" ColumnName="Krajnja_tacka" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kapetan">
+            <EntityTypeMapping TypeName="Projekat_Model.Kapetan">
+              <MappingFragment StoreEntitySet="Kapetan">
+                <ScalarProperty Name="JMBG" ColumnName="JMBG" />
+                <ScalarProperty Name="Ime" ColumnName="Ime" />
+                <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+                <ScalarProperty Name="Pol" ColumnName="Pol" />
+                <ScalarProperty Name="GodRodj" ColumnName="GodRodj" />
+                <ScalarProperty Name="BrLin" ColumnName="BrLin" />
+                <ScalarProperty Name="IDBroda" ColumnName="IDBroda" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kormilar">
+            <EntityTypeMapping TypeName="Projekat_Model.Kormilar">
+              <MappingFragment StoreEntitySet="Kormilar">
+                <ScalarProperty Name="JMBG" ColumnName="JMBG" />
+                <ScalarProperty Name="Ime" ColumnName="Ime" />
+                <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+                <ScalarProperty Name="Pol" ColumnName="Pol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kruzer">
+            <EntityTypeMapping TypeName="Projekat_Model.Kruzer">
+              <MappingFragment StoreEntitySet="Kruzer">
+                <ScalarProperty Name="IDBroda" ColumnName="IDBroda" />
+                <ScalarProperty Name="BrPutnika" ColumnName="BrPutnika" />
+                <ScalarProperty Name="BrOsoblja" ColumnName="BrOsoblja" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Mornar">
+            <EntityTypeMapping TypeName="Projekat_Model.Mornar">
+              <MappingFragment StoreEntitySet="Mornar">
+                <ScalarProperty Name="JMBG" ColumnName="JMBG" />
+                <ScalarProperty Name="Ime" ColumnName="Ime" />
+                <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+                <ScalarProperty Name="Pol" ColumnName="Pol" />
+                <ScalarProperty Name="Rank" ColumnName="Rank" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDBroda" ColumnName="IDBroda" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Posada">
+            <EntityTypeMapping TypeName="Projekat_Model.Posada">
+              <MappingFragment StoreEntitySet="Posada">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Ime" ColumnName="Ime" />
+                <ScalarProperty Name="Kapacitet" ColumnName="Kapacitet" />
+                <ScalarProperty Name="JMBG_Kormilar" ColumnName="JMBG_Kormilar" />
+                <ScalarProperty Name="JMBG_Kapetan" ColumnName="JMBG_Kapetan" />
+                <ScalarProperty Name="IDBroda" ColumnName="IDBroda" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Poseduje">
+            <EntityTypeMapping TypeName="Projekat_Model.Poseduje">
+              <MappingFragment StoreEntitySet="Poseduje">
+                <ScalarProperty Name="IDBroda" ColumnName="IDBroda" />
+                <ScalarProperty Name="BrLin" ColumnName="BrLin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tanker">
+            <EntityTypeMapping TypeName="Projekat_Model.Tanker">
+              <MappingFragment StoreEntitySet="Tanker">
+                <ScalarProperty Name="IDBroda" ColumnName="IDBroda" />
+                <ScalarProperty Name="Nosivost" ColumnName="Nosivost" />
+                <ScalarProperty Name="TipTeret" ColumnName="TipTeret" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Teretni_Brod">
+            <EntityTypeMapping TypeName="Projekat_Model.Teretni_Brod">
+              <MappingFragment StoreEntitySet="Teretni_Brod">
+                <ScalarProperty Name="IDBroda" ColumnName="IDBroda" />
+                <ScalarProperty Name="KapacTeret" ColumnName="KapacTeret" />
+                <ScalarProperty Name="StatUtov" ColumnName="StatUtov" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Popravlja" TypeName="Projekat_Model.Popravlja" StoreEntitySet="Popravlja">
+            <EndProperty Name="Poseduje">
+              <ScalarProperty Name="IDBroda" ColumnName="IDBroda" />
+              <ScalarProperty Name="BrLin" ColumnName="BrLin" />
+            </EndProperty>
+            <EndProperty Name="Brodogradiliste">
+              <ScalarProperty Name="IDBrodog" ColumnName="IDBrodog" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

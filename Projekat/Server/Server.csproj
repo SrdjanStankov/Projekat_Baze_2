@@ -45,6 +45,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -54,19 +56,89 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Brod.cs">
+      <DependentUpon>ShipModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Brodogradiliste.cs">
+      <DependentUpon>ShipModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Brodska_Linija.cs">
+      <DependentUpon>ShipModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Kapetan.cs">
+      <DependentUpon>ShipModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Kormilar.cs">
+      <DependentUpon>ShipModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Kruzer.cs">
+      <DependentUpon>ShipModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mornar.cs">
+      <DependentUpon>ShipModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Posada.cs">
+      <DependentUpon>ShipModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Poseduje.cs">
+      <DependentUpon>ShipModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Server.cs" />
+    <Compile Include="ShipModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ShipModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShipModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ShipModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShipModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ShipModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Tanker.cs">
+      <DependentUpon>ShipModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Teretni_Brod.cs">
+      <DependentUpon>ShipModel.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <EntityDeploy Include="ShipModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ShipModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ShipModel.edmx.diagram">
+      <DependentUpon>ShipModel.edmx</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">
       <Project>{BDED34BC-B4DE-421F-849C-971376F6D1AB}</Project>
       <Name>Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ShipModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ShipModel.edmx</DependentUpon>
+      <LastGenOutput>ShipModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ShipModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ShipModel.edmx</DependentUpon>
+      <LastGenOutput>ShipModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

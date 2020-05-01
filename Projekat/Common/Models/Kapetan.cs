@@ -10,7 +10,6 @@ namespace Common.Models
         public Pol Pol { get; set; }
         public DateTime GodinaRodjenja { get; set; }
         public Brod Brod { get; set; }
-        public Brodska_Linija Brodska_Linija { get; set; }
         public Posada Posada { get; set; }
     }
 }

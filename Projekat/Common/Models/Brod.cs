@@ -10,8 +10,5 @@ namespace Common.Models
         public int MaxBrzina { get; set; }
         public int Duzina { get; set; }
         public int Sirina { get; set; }
-        public Brodogoradiliste Brodogoradiliste { get; set; }
-        public Kapetan Kapetan { get; set; }
-        public Posada Posada { get; set; }
     }
 }

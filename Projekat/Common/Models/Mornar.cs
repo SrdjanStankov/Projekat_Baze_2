@@ -7,7 +7,5 @@
         public string Prezime { get; set; }
         public Pol Pol { get; set; }
         public string Rank { get; set; }
-        public Posada Posada { get; set; }
-        public TeretniBrod TeretniBrod { get; set; }
     }
 }

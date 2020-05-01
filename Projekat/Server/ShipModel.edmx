@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Projekat_Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Projekat_Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Brod">
           <Key>
             <PropertyRef Name="IDBroda" />
@@ -74,7 +74,7 @@
           <Property Name="JMBG" Type="varchar" MaxLength="13" Nullable="false" />
           <Property Name="Ime" Type="nvarchar" MaxLength="150" Nullable="false" />
           <Property Name="Prezime" Type="nvarchar" MaxLength="150" Nullable="false" />
-          <Property Name="Pol" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="Pol" Type="varchar" MaxLength="50" />
           <Property Name="Rank" Type="nvarchar" MaxLength="150" Nullable="false" />
           <Property Name="ID" Type="uniqueidentifier" />
           <Property Name="IDBroda" Type="uniqueidentifier" />
@@ -124,7 +124,7 @@
           <Property Name="KapacTeret" Type="int" />
           <Property Name="StatUtov" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <Association Name="FK__Brod__IDBrodog__31EC6D26">
+        <Association Name="FK__Brod__IDBrodog__2E1BDC42">
           <End Role="Brodogradiliste" Type="Self.Brodogradiliste" Multiplicity="1" />
           <End Role="Brod" Type="Self.Brod" Multiplicity="*" />
           <ReferentialConstraint>
@@ -136,7 +136,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Kapetan__BrLin__4222D4EF">
+        <Association Name="FK__Kapetan__BrLin__3F466844">
           <End Role="Brodska_Linija" Type="Self.Brodska_Linija" Multiplicity="1" />
           <End Role="Kapetan" Type="Self.Kapetan" Multiplicity="*" />
           <ReferentialConstraint>
@@ -148,7 +148,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Kapetan__IDBroda__4316F928">
+        <Association Name="FK__Kapetan__IDBroda__403A8C7D">
           <End Role="Brod" Type="Self.Brod" Multiplicity="1" />
           <End Role="Kapetan" Type="Self.Kapetan" Multiplicity="*" />
           <ReferentialConstraint>
@@ -160,7 +160,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Kruzer__IDBroda__3E52440B">
+        <Association Name="FK__Kruzer__IDBroda__3A81B327">
           <End Role="Brod" Type="Self.Brod" Multiplicity="1" />
           <End Role="Kruzer" Type="Self.Kruzer" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -282,7 +282,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Tanker__IDBroda__398D8EEE">
+        <Association Name="FK__Tanker__IDBroda__35BCFE0A">
           <End Role="Brod" Type="Self.Brod" Multiplicity="1" />
           <End Role="Tanker" Type="Self.Tanker" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -294,7 +294,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Teretni_B__IDBro__35BCFE0A">
+        <Association Name="FK__Teretni_B__IDBro__31EC6D26">
           <End Role="Brod" Type="Self.Brod" Multiplicity="1" />
           <End Role="Teretni_Brod" Type="Self.Teretni_Brod" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -319,19 +319,19 @@
           <EntitySet Name="Poseduje" EntityType="Self.Poseduje" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tanker" EntityType="Self.Tanker" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Teretni_Brod" EntityType="Self.Teretni_Brod" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Brod__IDBrodog__31EC6D26" Association="Self.FK__Brod__IDBrodog__31EC6D26">
+          <AssociationSet Name="FK__Brod__IDBrodog__2E1BDC42" Association="Self.FK__Brod__IDBrodog__2E1BDC42">
             <End Role="Brodogradiliste" EntitySet="Brodogradiliste" />
             <End Role="Brod" EntitySet="Brod" />
           </AssociationSet>
-          <AssociationSet Name="FK__Kapetan__BrLin__4222D4EF" Association="Self.FK__Kapetan__BrLin__4222D4EF">
+          <AssociationSet Name="FK__Kapetan__BrLin__3F466844" Association="Self.FK__Kapetan__BrLin__3F466844">
             <End Role="Brodska_Linija" EntitySet="Brodska_Linija" />
             <End Role="Kapetan" EntitySet="Kapetan" />
           </AssociationSet>
-          <AssociationSet Name="FK__Kapetan__IDBroda__4316F928" Association="Self.FK__Kapetan__IDBroda__4316F928">
+          <AssociationSet Name="FK__Kapetan__IDBroda__403A8C7D" Association="Self.FK__Kapetan__IDBroda__403A8C7D">
             <End Role="Brod" EntitySet="Brod" />
             <End Role="Kapetan" EntitySet="Kapetan" />
           </AssociationSet>
-          <AssociationSet Name="FK__Kruzer__IDBroda__3E52440B" Association="Self.FK__Kruzer__IDBroda__3E52440B">
+          <AssociationSet Name="FK__Kruzer__IDBroda__3A81B327" Association="Self.FK__Kruzer__IDBroda__3A81B327">
             <End Role="Brod" EntitySet="Brod" />
             <End Role="Kruzer" EntitySet="Kruzer" />
           </AssociationSet>
@@ -371,17 +371,16 @@
             <End Role="Brod" EntitySet="Brod" />
             <End Role="Poseduje" EntitySet="Poseduje" />
           </AssociationSet>
-          <AssociationSet Name="FK__Tanker__IDBroda__398D8EEE" Association="Self.FK__Tanker__IDBroda__398D8EEE">
+          <AssociationSet Name="FK__Tanker__IDBroda__35BCFE0A" Association="Self.FK__Tanker__IDBroda__35BCFE0A">
             <End Role="Brod" EntitySet="Brod" />
             <End Role="Tanker" EntitySet="Tanker" />
           </AssociationSet>
-          <AssociationSet Name="FK__Teretni_B__IDBro__35BCFE0A" Association="Self.FK__Teretni_B__IDBro__35BCFE0A">
+          <AssociationSet Name="FK__Teretni_B__IDBro__31EC6D26" Association="Self.FK__Teretni_B__IDBro__31EC6D26">
             <End Role="Brod" EntitySet="Brod" />
             <End Role="Teretni_Brod" EntitySet="Teretni_Brod" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Projekat_Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -470,7 +469,7 @@
           <Property Name="JMBG" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Ime" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Prezime" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Pol" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Pol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Rank" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ID" Type="Guid" />
           <Property Name="IDBroda" Type="Guid" />

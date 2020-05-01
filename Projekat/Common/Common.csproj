@@ -50,7 +50,6 @@
     <Compile Include="Models\Kormilar.cs" />
     <Compile Include="Models\Kruzer.cs" />
     <Compile Include="Models\Mornar.cs" />
-    <Compile Include="Models\Pol.cs" />
     <Compile Include="Models\Posada.cs" />
     <Compile Include="Models\Tanker.cs" />
     <Compile Include="Models\TeretniBrod.cs" />

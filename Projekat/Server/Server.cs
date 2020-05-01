@@ -7,7 +7,14 @@ namespace Server
     {
         public void Comunicate()
         {
-            Console.WriteLine("Test");
+            var mornarRepo = new MornarRepository(new ModelContext());
+            mornarRepo.Add(new Common.Models.Mornar("1234567890123", "Test", "Test", "Muski", "Test"));
+            Console.WriteLine(mornarRepo.Get("1234567890123").ToString());
+            foreach (var item in mornarRepo.GetAll())
+            {
+                Console.WriteLine(item.ToString());
+            }
+            mornarRepo.Update(new Common.Models.Mornar("1234567890123", "Test Edit", "Test Edit", "Zenski", "Test Edit"));
         }
     }
 }

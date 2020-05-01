@@ -1,40 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
 
 namespace Server
 {
     public class BrodRepository
     {
-        private ModelContext context;
+        private ModelContext ctx;
 
         public BrodRepository(ModelContext context)
         {
-            this.context = context;
+            ctx = context;
         }
 
         public void Add(Common.Models.Brod item)
         {
-            var brod = new Brod()
-            {
-                Duzina = item.Duzina,
-                IDBroda = item.ID,
-                Ime = item.Ime,
-                GodGrad = item.GodinaGradnje,
-                MaxBrzina = item.MaxBrzina,
-                Sirina = item.Sirina
-            };
-            context.Brod.Add(brod);
-            context.SaveChanges();
+            throw new NotImplementedException();
         }
 
-        public IEnumerable<Brod> Get(Guid id)
+        public IEnumerable<Common.Models.Brod> Get(Guid id)
         {
-            return context.Brod.Where((item) => item.IDBroda == id).AsNoTracking().AsEnumerable();
+            throw new NotImplementedException();
         }
 
-        public void Update(Brod item)
+        public void Update(Common.Models.Brod item)
         {
             throw new NotImplementedException();
         }
@@ -46,7 +34,7 @@ namespace Server
 
         ~BrodRepository()
         {
-            context.Dispose();
+            ctx.Dispose();
         }
     }
 }

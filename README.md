@@ -5,6 +5,9 @@ Kreiranje entitata:
 	- Kormilar
 	- Mornar
 	- Brodogradiliste
+	- Brodska Linija
 
 - Zahteva referencu:
 	- Brod : Brodogradiliste
+	- Kapetan : Brodska Linija, Brod
+	

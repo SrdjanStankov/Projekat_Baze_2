@@ -9,7 +9,7 @@ create table Kormilar (
 	JMBG varchar(13) primary key,
 	Ime nvarchar(150) not null,
 	Prezime nvarchar(150) not null,
-	Pol varchar(1) check (Pol = 'M' or Pol = 'Z') not null
+	Pol varchar(50)
 );
 
 create table Brodska_Linija (
@@ -65,7 +65,7 @@ create table Kapetan (
 	JMBG varchar(13) primary key,
 	Ime nvarchar(150) not null,
 	Prezime nvarchar(150) not null,
-	Pol varchar(1) check (Pol = 'M' or Pol = 'Z') not null,
+	Pol varchar(50),
 	GodRodj date,
 	BrLin uniqueidentifier not null,
 	IDBroda uniqueidentifier not null,
@@ -89,7 +89,7 @@ create table Mornar (
 	JMBG varchar(13) primary key,
 	Ime nvarchar(150) not null,
 	Prezime nvarchar(150) not null,
-	Pol varchar(1) check (Pol = 'M' or Pol = 'Z') not null,
+	Pol varchar(50),
 	Rank nvarchar(150) not null,
 	ID uniqueidentifier,
 	IDBroda uniqueidentifier,

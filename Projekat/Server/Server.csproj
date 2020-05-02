@@ -71,6 +71,7 @@
     <Compile Include="Kapetan.cs">
       <DependentUpon>ShipModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="KapetanRepository.cs" />
     <Compile Include="Kormilar.cs">
       <DependentUpon>ShipModel.tt</DependentUpon>
     </Compile>

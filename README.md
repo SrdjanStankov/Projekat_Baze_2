@@ -10,4 +10,6 @@ Kreiranje entitata:
 - Zahteva referencu:
 	- Brod : Brodogradiliste
 	- Kapetan : Brodska Linija, Brod
+	- Teretni Brod : Brodogradiliste
+	- Tanker : Brodogradiliste
 	

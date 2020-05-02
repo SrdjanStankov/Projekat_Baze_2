@@ -110,6 +110,7 @@
     <Compile Include="Tanker.cs">
       <DependentUpon>ShipModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="TankerRepository.cs" />
     <Compile Include="TeretniBrodRepository.cs" />
     <Compile Include="Teretni_Brod.cs">
       <DependentUpon>ShipModel.tt</DependentUpon>

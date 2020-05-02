@@ -13,7 +13,7 @@ namespace Server
             var guidTeretniBrod = Guid.Parse("a5fc38ba-8bf3-4b41-89d3-775f90ed9e2b");
             var guidKormilar = "1234567890123";
             var guidKapetan = "1234567890321";
-            var repo = new TeretniBrodRepository(new ModelContext());
+            var repo = new BrodogradilisteRepository(new ModelContext());
             var guid = Guid.NewGuid();
             //repo.Add(new Common.Models.Posada(guid, "Test", 10), guidKormilar, guidKapetan, guidBrod);
             //Console.WriteLine(repo.Get(guid).ToString());
@@ -21,7 +21,7 @@ namespace Server
             //{
             //    Console.WriteLine(item.ToString());
             //}
-            repo.Update(new Common.Models.TeretniBrod(guidTeretniBrod, "Test Edit", DateTime.Now, 150, 250, 350, 15, "Ceka"));
+            repo.Update(new Common.Models.Brodogradiliste(guidBrodogradiliste, "Test Edit", "Test Edit", 250, 350, false));
         }
     }
 }

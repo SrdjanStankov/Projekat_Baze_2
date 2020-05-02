@@ -14,17 +14,17 @@ namespace Common.Models
             ID = iD;
             Naziv = naziv;
             Lokacija = lokacija;
-            BrojNapravljenihBrodova = brojNapravljenihBrodova;
-            BrojPristanista = brojPristanista;
-            PosedujeSuviDok = posedujeSuviDok;
+            BrNaprBrod = brojNapravljenihBrodova;
+            BrPrist = brojPristanista;
+            PosedSuvDok = posedujeSuviDok;
         }
 
         public Guid ID { get; set; }
         public string Naziv { get; set; }
         public string Lokacija { get; set; }
-        public int BrojNapravljenihBrodova { get; set; }
-        public int BrojPristanista { get; set; }
-        public bool PosedujeSuviDok { get; set; }
+        public int BrNaprBrod { get; set; }
+        public int BrPrist { get; set; }
+        public bool PosedSuvDok { get; set; }
         public ICollection<Brod> Brod { get; set; } = new HashSet<Brod>();
     }
 }

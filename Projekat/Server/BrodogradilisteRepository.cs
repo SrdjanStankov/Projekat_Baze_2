@@ -25,9 +25,9 @@ namespace Server
                 IDBrodog = item.ID,
                 Naziv = item.Naziv,
                 Lokacija = item.Lokacija,
-                BrNaprBrod = item.BrojNapravljenihBrodova,
-                BrPrist = item.BrojPristanista,
-                PosedSuvDok = item.PosedujeSuviDok
+                BrNaprBrod = item.BrNaprBrod,
+                BrPrist = item.BrPrist,
+                PosedSuvDok = item.PosedSuvDok
             });
             ctx.SaveChanges();
         }

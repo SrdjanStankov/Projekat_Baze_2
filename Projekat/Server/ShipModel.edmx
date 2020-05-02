@@ -45,7 +45,7 @@
           <Property Name="JMBG" Type="varchar" MaxLength="13" Nullable="false" />
           <Property Name="Ime" Type="nvarchar" MaxLength="150" Nullable="false" />
           <Property Name="Prezime" Type="nvarchar" MaxLength="150" Nullable="false" />
-          <Property Name="Pol" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="Pol" Type="varchar" MaxLength="50" />
           <Property Name="GodRodj" Type="date" />
           <Property Name="BrLin" Type="uniqueidentifier" Nullable="false" />
           <Property Name="IDBroda" Type="uniqueidentifier" Nullable="false" />
@@ -57,7 +57,7 @@
           <Property Name="JMBG" Type="varchar" MaxLength="13" Nullable="false" />
           <Property Name="Ime" Type="nvarchar" MaxLength="150" Nullable="false" />
           <Property Name="Prezime" Type="nvarchar" MaxLength="150" Nullable="false" />
-          <Property Name="Pol" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="Pol" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Kruzer">
           <Key>
@@ -435,7 +435,7 @@
           <Property Name="JMBG" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Ime" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Prezime" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Pol" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Pol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="GodRodj" Type="DateTime" Precision="0" />
           <Property Name="BrLin" Type="Guid" Nullable="false" />
           <Property Name="IDBroda" Type="Guid" Nullable="false" />
@@ -450,7 +450,7 @@
           <Property Name="JMBG" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Ime" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Prezime" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Pol" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Pol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Posada" Relationship="Self.FK__Posada__JMBG_Kor__46E78A0C" FromRole="Kormilar" ToRole="Posada" />
         </EntityType>
         <EntityType Name="Kruzer">

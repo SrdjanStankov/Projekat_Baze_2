@@ -6,7 +6,7 @@ namespace Server
 {
     public class BrodogradilisteRepository
     {
-        private ModelContext ctx;
+        private readonly ModelContext ctx;
 
         public BrodogradilisteRepository(ModelContext context)
         {

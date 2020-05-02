@@ -6,16 +6,22 @@ namespace Server
 {
     public class BrodRepository
     {
-        private ModelContext ctx;
+        private readonly ModelContext ctx;
 
         public BrodRepository(ModelContext context)
         {
             ctx = context;
         }
 
-        public void Add(Common.Models.Brod item)
+        public void Add(Common.Models.Brod item, Guid idBrodogradilista)
         {
             if (ctx.Brod.FirstOrDefault((b) => item.ID == b.IDBroda) != null)
+            {
+                return;
+            }
+
+            var brodo = ctx.Brodogradiliste.FirstOrDefault((b) => b.IDBrodog == idBrodogradilista);
+            if (brodo is null)
             {
                 return;
             }
@@ -27,7 +33,8 @@ namespace Server
                 GodGrad = item.GodinaGradnje,
                 MaxBrzina = item.MaxBrzina,
                 Duzina = item.Duzina,
-                Sirina = item.Sirina
+                Sirina = item.Sirina,
+                Brodogradiliste = brodo
             });
             ctx.SaveChanges();
         }

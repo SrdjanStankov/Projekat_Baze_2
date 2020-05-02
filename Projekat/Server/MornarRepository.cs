@@ -5,7 +5,7 @@ namespace Server
 {
     public class MornarRepository
     {
-        private ModelContext ctx;
+        private readonly ModelContext ctx;
 
         public MornarRepository(ModelContext context)
         {

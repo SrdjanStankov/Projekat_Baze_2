@@ -13,3 +13,4 @@ Kreiranje entitata:
 	- Teretni Brod : Brodogradiliste
 	- Tanker : Brodogradiliste
 	- Kruzer : Brodogradiliste
+	- Posada : Kormilar, Kapetan, Brod

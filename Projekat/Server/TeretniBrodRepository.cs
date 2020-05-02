@@ -62,7 +62,9 @@ namespace Server
 
         public void Update(Common.Models.TeretniBrod item)
         {
-            var brod = ctx.Teretni_Brod.FirstOrDefault((b) => b.IDBroda == item.ID);
+            var terBrod = ctx.Teretni_Brod.FirstOrDefault((b) => b.IDBroda == item.ID);
+            var brod = ctx.Brod.FirstOrDefault((b) => b.IDBroda == item.ID);
+            ctx.Entry(terBrod).CurrentValues.SetValues(item);
             ctx.Entry(brod).CurrentValues.SetValues(item);
             ctx.SaveChanges();
         }

@@ -64,7 +64,9 @@ namespace Server
 
         public void Update(Common.Models.Tanker item)
         {
-            var brod = ctx.Tanker.FirstOrDefault((b) => b.IDBroda == item.ID);
+            var tanker = ctx.Tanker.FirstOrDefault((b) => b.IDBroda == item.ID);
+            var brod = ctx.Brod.FirstOrDefault((b) => b.IDBroda == item.ID);
+            ctx.Entry(tanker).CurrentValues.SetValues(item);
             ctx.Entry(brod).CurrentValues.SetValues(item);
             ctx.SaveChanges();
         }

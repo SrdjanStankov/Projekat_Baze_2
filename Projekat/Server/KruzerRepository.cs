@@ -62,7 +62,9 @@ namespace Server
 
         public void Update(Common.Models.Kruzer item)
         {
-            var brod = ctx.Kruzer.FirstOrDefault((b) => b.IDBroda == item.ID);
+            var kruzer = ctx.Kruzer.FirstOrDefault((b) => b.IDBroda == item.ID);
+            var brod = ctx.Brod.FirstOrDefault((b) => b.IDBroda == item.ID);
+            ctx.Entry(kruzer).CurrentValues.SetValues(item);
             ctx.Entry(brod).CurrentValues.SetValues(item);
             ctx.SaveChanges();
         }

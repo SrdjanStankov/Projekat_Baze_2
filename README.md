@@ -12,4 +12,4 @@ Kreiranje entitata:
 	- Kapetan : Brodska Linija, Brod
 	- Teretni Brod : Brodogradiliste
 	- Tanker : Brodogradiliste
-	
+	- Kruzer : Brodogradiliste

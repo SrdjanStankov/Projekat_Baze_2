@@ -12,7 +12,7 @@ namespace Common.Models
         {
             ID = iD;
             Ime = ime;
-            GodinaGradnje = godinaGradnje;
+            GodGrad = godinaGradnje;
             MaxBrzina = maxBrzina;
             Duzina = duzina;
             Sirina = sirina;
@@ -20,7 +20,7 @@ namespace Common.Models
 
         public Guid ID { get; set; }
         public string Ime { get; set; }
-        public DateTime GodinaGradnje { get; set; }
+        public DateTime GodGrad { get; set; }
         public int MaxBrzina { get; set; }
         public int Duzina { get; set; }
         public int Sirina { get; set; }

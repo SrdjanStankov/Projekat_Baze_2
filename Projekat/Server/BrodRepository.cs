@@ -30,7 +30,7 @@ namespace Server
             {
                 IDBroda = item.ID,
                 Ime = item.Ime,
-                GodGrad = item.GodinaGradnje,
+                GodGrad = item.GodGrad,
                 MaxBrzina = item.MaxBrzina,
                 Duzina = item.Duzina,
                 Sirina = item.Sirina,

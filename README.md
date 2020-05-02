@@ -4,6 +4,7 @@ Kreiranje entitata:
 - Samostalno:
 	- Kormilar
 	- Mornar
+	- Brodogradiliste
 
 - Zahteva referencu:
 	- Brod : Brodogradiliste

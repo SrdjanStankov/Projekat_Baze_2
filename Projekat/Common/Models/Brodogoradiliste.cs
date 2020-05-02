@@ -3,8 +3,22 @@ using System.Collections.Generic;
 
 namespace Common.Models
 {
-    public class Brodogoradiliste
+    public class Brodogradiliste
     {
+        public Brodogradiliste()
+        {
+        }
+
+        public Brodogradiliste(Guid iD, string naziv, string lokacija, int brojNapravljenihBrodova, int brojPristanista, bool posedujeSuviDok)
+        {
+            ID = iD;
+            Naziv = naziv;
+            Lokacija = lokacija;
+            BrojNapravljenihBrodova = brojNapravljenihBrodova;
+            BrojPristanista = brojPristanista;
+            PosedujeSuviDok = posedujeSuviDok;
+        }
+
         public Guid ID { get; set; }
         public string Naziv { get; set; }
         public string Lokacija { get; set; }

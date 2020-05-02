@@ -7,14 +7,15 @@ namespace Server
     {
         public void Comunicate()
         {
-            var repo = new KormilarRepository(new ModelContext());
-            repo.Add(new Common.Models.Kormilar("1234567890123", "Test", "Test", "Muski"));
-            Console.WriteLine(repo.Get("1234567890123").ToString());
+            var repo = new BrodRepository(new ModelContext());
+            var guid = Guid.NewGuid();
+            repo.Add(new Common.Models.Brod(guid, "Test", DateTime.Now, 200, 300, 400));
+            Console.WriteLine(repo.Get(guid).ToString());
             foreach (var item in repo.GetAll())
             {
                 Console.WriteLine(item.ToString());
             }
-            repo.Update(new Common.Models.Kormilar("1234567890123", "Test Edit", "Test Edit", "Zenski"));
+            repo.Update(new Common.Models.Brod(guid, "Test Edit", DateTime.Now.AddYears(100), 250, 350, 450));
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace Server
@@ -15,7 +14,7 @@ namespace Server
 
         public void Add(Common.Models.Mornar item)
         {
-            if (ctx.Mornar.FirstOrDefault((m)=>item.JMBG == m.JMBG) != null)
+            if (ctx.Mornar.FirstOrDefault((m) => item.JMBG == m.JMBG) != null)
             {
                 return;
             }

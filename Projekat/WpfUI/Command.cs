@@ -20,16 +20,9 @@ namespace WpfUI
             _TargetCanExecuteMethod = canExecuteMethod;
         }
 
-        public void RaiseCanExecuteChanged()
-        {
-            CanExecuteChanged(this, EventArgs.Empty);
-        }
+        public void RaiseCanExecuteChanged() => CanExecuteChanged(this, EventArgs.Empty);
 
-        bool ICommand.CanExecute(object parameter)
-        {
-
-            return _TargetCanExecuteMethod != null ? _TargetCanExecuteMethod() : _TargetExecuteMethod != null;
-        }
+        bool ICommand.CanExecute(object parameter) => _TargetCanExecuteMethod != null ? _TargetCanExecuteMethod() : _TargetExecuteMethod != null;
 
         void ICommand.Execute(object parameter)
         {
@@ -69,14 +62,8 @@ namespace WpfUI
             return _TargetExecuteMethod != null;
         }
 
-        void ICommand.Execute(object parameter)
-        {
-            _TargetExecuteMethod?.Invoke((T)parameter);
-        }
+        void ICommand.Execute(object parameter) => _TargetExecuteMethod?.Invoke((T)parameter);
 
-        public void RaiseCanExecuteChanged()
-        {
-            CanExecuteChanged(this, EventArgs.Empty);
-        }
+        public void RaiseCanExecuteChanged() => CanExecuteChanged(this, EventArgs.Empty);
     }
 }

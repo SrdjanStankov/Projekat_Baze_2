@@ -35,9 +35,6 @@ namespace WpfUI
             }
         }
 
-        public void Clear()
-        {
-            validationsErrors.Clear();
-        }
+        public void Clear() => validationsErrors.Clear();
     }
 }

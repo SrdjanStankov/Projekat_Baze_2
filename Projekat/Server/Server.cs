@@ -11,8 +11,6 @@ namespace Server
             var guidBrodskaLinija = Guid.Parse("149b33de-6767-4441-a20c-8565bd5b88ae");
             var guidBrod = Guid.Parse("1b710ca5-e677-4fff-bdfc-6f6bfa43cbc9");
             var guidTeretniBrod = Guid.Parse("a5fc38ba-8bf3-4b41-89d3-775f90ed9e2b");
-            var guidKormilar = "1234567890123";
-            var guidKapetan = "1234567890321";
             var repo = new BrodogradilisteRepository(new ModelContext());
             var guid = Guid.NewGuid();
             //repo.Add(new Common.Models.Posada(guid, "Test", 10), guidKormilar, guidKapetan, guidBrod);

@@ -51,16 +51,16 @@
 
     <DockPanel>
         <Menu DockPanel.Dock="Top">
-            <MenuItem Header="Add kormilar" />
-            <MenuItem Header="Add Mornar" />
-            <MenuItem Header="Add Brodogradiliste" />
-            <MenuItem Header="Add Brodska linija" />
-            <MenuItem Header="Add Brod" />
-            <MenuItem Header="Add Kapetan" />
-            <MenuItem Header="Add Teretni brod" />
-            <MenuItem Header="Add Tanker" />
-            <MenuItem Header="Add Kruzer" />
-            <MenuItem Header="Add Posada" />
+            <MenuItem Header="kormilar" />
+            <MenuItem Header="Mornar" />
+            <MenuItem Header="Brodogradiliste" />
+            <MenuItem Header="Brodska linija" />
+            <MenuItem Header="Brod" />
+            <MenuItem Header="Kapetan" />
+            <MenuItem Header="Teretni brod" />
+            <MenuItem Header="Tanker" />
+            <MenuItem Header="Kruzer" />
+            <MenuItem Header="Posada" />
         </Menu>
     </DockPanel>
 </Window>

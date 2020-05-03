@@ -8,8 +8,9 @@
  xmlns:veiwModel="clr-namespace:WpfUI.ViewModel"
  xmlns:view="clr-namespace:WpfUI.View"
  Title="MainWindow"
- Width="800"
- Height="450"
+ Width="946.5"
+ Height="500"
+ Background="{DynamicResource MaterialDesignLightBackground}"
  mc:Ignorable="d">
 
     <Window.DataContext>
@@ -50,17 +51,22 @@
     </Window.Resources>
 
     <DockPanel>
-        <Menu DockPanel.Dock="Top">
-            <MenuItem Header="kormilar" />
-            <MenuItem Header="Mornar" />
-            <MenuItem Header="Brodogradiliste" />
-            <MenuItem Header="Brodska linija" />
-            <MenuItem Header="Brod" />
-            <MenuItem Header="Kapetan" />
-            <MenuItem Header="Teretni brod" />
-            <MenuItem Header="Tanker" />
-            <MenuItem Header="Kruzer" />
-            <MenuItem Header="Posada" />
+        <Menu HorizontalAlignment="Center" DockPanel.Dock="Top">
+            <MenuItem Command="{Binding KormilarCommand}" Header="kormilar" />
+            <MenuItem Command="{Binding MornarCommand}" Header="Mornar" />
+            <MenuItem Command="{Binding BrodogradilisteCommand}" Header="Brodogradiliste" />
+            <MenuItem Command="{Binding BrodskaLinijaCommand}" Header="Brodska linija" />
+            <MenuItem Command="{Binding BrodCommand}" Header="Brod" />
+            <MenuItem Command="{Binding KapetanCommand}" Header="Kapetan" />
+            <MenuItem Command="{Binding TeretniBrodCommand}" Header="Teretni brod" />
+            <MenuItem Command="{Binding TankerCommand}" Header="Tanker" />
+            <MenuItem Command="{Binding KruzerCommand}" Header="Kruzer" />
+            <MenuItem Command="{Binding PosadaCommand}" Header="Posada" />
         </Menu>
+        <ContentControl
+         VerticalAlignment="Center"
+         VerticalContentAlignment="Center"
+         Content="{Binding CurrentViewModel}"
+         DockPanel.Dock="Top" />
     </DockPanel>
 </Window>

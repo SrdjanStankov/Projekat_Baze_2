@@ -5,16 +5,62 @@
  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
  xmlns:local="clr-namespace:WpfUI"
  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:veiwModel="clr-namespace:WpfUI.ViewModel"
+ xmlns:view="clr-namespace:WpfUI.View"
  Title="MainWindow"
  Width="800"
  Height="450"
  mc:Ignorable="d">
-    <Grid>
-        <Button
-         x:Name="connectionButton"
-         Width="100"
-         Height="50"
-         Click="ConnectBtnClick"
-         Content="Connect" />
-    </Grid>
+
+    <Window.DataContext>
+        <veiwModel:MainWindowViewModel />
+    </Window.DataContext>
+
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type veiwModel:KormilarVewModel}">
+            <view:AddKormilarView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type veiwModel:MornarViewModel}">
+            <view:AddKormilarView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type veiwModel:BrodogradilisteViewModel}">
+            <view:AddKormilarView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type veiwModel:BrodskaLinijaViewModel}">
+            <view:AddKormilarView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type veiwModel:BrodViewModel}">
+            <view:AddKormilarView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type veiwModel:KapetanViewModel}">
+            <view:AddKormilarView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type veiwModel:TeretniBrodViewModel}">
+            <view:AddKormilarView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type veiwModel:TankerViewModel}">
+            <view:AddKormilarView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type veiwModel:KruzerViewModel}">
+            <view:AddKormilarView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type veiwModel:PosadaViewModel}">
+            <view:AddKormilarView />
+        </DataTemplate>
+    </Window.Resources>
+
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Add kormilar" />
+            <MenuItem Header="Add Mornar" />
+            <MenuItem Header="Add Brodogradiliste" />
+            <MenuItem Header="Add Brodska linija" />
+            <MenuItem Header="Add Brod" />
+            <MenuItem Header="Add Kapetan" />
+            <MenuItem Header="Add Teretni brod" />
+            <MenuItem Header="Add Tanker" />
+            <MenuItem Header="Add Kruzer" />
+            <MenuItem Header="Add Posada" />
+        </Menu>
+    </DockPanel>
 </Window>

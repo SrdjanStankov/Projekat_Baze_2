@@ -37,7 +37,7 @@
             <view:AddKapetanView />
         </DataTemplate>
         <DataTemplate DataType="{x:Type veiwModel:TeretniBrodViewModel}">
-            <view:AddKormilarView />
+            <view:AddTeretniBrodView />
         </DataTemplate>
         <DataTemplate DataType="{x:Type veiwModel:TankerViewModel}">
             <view:AddKormilarView />

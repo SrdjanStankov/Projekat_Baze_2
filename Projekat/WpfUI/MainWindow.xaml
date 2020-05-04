@@ -43,7 +43,7 @@
             <view:AddTankerView />
         </DataTemplate>
         <DataTemplate DataType="{x:Type veiwModel:KruzerViewModel}">
-            <view:AddKormilarView />
+            <view:AddKruzerView />
         </DataTemplate>
         <DataTemplate DataType="{x:Type veiwModel:PosadaViewModel}">
             <view:AddKormilarView />

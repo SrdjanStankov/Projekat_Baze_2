@@ -1,6 +1,4 @@
-﻿using System.ServiceModel;
-using System.Windows;
-using Common;
+﻿using System.Windows;
 
 namespace WpfUI
 {
@@ -12,14 +10,6 @@ namespace WpfUI
         public MainWindow()
         {
             InitializeComponent();
-        }
-
-        private void ConnectBtnClick(object sender, RoutedEventArgs e)
-        {
-            var factory = new ChannelFactory<ICommunication>("Client");
-            var proxy = factory.CreateChannel();
-
-            proxy.Comunicate();
         }
     }
 }

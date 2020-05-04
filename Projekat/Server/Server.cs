@@ -1,25 +1,20 @@
 ﻿using System;
 using Common;
+using Common.Models;
 
 namespace Server
 {
-    public class Server : ICommunication
+    public class Server : IBrodOperations
     {
-        public void Comunicate()
-        {
-            var guidBrodogradiliste = Guid.Parse("554aacd2-3b83-4973-88f1-76007b3b3d6b");
-            var guidBrodskaLinija = Guid.Parse("149b33de-6767-4441-a20c-8565bd5b88ae");
-            var guidBrod = Guid.Parse("1b710ca5-e677-4fff-bdfc-6f6bfa43cbc9");
-            var guidTeretniBrod = Guid.Parse("a5fc38ba-8bf3-4b41-89d3-775f90ed9e2b");
-            var repo = new BrodogradilisteRepository(new ModelContext());
-            var guid = Guid.NewGuid();
-            //repo.Add(new Common.Models.Posada(guid, "Test", 10), guidKormilar, guidKapetan, guidBrod);
-            //Console.WriteLine(repo.Get(guid).ToString());
-            //foreach (var item in repo.GetAll())
-            //{
-            //    Console.WriteLine(item.ToString());
-            //}
-            repo.Update(new Common.Models.Brodogradiliste(guidBrodogradiliste, "Test Edit", "Test Edit", 250, 350, false));
-        }
+        public void AddBrod(Common.Models.Brod brod, Guid idBrodogradiliste) => throw new NotImplementedException();
+        public void AddBrodogradiliste(Common.Models.Brodogradiliste brodogradiliste) => throw new NotImplementedException();
+        public void AddBrodskaLinija(BrodskaLinija brodskaLinija) => throw new NotImplementedException();
+        public void AddKapetan(Common.Models.Kapetan kapetan, Guid idBrodskaLinija, Guid idBrod) => throw new NotImplementedException();
+        public void AddKormilar(Common.Models.Kormilar kormilar) => throw new NotImplementedException();
+        public void AddKruzer(Common.Models.Kruzer kruzer, Guid idBrodogradiliste) => throw new NotImplementedException();
+        public void AddMornar(Common.Models.Mornar mornar) => throw new NotImplementedException();
+        public void AddPosada(Common.Models.Posada posada, string jmbgKormilar, string jmbgKapetan, Guid idBrod) => throw new NotImplementedException();
+        public void AddTanker(Common.Models.Tanker tanker, Guid idBrodogradiliste) => throw new NotImplementedException();
+        public void AddTeretniBrod(TeretniBrod teretniBrod, Guid idBrodogradilista) => throw new NotImplementedException();
     }
 }

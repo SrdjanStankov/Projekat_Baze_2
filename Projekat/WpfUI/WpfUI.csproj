@@ -114,6 +114,9 @@
     <Compile Include="View\AddMornarView.xaml.cs">
       <DependentUpon>AddMornarView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\AddPosadaView.xaml.cs">
+      <DependentUpon>AddPosadaView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\AddTankerView.xaml.cs">
       <DependentUpon>AddTankerView.xaml</DependentUpon>
     </Compile>
@@ -158,6 +161,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\AddMornarView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AddPosadaView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

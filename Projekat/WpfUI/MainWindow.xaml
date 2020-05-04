@@ -46,7 +46,7 @@
             <view:AddKruzerView />
         </DataTemplate>
         <DataTemplate DataType="{x:Type veiwModel:PosadaViewModel}">
-            <view:AddKormilarView />
+            <view:AddPosadaView />
         </DataTemplate>
     </Window.Resources>
 

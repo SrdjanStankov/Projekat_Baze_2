@@ -99,6 +99,9 @@
     <Compile Include="View\AddBrodskaLinijaView.xaml.cs">
       <DependentUpon>AddBrodskaLinijaView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\AddBrodView.xaml.cs">
+      <DependentUpon>AddBrodView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\AddKormilarView.xaml.cs">
       <DependentUpon>AddKormilarView.xaml</DependentUpon>
     </Compile>
@@ -123,6 +126,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\AddBrodskaLinijaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AddBrodView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -31,7 +31,7 @@
             <view:AddBrodskaLinijaView />
         </DataTemplate>
         <DataTemplate DataType="{x:Type veiwModel:BrodViewModel}">
-            <view:AddKormilarView />
+            <view:AddBrodView />
         </DataTemplate>
         <DataTemplate DataType="{x:Type veiwModel:KapetanViewModel}">
             <view:AddKormilarView />

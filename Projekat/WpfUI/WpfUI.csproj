@@ -93,6 +93,9 @@
     <Compile Include="ViewModel\PosadaViewModel.cs" />
     <Compile Include="ViewModel\TankerViewModel.cs" />
     <Compile Include="ViewModel\TeretniBrodViewModel.cs" />
+    <Compile Include="View\AddBrodogradilisteView.xaml.cs">
+      <DependentUpon>AddBrodogradilisteView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\AddKormilarView.xaml.cs">
       <DependentUpon>AddKormilarView.xaml</DependentUpon>
     </Compile>
@@ -112,6 +115,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\AddBrodogradilisteView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\AddKormilarView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

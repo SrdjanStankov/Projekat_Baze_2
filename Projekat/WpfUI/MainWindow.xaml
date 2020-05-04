@@ -28,7 +28,7 @@
             <view:AddBrodogradilisteView />
         </DataTemplate>
         <DataTemplate DataType="{x:Type veiwModel:BrodskaLinijaViewModel}">
-            <view:AddKormilarView />
+            <view:AddBrodskaLinijaView />
         </DataTemplate>
         <DataTemplate DataType="{x:Type veiwModel:BrodViewModel}">
             <view:AddKormilarView />

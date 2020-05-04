@@ -22,7 +22,7 @@
             <view:AddKormilarView />
         </DataTemplate>
         <DataTemplate DataType="{x:Type veiwModel:MornarViewModel}">
-            <view:AddKormilarView />
+            <view:AddMornarView />
         </DataTemplate>
         <DataTemplate DataType="{x:Type veiwModel:BrodogradilisteViewModel}">
             <view:AddKormilarView />

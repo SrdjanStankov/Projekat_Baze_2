@@ -96,6 +96,9 @@
     <Compile Include="View\AddKormilarView.xaml.cs">
       <DependentUpon>AddKormilarView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\AddMornarView.xaml.cs">
+      <DependentUpon>AddMornarView.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -110,6 +113,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\AddKormilarView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AddMornarView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

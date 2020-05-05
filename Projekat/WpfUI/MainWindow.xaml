@@ -3,6 +3,7 @@
  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+ xmlns:design="http://materialdesigninxaml.net/winfx/xaml/themes"
  xmlns:local="clr-namespace:WpfUI"
  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
  xmlns:veiwModel="clr-namespace:WpfUI.ViewModel"
@@ -50,8 +51,8 @@
         </DataTemplate>
     </Window.Resources>
 
-    <DockPanel>
-        <Menu HorizontalAlignment="Center" DockPanel.Dock="Top">
+    <Grid>
+        <Menu HorizontalAlignment="Center">
             <MenuItem Command="{Binding KormilarCommand}" Header="kormilar" />
             <MenuItem Command="{Binding MornarCommand}" Header="Mornar" />
             <MenuItem Command="{Binding BrodogradilisteCommand}" Header="Brodogradiliste" />
@@ -64,9 +65,12 @@
             <MenuItem Command="{Binding PosadaCommand}" Header="Posada" />
         </Menu>
         <ContentControl
+         HorizontalAlignment="Center"
          VerticalAlignment="Center"
+         HorizontalContentAlignment="Center"
          VerticalContentAlignment="Center"
          Content="{Binding CurrentViewModel}"
          DockPanel.Dock="Top" />
-    </DockPanel>
+        <design:Snackbar MessageQueue="{Binding MessageQueue}" />
+    </Grid>
 </Window>

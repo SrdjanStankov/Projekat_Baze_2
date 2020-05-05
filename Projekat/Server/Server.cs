@@ -6,11 +6,17 @@ namespace Server
 {
     public class Server : IBrodOperations
     {
+        private ModelContext ctx = new ModelContext();
+
         public void AddBrod(Common.Models.Brod brod, Guid idBrodogradiliste) => throw new NotImplementedException();
         public void AddBrodogradiliste(Common.Models.Brodogradiliste brodogradiliste) => throw new NotImplementedException();
         public void AddBrodskaLinija(BrodskaLinija brodskaLinija) => throw new NotImplementedException();
         public void AddKapetan(Common.Models.Kapetan kapetan, Guid idBrodskaLinija, Guid idBrod) => throw new NotImplementedException();
-        public void AddKormilar(Common.Models.Kormilar kormilar) => throw new NotImplementedException();
+        public bool AddKormilar(Common.Models.Kormilar kormilar)
+        {
+            return new KormilarRepository(ctx).Add(kormilar);
+        }
+
         public void AddKruzer(Common.Models.Kruzer kruzer, Guid idBrodogradiliste) => throw new NotImplementedException();
         public void AddMornar(Common.Models.Mornar mornar) => throw new NotImplementedException();
         public void AddPosada(Common.Models.Posada posada, string jmbgKormilar, string jmbgKapetan, Guid idBrod) => throw new NotImplementedException();

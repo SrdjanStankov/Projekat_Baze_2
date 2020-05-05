@@ -12,11 +12,11 @@ namespace Server
             ctx = context;
         }
 
-        public void Add(Common.Models.Kormilar item)
+        public bool Add(Common.Models.Kormilar item)
         {
             if (ctx.Kormilar.FirstOrDefault((k) => item.JMBG == k.JMBG) != null)
             {
-                return;
+                return false;
             }
 
             ctx.Kormilar.Add(new Kormilar()
@@ -26,7 +26,7 @@ namespace Server
                 Prezime = item.Prezime,
                 Pol = item.Pol.ToString()
             });
-            ctx.SaveChanges();
+            return ctx.SaveChanges() > 0 ? true : false;
         }
 
         public Common.Models.Kormilar Get(string jmbg)

@@ -16,7 +16,7 @@ namespace Common
         [OperationContract]
         void AddKapetan(Kapetan kapetan, Guid idBrodskaLinija, Guid idBrod);
         [OperationContract]
-        void AddKormilar(Kormilar kormilar);
+        bool AddKormilar(Kormilar kormilar);
         [OperationContract]
         void AddKruzer(Kruzer kruzer, Guid idBrodogradiliste);
         [OperationContract]

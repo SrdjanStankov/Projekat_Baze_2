@@ -42,7 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ICommunication.cs" />
+    <Compile Include="IBrodOperations.cs" />
     <Compile Include="Models\Brod.cs" />
     <Compile Include="Models\Brodogoradiliste.cs" />
     <Compile Include="Models\BrodskaLinija.cs" />

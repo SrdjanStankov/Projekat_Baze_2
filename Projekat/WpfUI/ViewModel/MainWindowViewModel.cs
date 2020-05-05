@@ -1,4 +1,8 @@
-﻿namespace WpfUI.ViewModel
+﻿using System;
+using MaterialDesignThemes.Wpf;
+using WpfUI.Model;
+
+namespace WpfUI.ViewModel
 {
     public class MainWindowViewModel : BindableBase
     {
@@ -25,6 +29,7 @@
         public Command TankerCommand { get; set; }
         public Command KruzerCommand { get; set; }
         public Command PosadaCommand { get; set; }
+        public SnackbarMessageQueue MessageQueue { get; set; }
 
         public BindableBase CurrentViewModel
         {
@@ -45,6 +50,7 @@
             TankerCommand = new Command(OnTanker);
             KruzerCommand = new Command(OnKruzer);
             PosadaCommand = new Command(OnPosada);
+            MessageQueue = SnackbarMessageProvider.Instance.MessageQueue;
         }
 
         private void OnPosada() => CurrentViewModel = posadaViewModel;

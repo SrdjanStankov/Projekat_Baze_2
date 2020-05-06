@@ -24,5 +24,7 @@ namespace Common.Models
         public DateTime GodRodj { get; set; }
         public Brod Brod { get; set; }
         public BrodskaLinija BrodskaLinija { get; set; }
+        
+        public override string ToString() => $"{Ime}, {Prezime}";
     }
 }

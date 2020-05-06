@@ -13,29 +13,29 @@ namespace Server.Repositories
             ctx = context;
         }
 
-        public void Add(Common.Models.Posada item, string jmbgKormilar, string jmbgKapetan, Guid idBroda)
+        public bool Add(Common.Models.Posada item, string jmbgKormilar, string jmbgKapetan, Guid idBroda)
         {
             if (ctx.Posada.FirstOrDefault((b) => item.ID == b.IDBroda) != null)
             {
-                return;
+                return false;
             }
 
             var kormilar = ctx.Kormilar.FirstOrDefault((k) => k.JMBG == jmbgKormilar);
             if (kormilar is null)
             {
-                return;
+                return false;
             }
 
             var kapetan = ctx.Kapetan.FirstOrDefault((k) => k.JMBG == jmbgKapetan);
             if (kapetan is null)
             {
-                return;
+                return false;
             }
 
             var brod = ctx.Brod.FirstOrDefault((b) => b.IDBroda == idBroda);
             if (brod is null)
             {
-                return;
+                return false;
             }
 
             ctx.Posada.Add(new Posada()
@@ -47,7 +47,7 @@ namespace Server.Repositories
                 Kapetan = kapetan,
                 Brod = brod
             });
-            ctx.SaveChanges();
+            return ctx.SaveChanges() > 0 ? true : false;
         }
 
         public Common.Models.Posada Get(Guid idPosade)

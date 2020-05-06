@@ -33,6 +33,10 @@ namespace Common
         [OperationContract]
         IEnumerable<Brodogradiliste> GetBrodogradilsta();
         [OperationContract]
+        IEnumerable<Kormilar> GetKormilari();
+        [OperationContract]
+        IEnumerable<Kapetan> GetKapetani();
+        [OperationContract]
         IEnumerable<Brod> GetBrodovi();
     }
 }

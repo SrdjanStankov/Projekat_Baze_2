@@ -17,11 +17,13 @@ namespace Server
 
         public bool AddKruzer(Common.Models.Kruzer kruzer, Guid idBrodogradiliste) => repository.KruzerRepository.Add(kruzer, idBrodogradiliste);
         public bool AddMornar(Common.Models.Mornar mornar) => repository.MornarRepository.Add(mornar);
-        public bool AddPosada(Common.Models.Posada posada, string jmbgKormilar, string jmbgKapetan, Guid idBrod) => throw new NotImplementedException();
+        public bool AddPosada(Common.Models.Posada posada, string jmbgKormilar, string jmbgKapetan, Guid idBrod) => repository.PosadaRepository.Add(posada, jmbgKormilar, jmbgKapetan, idBrod);
         public bool AddTanker(Common.Models.Tanker tanker, Guid idBrodogradiliste) => repository.TankerRepository.Add(tanker, idBrodogradiliste);
         public bool AddTeretniBrod(TeretniBrod teretniBrod, Guid idBrodogradilista) => repository.TeretniBrodRepository.Add(teretniBrod, idBrodogradilista);
         public IEnumerable<Common.Models.Brodogradiliste> GetBrodogradilsta() => repository.BrodogradilisteRepository.GetAll();
         public IEnumerable<Common.Models.Brod> GetBrodovi() => repository.BrodRepository.GetAll();
         public IEnumerable<BrodskaLinija> GetBrodskeLinije() => repository.BrodskaLinijaRepository.GetAll();
+        public IEnumerable<Common.Models.Kapetan> GetKapetani() => repository.KapetanRepository.GetAll();
+        public IEnumerable<Common.Models.Kormilar> GetKormilari() => repository.KormilarRepository.GetAll();
     }
 }

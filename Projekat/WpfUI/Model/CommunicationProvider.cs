@@ -25,9 +25,12 @@ namespace WpfUI.Model
         internal IEnumerable<BrodskaLinija> GetBrodskeLinije() => proxy.GetBrodskeLinije();
         internal IEnumerable<Brodogradiliste> GetBrodogradilista() => proxy.GetBrodogradilsta();
         internal IEnumerable<Brod> GetBrodovi() => proxy.GetBrodovi();
+        internal IEnumerable<Kormilar> GetKormilari() => proxy.GetKormilari();
+        internal IEnumerable<Kapetan> GetKapetani() => proxy.GetKapetani();
         internal bool AddKapetan(Kapetan kapetan, Guid brojLinije, Guid idBroda) => proxy.AddKapetan(kapetan, brojLinije, idBroda);
         internal bool AddTeretniBrod(TeretniBrod teretniBrod, Guid idBrodogradilista) => proxy.AddTeretniBrod(teretniBrod, idBrodogradilista);
         internal bool AddTanker(Tanker tanker, Guid idBrodogradilista) => proxy.AddTanker(tanker, idBrodogradilista);
         internal bool AddKruzer(Kruzer kruzer, Guid idBrodogradilista) => proxy.AddKruzer(kruzer, idBrodogradilista);
+        internal bool AddPosada(Posada posada, string jmbgKormilar, string jmbgKapetan, Guid idBrod) => proxy.AddPosada(posada, jmbgKormilar, jmbgKapetan, idBrod);
     }
 }

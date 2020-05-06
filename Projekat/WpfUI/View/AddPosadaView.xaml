@@ -7,6 +7,7 @@
  xmlns:local="clr-namespace:WpfUI.View"
  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
  xmlns:toolkit="http://schemas.xceed.com/wpf/xaml/toolkit"
+ xmlns:validationrules="clr-namespace:WpfUI.Model.ValidationRules"
  d:DesignHeight="450"
  d:DesignWidth="800"
  mc:Ignorable="d">
@@ -14,37 +15,85 @@
         <StackPanel VerticalAlignment="Center">
             <TextBox
              Width="200"
-             Margin="0,0,0,5"
+             Margin="0,0,0,15"
              design:HintAssist.Hint="Ime"
-             Style="{DynamicResource MaterialDesignFloatingHintTextBox}" />
+             Style="{DynamicResource MaterialDesignFloatingHintTextBox}">
+                <TextBox.Text>
+                    <Binding Path="Ime">
+                        <Binding.ValidationRules>
+                            <validationrules:NotEmptyOrNullStringValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
             <!--  kormilar  -->
             <ComboBox
              Width="200"
+             Margin="0,0,0,15"
              design:ComboBoxAssist.ShowSelectedItem="false"
-             ItemsSource="{Binding}"
-             Style="{DynamicResource MaterialDesignFloatingHintComboBox}" />
+             design:HintAssist.Hint="Kormilar"
+             ItemsSource="{Binding Kormilari}"
+             Style="{DynamicResource MaterialDesignFloatingHintComboBox}">
+                <ComboBox.SelectedItem>
+                    <Binding Path="SelectedKormilar" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <validationrules:NotNullValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </ComboBox.SelectedItem>
+            </ComboBox>
             <!--  kapetan  -->
             <ComboBox
              Width="200"
+             Margin="0,0,0,15"
              design:ComboBoxAssist.ShowSelectedItem="false"
-             ItemsSource="{Binding}"
-             Style="{DynamicResource MaterialDesignFloatingHintComboBox}" />
+             design:HintAssist.Hint="Kapetan"
+             ItemsSource="{Binding Kapetani}"
+             Style="{DynamicResource MaterialDesignFloatingHintComboBox}">
+                <ComboBox.SelectedItem>
+                    <Binding Path="SelectedKapetan" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <validationrules:NotNullValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </ComboBox.SelectedItem>
+            </ComboBox>
             <!--  brod  -->
             <ComboBox
              Width="200"
+             Margin="0,0,0,15"
              design:ComboBoxAssist.ShowSelectedItem="false"
-             ItemsSource="{Binding}"
-             Style="{DynamicResource MaterialDesignFloatingHintComboBox}" />
+             design:HintAssist.Hint="Brod"
+             ItemsSource="{Binding Brodovi}"
+             Style="{DynamicResource MaterialDesignFloatingHintComboBox}">
+                <ComboBox.SelectedItem>
+                    <Binding Path="SelectedBrod" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <validationrules:NotNullValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </ComboBox.SelectedItem>
+            </ComboBox>
+            <Label Width="200" Style="{DynamicResource MaterialDesignLabel}">Kapacitet:</Label>
             <toolkit:IntegerUpDown
              Width="200"
              Margin="0,5,0,0"
              FormatString="N0"
              Increment="1"
-             Watermark="Kapacitet" />
+             Watermark="Kapacitet">
+                <toolkit:IntegerUpDown.Value>
+                    <Binding Path="Kapacitet">
+                        <Binding.ValidationRules>
+                            <validationrules:NotEmptyOrNullStringValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </toolkit:IntegerUpDown.Value>
+            </toolkit:IntegerUpDown>
 
             <Button
              Width="200"
              Margin="0,5"
+             Command="{Binding AddCommand}"
              Content="Add" />
         </StackPanel>
     </Grid>

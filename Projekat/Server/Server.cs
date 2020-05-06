@@ -10,7 +10,7 @@ namespace Server
 
         public bool AddBrod(Common.Models.Brod brod, Guid idBrodogradiliste) => throw new NotImplementedException();
         public bool AddBrodogradiliste(Common.Models.Brodogradiliste brodogradiliste) => new BrodogradilisteRepository(ctx).Add(brodogradiliste);
-        public bool AddBrodskaLinija(BrodskaLinija brodskaLinija) => throw new NotImplementedException();
+        public bool AddBrodskaLinija(BrodskaLinija brodskaLinija) => new BrodskaLinijaRepository(ctx).Add(brodskaLinija);
         public bool AddKapetan(Common.Models.Kapetan kapetan, Guid idBrodskaLinija, Guid idBrod) => throw new NotImplementedException();
         public bool AddKormilar(Common.Models.Kormilar kormilar) => new KormilarRepository(ctx).Add(kormilar);
 

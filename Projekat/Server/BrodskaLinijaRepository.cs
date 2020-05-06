@@ -13,11 +13,11 @@ namespace Server
             ctx = context;
         }
 
-        public void Add(Common.Models.BrodskaLinija item)
+        public bool Add(Common.Models.BrodskaLinija item)
         {
             if (ctx.Brodska_Linija.FirstOrDefault((b) => item.BrojLinije == b.BrLin) != null)
             {
-                return;
+                return false;
             }
 
             ctx.Brodska_Linija.Add(new Brodska_Linija()
@@ -28,7 +28,7 @@ namespace Server
                 Naziv = item.Naziv,
                 Tip = item.Tip
             });
-            ctx.SaveChanges();
+            return ctx.SaveChanges() > 0 ? true : false;
         }
 
         public Common.Models.BrodskaLinija Get(Guid brojLinije)

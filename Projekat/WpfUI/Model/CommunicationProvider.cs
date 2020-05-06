@@ -19,5 +19,6 @@ namespace WpfUI.Model
 
         public bool AddMornar(Mornar mornar) => proxy.AddMornar(mornar);
         internal bool AddBrodogradiliste(Brodogradiliste brodogradiliste) => proxy.AddBrodogradiliste(brodogradiliste);
+        internal bool AddBrodskaLinija(BrodskaLinija brodskaLinija) => proxy.AddBrodskaLinija(brodskaLinija);
     }
 }

@@ -15,7 +15,7 @@ namespace Server.Repositories
 
         public bool Add(Common.Models.Posada item, string jmbgKormilar, string jmbgKapetan, Guid idBroda)
         {
-            if (ctx.Posada.FirstOrDefault((b) => item.ID == b.IDBroda) != null)
+            if (ctx.Posada.FirstOrDefault((b) => item.ID == b.ID) != null)
             {
                 return false;
             }

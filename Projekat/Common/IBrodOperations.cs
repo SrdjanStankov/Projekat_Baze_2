@@ -8,24 +8,24 @@ namespace Common
     public interface IBrodOperations
     {
         [OperationContract]
-        void AddBrod(Brod brod, Guid idBrodogradiliste);
+        bool AddBrod(Brod brod, Guid idBrodogradiliste);
         [OperationContract]
-        void AddBrodogradiliste(Brodogradiliste brodogradiliste);
+        bool AddBrodogradiliste(Brodogradiliste brodogradiliste);
         [OperationContract]
-        void AddBrodskaLinija(BrodskaLinija brodskaLinija);
+        bool AddBrodskaLinija(BrodskaLinija brodskaLinija);
         [OperationContract]
-        void AddKapetan(Kapetan kapetan, Guid idBrodskaLinija, Guid idBrod);
+        bool AddKapetan(Kapetan kapetan, Guid idBrodskaLinija, Guid idBrod);
         [OperationContract]
         bool AddKormilar(Kormilar kormilar);
         [OperationContract]
-        void AddKruzer(Kruzer kruzer, Guid idBrodogradiliste);
+        bool AddKruzer(Kruzer kruzer, Guid idBrodogradiliste);
         [OperationContract]
         bool AddMornar(Mornar mornar);
         [OperationContract]
-        void AddPosada(Posada posada, string jmbgKormilar, string jmbgKapetan, Guid idBrod);
+        bool AddPosada(Posada posada, string jmbgKormilar, string jmbgKapetan, Guid idBrod);
         [OperationContract]
-        void AddTanker(Tanker tanker, Guid idBrodogradiliste);
+        bool AddTanker(Tanker tanker, Guid idBrodogradiliste);
         [OperationContract]
-        void AddTeretniBrod(TeretniBrod teretniBrod, Guid idBrodogradilista);
+        bool AddTeretniBrod(TeretniBrod teretniBrod, Guid idBrodogradilista);
     }
 }

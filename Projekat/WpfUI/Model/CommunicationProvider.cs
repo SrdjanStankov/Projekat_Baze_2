@@ -1,5 +1,4 @@
-﻿using System;
-using System.ServiceModel;
+﻿using System.ServiceModel;
 using Common;
 using Common.Models;
 
@@ -16,11 +15,9 @@ namespace WpfUI.Model
             proxy = new ChannelFactory<IBrodOperations>("Client").CreateChannel();
         }
 
-        public bool AddKormilar(Kormilar kormilar)
-        {
-            return proxy.AddKormilar(kormilar);
-        }
+        public bool AddKormilar(Kormilar kormilar) => proxy.AddKormilar(kormilar);
 
         public bool AddMornar(Mornar mornar) => proxy.AddMornar(mornar);
+        internal bool AddBrodogradiliste(Brodogradiliste brodogradiliste) => proxy.AddBrodogradiliste(brodogradiliste);
     }
 }

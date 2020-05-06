@@ -13,11 +13,11 @@ namespace Server
             ctx = context;
         }
 
-        public void Add(Common.Models.Brodogradiliste item)
+        public bool Add(Common.Models.Brodogradiliste item)
         {
             if (ctx.Brodogradiliste.FirstOrDefault((b) => item.ID == b.IDBrodog) != null)
             {
-                return;
+                return false;
             }
 
             ctx.Brodogradiliste.Add(new Brodogradiliste()
@@ -29,7 +29,7 @@ namespace Server
                 BrPrist = item.BrPrist,
                 PosedSuvDok = item.PosedSuvDok
             });
-            ctx.SaveChanges();
+            return ctx.SaveChanges() > 0 ? true : false;
         }
 
         public Common.Models.Brodogradiliste Get(Guid id)

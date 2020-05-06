@@ -6,6 +6,8 @@
  xmlns:design="http://materialdesigninxaml.net/winfx/xaml/themes"
  xmlns:local="clr-namespace:WpfUI.View"
  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:toolkit="http://schemas.xceed.com/wpf/xaml/toolkit"
+ xmlns:validationrules="clr-namespace:WpfUI.Model.ValidationRules"
  d:DesignHeight="450"
  d:DesignWidth="800"
  mc:Ignorable="d">
@@ -13,26 +15,56 @@
         <StackPanel VerticalAlignment="Center">
             <TextBox
              Width="200"
+             Margin="0,0,0,15"
              design:HintAssist.Hint="Naziv"
-             Style="{DynamicResource MaterialDesignFloatingHintTextBox}" />
+             Style="{DynamicResource MaterialDesignFloatingHintTextBox}">
+                <TextBox.Text>
+                    <Binding Path="Naziv">
+                        <Binding.ValidationRules>
+                            <validationrules:NotEmptyValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
             <TextBox
              Width="200"
+             Margin="0,0,0,15"
              design:HintAssist.Hint="Lokacija"
-             Style="{DynamicResource MaterialDesignFloatingHintTextBox}" />
-            <TextBox
+             Style="{DynamicResource MaterialDesignFloatingHintTextBox}">
+                <TextBox.Text>
+                    <Binding Path="Lokacija">
+                        <Binding.ValidationRules>
+                            <validationrules:NotEmptyValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+            <Label Style="{DynamicResource MaterialDesignLabel}">Maksimalna brzina:</Label>
+            <toolkit:IntegerUpDown
              Width="200"
-             design:HintAssist.Hint="Broj pristanista"
-             Style="{DynamicResource MaterialDesignFloatingHintTextBox}" />
+             Margin="0,5,0,0"
+             FormatString="N0"
+             Increment="1"
+             Watermark="Maksmialna brzina">
+                <toolkit:IntegerUpDown.Value>
+                    <Binding Path="BrPristanista">
+                        <Binding.ValidationRules>
+                            <validationrules:NotEmptyValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </toolkit:IntegerUpDown.Value>
+            </toolkit:IntegerUpDown>
             <CheckBox
              Width="200"
              Margin="0,15,0,10"
              Content="Poseduje suvi dok"
-             IsChecked="False"
+             IsChecked="{Binding PosSuviDok}"
              Style="{DynamicResource MaterialDesignAccentCheckBox}" />
 
             <Button
              Width="200"
              Margin="0,5"
+             Command="{Binding AddCommand}"
              Content="Add" />
         </StackPanel>
     </Grid>

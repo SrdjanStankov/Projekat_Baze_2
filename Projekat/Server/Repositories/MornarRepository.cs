@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Server
+namespace Server.Repositories
 {
     public class MornarRepository
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Server
+namespace Server.Repositories
 {
     public class KapetanRepository
     {
@@ -13,23 +13,23 @@ namespace Server
             ctx = context;
         }
 
-        public void Add(Common.Models.Kapetan item, Guid brLinije, Guid idBroda)
+        public bool Add(Common.Models.Kapetan item, Guid brLinije, Guid idBroda)
         {
             if (ctx.Kapetan.FirstOrDefault((b) => item.JMBG == b.JMBG) != null)
             {
-                return;
+                return false;
             }
 
             var linija = ctx.Brodska_Linija.FirstOrDefault((lin) => lin.BrLin == brLinije);
             if (linija is null)
             {
-                return;
+                return false;
             }
 
             var brod = ctx.Brod.FirstOrDefault((b) => b.IDBroda == idBroda);
             if (brod is null)
             {
-                return;
+                return false;
             }
 
             ctx.Kapetan.Add(new Kapetan()
@@ -42,7 +42,7 @@ namespace Server
                 Brodska_Linija = linija,
                 Brod = brod
             });
-            ctx.SaveChanges();
+            return ctx.SaveChanges() > 0 ? true : false;
         }
 
         public Common.Models.Kapetan Get(string jmbg)

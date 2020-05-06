@@ -62,32 +62,33 @@
     <Compile Include="Brodogradiliste.cs">
       <DependentUpon>ShipModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="BrodogradilisteRepository.cs" />
-    <Compile Include="BrodRepository.cs" />
-    <Compile Include="BrodskaLinijaRepository.cs" />
+    <Compile Include="Repositories\BrodogradilisteRepository.cs" />
+    <Compile Include="Repositories\BrodRepository.cs" />
+    <Compile Include="Repositories\BrodskaLinijaRepository.cs" />
     <Compile Include="Brodska_Linija.cs">
       <DependentUpon>ShipModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Kapetan.cs">
       <DependentUpon>ShipModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="KapetanRepository.cs" />
+    <Compile Include="Repositories\KapetanRepository.cs" />
     <Compile Include="Kormilar.cs">
       <DependentUpon>ShipModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="KormilarRepository.cs" />
+    <Compile Include="Repositories\KormilarRepository.cs" />
     <Compile Include="Kruzer.cs">
       <DependentUpon>ShipModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="KruzerRepository.cs" />
+    <Compile Include="Repositories\KruzerRepository.cs" />
+    <Compile Include="MasterRepository.cs" />
     <Compile Include="Mornar.cs">
       <DependentUpon>ShipModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="MornarRepository.cs" />
+    <Compile Include="Repositories\MornarRepository.cs" />
     <Compile Include="Posada.cs">
       <DependentUpon>ShipModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="PosadaRepository.cs" />
+    <Compile Include="Repositories\PosadaRepository.cs" />
     <Compile Include="Poseduje.cs">
       <DependentUpon>ShipModel.tt</DependentUpon>
     </Compile>
@@ -112,8 +113,8 @@
     <Compile Include="Tanker.cs">
       <DependentUpon>ShipModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="TankerRepository.cs" />
-    <Compile Include="TeretniBrodRepository.cs" />
+    <Compile Include="Repositories\TankerRepository.cs" />
+    <Compile Include="Repositories\TeretniBrodRepository.cs" />
     <Compile Include="Teretni_Brod.cs">
       <DependentUpon>ShipModel.tt</DependentUpon>
     </Compile>

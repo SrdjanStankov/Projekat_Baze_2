@@ -7,16 +7,26 @@
  xmlns:local="clr-namespace:WpfUI.View"
  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
  xmlns:toolkit="http://schemas.xceed.com/wpf/xaml/toolkit"
+ xmlns:validationrules="clr-namespace:WpfUI.Model.ValidationRules"
  d:DesignHeight="450"
  d:DesignWidth="800"
  mc:Ignorable="d">
     <Grid>
-        <StackPanel VerticalAlignment="Center">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBox
              Width="200"
-             Margin="0,0,0,5"
+             Margin="0,0,0,15"
              design:HintAssist.Hint="Ime"
-             Style="{DynamicResource MaterialDesignFloatingHintTextBox}" />
+             Style="{DynamicResource MaterialDesignFloatingHintTextBox}">
+                <TextBox.Text>
+                    <Binding Path="Ime">
+                        <Binding.ValidationRules>
+                            <validationrules:NotEmptyValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+            <Label Width="200" Style="{DynamicResource MaterialDesignLabel}">Godina gradnje:</Label>
             <toolkit:DateTimePicker
              Width="200"
              Margin="0,5"
@@ -25,41 +35,96 @@
              AutoCloseCalendar="True"
              Format="ShortDate"
              TimePickerVisibility="Hidden"
-             Watermark="Godina gradnje" />
+             Watermark="Godina gradnje">
+                <toolkit:DateTimePicker.Value>
+                    <Binding Path="GodGradnje">
+                        <Binding.ValidationRules>
+                            <validationrules:NotEmptyValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </toolkit:DateTimePicker.Value>
+            </toolkit:DateTimePicker>
+            <Label Width="200" Style="{DynamicResource MaterialDesignLabel}">Maksimalna brzina:</Label>
             <toolkit:IntegerUpDown
              Width="200"
              Margin="0,5"
              FormatString="N0"
              Increment="1"
-             Watermark="Maksmialna brzina" />
+             Watermark="Maksmialna brzina">
+                <toolkit:IntegerUpDown.Value>
+                    <Binding Path="MaxBrzina">
+                        <Binding.ValidationRules>
+                            <validationrules:NotEmptyValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </toolkit:IntegerUpDown.Value>
+            </toolkit:IntegerUpDown>
+            <Label Width="200" Style="{DynamicResource MaterialDesignLabel}">Duzina:</Label>
             <toolkit:IntegerUpDown
              Width="200"
              Margin="0,5"
              FormatString="N0"
              Increment="1"
-             Watermark="Duzina" />
+             Watermark="Duzina">
+                <toolkit:IntegerUpDown.Value>
+                    <Binding Path="Duzina">
+                        <Binding.ValidationRules>
+                            <validationrules:NotEmptyValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </toolkit:IntegerUpDown.Value>
+            </toolkit:IntegerUpDown>
+            <Label Width="200" Style="{DynamicResource MaterialDesignLabel}">Sirina:</Label>
             <toolkit:IntegerUpDown
              Width="200"
              Margin="0,5,0,0"
              FormatString="N0"
              Increment="1"
-             Watermark="Sirina" />
+             Watermark="Sirina">
+                <toolkit:IntegerUpDown.Value>
+                    <Binding Path="Sirina">
+                        <Binding.ValidationRules>
+                            <validationrules:NotEmptyValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </toolkit:IntegerUpDown.Value>
+            </toolkit:IntegerUpDown>
+            <Label Width="200" Style="{DynamicResource MaterialDesignLabel}">Kapacitet tereta:</Label>
             <toolkit:IntegerUpDown
              Width="200"
              Margin="0,5,0,0"
              FormatString="N0"
              Increment="1"
-             Watermark="Kapacitet tereta" />
+             Watermark="Kapacitet tereta">
+                <toolkit:IntegerUpDown.Value>
+                    <Binding Path="KapTereta">
+                        <Binding.ValidationRules>
+                            <validationrules:NotEmptyValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </toolkit:IntegerUpDown.Value>
+            </toolkit:IntegerUpDown>
             <!--  brodogradiliste  -->
             <ComboBox
              Width="200"
+             Margin="0,0,0,15"
              design:ComboBoxAssist.ShowSelectedItem="false"
-             ItemsSource="{Binding}"
-             Style="{DynamicResource MaterialDesignFloatingHintComboBox}" />
+             design:HintAssist.Hint="Brodogradiliste"
+             ItemsSource="{Binding Brodogradilista}"
+             Style="{DynamicResource MaterialDesignFloatingHintComboBox}">
+                <ComboBox.SelectedItem>
+                    <Binding Path="SelectedItem" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <validationrules:NotNullValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </ComboBox.SelectedItem>
+            </ComboBox>
 
             <Button
              Width="200"
              Margin="0,5"
+             Command="{Binding AddCommand}"
              Content="Add" />
         </StackPanel>
 

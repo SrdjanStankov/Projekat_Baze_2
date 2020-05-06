@@ -13,17 +13,17 @@ namespace Server.Repositories
             ctx = context;
         }
 
-        public void Add(Common.Models.TeretniBrod item, Guid idBrodogradilista)
+        public bool Add(Common.Models.TeretniBrod item, Guid idBrodogradilista)
         {
             if (ctx.Teretni_Brod.FirstOrDefault((b) => item.ID == b.IDBroda) != null)
             {
-                return;
+                return false;
             }
 
             var brodo = ctx.Brodogradiliste.FirstOrDefault((b) => b.IDBrodog == idBrodogradilista);
             if (brodo is null)
             {
-                return;
+                return false;
             }
 
             ctx.Teretni_Brod.Add(new Teretni_Brod()
@@ -41,7 +41,7 @@ namespace Server.Repositories
                 KapacTeret = item.KapacTeret,
                 StatUtov = item.StatUtov
             });
-            ctx.SaveChanges();
+            return ctx.SaveChanges() > 0 ? true : false;
         }
 
         public Common.Models.TeretniBrod Get(Guid idBroda)

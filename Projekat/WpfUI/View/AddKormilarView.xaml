@@ -55,6 +55,7 @@
             <ComboBox
              Width="200"
              design:ComboBoxAssist.ShowSelectedItem="false"
+             design:HintAssist.Hint="Pol"
              SelectedIndex="{Binding SelectedPol}"
              Style="{DynamicResource MaterialDesignFloatingHintComboBox}">
                 <ComboBoxItem Content="Muski" IsSelected="True" />

@@ -25,5 +25,7 @@ namespace Common.Models
         public string Krajnja_tacka { get; set; }
         public ICollection<Kapetan> Kapetan { get; set; } = new HashSet<Kapetan>();
         public ICollection<Brod> Brodovi { get; set; } = new HashSet<Brod>();
+
+        public override string ToString() => $"{Naziv}, {Polazna_tacka}, {Krajnja_tacka}";
     }
 }

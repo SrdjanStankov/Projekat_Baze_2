@@ -16,11 +16,15 @@ namespace WpfUI.Model
         {
             proxy = new ChannelFactory<IBrodOperations>("Client").CreateChannel();
         }
+
         internal bool AddKormilar(Kormilar kormilar) => proxy.AddKormilar(kormilar);
         internal bool AddMornar(Mornar mornar) => proxy.AddMornar(mornar);
         internal bool AddBrodogradiliste(Brodogradiliste brodogradiliste) => proxy.AddBrodogradiliste(brodogradiliste);
         internal bool AddBrodskaLinija(BrodskaLinija brodskaLinija) => proxy.AddBrodskaLinija(brodskaLinija);
         internal bool AddBrod(Brod brod, Guid idBrodogradilista) => proxy.AddBrod(brod, idBrodogradilista);
+        internal IEnumerable<BrodskaLinija> GetBrodskeLinije() => proxy.GetBrodskeLinije();
         internal IEnumerable<Brodogradiliste> GetBrodogradilista() => proxy.GetBrodogradilsta();
+        internal IEnumerable<Brod> GetBrodovi() => proxy.GetBrodovi();
+        internal bool AddKapetan(Kapetan kapetan, Guid brojLinije, Guid idBroda) => proxy.AddKapetan(kapetan, brojLinije, idBroda);
     }
 }

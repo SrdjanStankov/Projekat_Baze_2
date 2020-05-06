@@ -9,7 +9,7 @@
  xmlns:view="clr-namespace:WpfUI.View"
  Title="MainWindow"
  Width="946.5"
- Height="500"
+ Height="600"
  Background="{DynamicResource MaterialDesignLightBackground}"
  mc:Ignorable="d">
 
@@ -52,7 +52,7 @@
 
     <Grid>
         <Menu HorizontalAlignment="Center">
-            <MenuItem Command="{Binding KormilarCommand}" Header="kormilar" />
+            <MenuItem Command="{Binding KormilarCommand}" Header="Kormilar" />
             <MenuItem Command="{Binding MornarCommand}" Header="Mornar" />
             <MenuItem Command="{Binding BrodogradilisteCommand}" Header="Brodogradiliste" />
             <MenuItem Command="{Binding BrodskaLinijaCommand}" Header="Brodska linija" />

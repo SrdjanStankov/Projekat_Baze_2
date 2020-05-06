@@ -100,7 +100,7 @@
                 <ComboBox.SelectedItem>
                     <Binding Path="SelectedItem" UpdateSourceTrigger="PropertyChanged">
                         <Binding.ValidationRules>
-                            <validationrules:NullValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
+                            <validationrules:NotNullValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
                         </Binding.ValidationRules>
                     </Binding>
                 </ComboBox.SelectedItem>

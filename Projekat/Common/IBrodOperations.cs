@@ -28,8 +28,11 @@ namespace Common
         bool AddTanker(Tanker tanker, Guid idBrodogradiliste);
         [OperationContract]
         bool AddTeretniBrod(TeretniBrod teretniBrod, Guid idBrodogradilista);
-        
+        [OperationContract]
+        IEnumerable<BrodskaLinija> GetBrodskeLinije();
         [OperationContract]
         IEnumerable<Brodogradiliste> GetBrodogradilsta();
+        [OperationContract]
+        IEnumerable<Brod> GetBrodovi();
     }
 }

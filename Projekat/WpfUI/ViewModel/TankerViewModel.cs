@@ -66,6 +66,11 @@ namespace WpfUI.ViewModel
                 return;
             }
 
+            if (!notEmptyValidationRule.Validate(TipTereta, CultureInfo.CurrentCulture).IsValid)
+            {
+                return;
+            }
+
             if (!notNullValidationRule.Validate(SelectedItem, CultureInfo.CurrentCulture).IsValid)
             {
                 return;

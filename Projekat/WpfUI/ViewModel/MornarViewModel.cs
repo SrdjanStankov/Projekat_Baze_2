@@ -40,7 +40,7 @@ namespace WpfUI.ViewModel
 
         private void OnAdd()
         {
-            var notEmptyValidationRule = new NotEmptyValidationRule();
+            var notEmptyValidationRule = new NotEmptyOrNullStringValidationRule();
             var jmbgValidationRule = new JmbgValidationRule();
             if (!notEmptyValidationRule.Validate(Jmbg, CultureInfo.CurrentCulture).IsValid)
             {

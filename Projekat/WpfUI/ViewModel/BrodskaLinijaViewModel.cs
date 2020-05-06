@@ -21,7 +21,7 @@ namespace WpfUI.ViewModel
 
         private void OnAdd()
         {
-            var notEmptyValidationRule = new NotEmptyValidationRule();
+            var notEmptyValidationRule = new NotEmptyOrNullStringValidationRule();
 
             if (!notEmptyValidationRule.Validate(Naziv, CultureInfo.CurrentCulture).IsValid)
             {

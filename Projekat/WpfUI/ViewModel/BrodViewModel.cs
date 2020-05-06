@@ -31,7 +31,7 @@ namespace WpfUI.ViewModel
 
         private void OnAdd()
         {
-            var notEmptyValidationRule = new NotEmptyValidationRule();
+            var notEmptyValidationRule = new NotEmptyOrNullStringValidationRule();
             var nullValidationRule = new NotNullValidationRule();
 
             if (!notEmptyValidationRule.Validate(Ime, CultureInfo.CurrentCulture).IsValid)

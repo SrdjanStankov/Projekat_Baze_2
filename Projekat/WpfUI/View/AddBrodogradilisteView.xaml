@@ -21,7 +21,7 @@
                 <TextBox.Text>
                     <Binding Path="Naziv">
                         <Binding.ValidationRules>
-                            <validationrules:NotEmptyValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
+                            <validationrules:NotEmptyOrNullStringValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
                         </Binding.ValidationRules>
                     </Binding>
                 </TextBox.Text>
@@ -34,7 +34,7 @@
                 <TextBox.Text>
                     <Binding Path="Lokacija">
                         <Binding.ValidationRules>
-                            <validationrules:NotEmptyValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
+                            <validationrules:NotEmptyOrNullStringValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
                         </Binding.ValidationRules>
                     </Binding>
                 </TextBox.Text>
@@ -49,7 +49,7 @@
                 <toolkit:IntegerUpDown.Value>
                     <Binding Path="BrPristanista">
                         <Binding.ValidationRules>
-                            <validationrules:NotEmptyValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
+                            <validationrules:NotEmptyOrNullStringValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
                         </Binding.ValidationRules>
                     </Binding>
                 </toolkit:IntegerUpDown.Value>

@@ -21,7 +21,7 @@
                 <TextBox.Text>
                     <Binding Path="Ime">
                         <Binding.ValidationRules>
-                            <validationrules:NotEmptyValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
+                            <validationrules:NotEmptyOrNullStringValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
                         </Binding.ValidationRules>
                     </Binding>
                 </TextBox.Text>
@@ -34,7 +34,7 @@
                 <TextBox.Text>
                     <Binding Path="Ime">
                         <Binding.ValidationRules>
-                            <validationrules:NotEmptyValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
+                            <validationrules:NotEmptyOrNullStringValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
                         </Binding.ValidationRules>
                     </Binding>
                 </TextBox.Text>
@@ -52,7 +52,7 @@
                 <toolkit:DateTimePicker.Value>
                     <Binding Path="GodGradnje">
                         <Binding.ValidationRules>
-                            <validationrules:NotEmptyValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
+                            <validationrules:NotEmptyOrNullStringValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
                         </Binding.ValidationRules>
                     </Binding>
                 </toolkit:DateTimePicker.Value>
@@ -67,7 +67,7 @@
                 <toolkit:IntegerUpDown.Value>
                     <Binding Path="MaxBrzina">
                         <Binding.ValidationRules>
-                            <validationrules:NotEmptyValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
+                            <validationrules:NotEmptyOrNullStringValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
                         </Binding.ValidationRules>
                     </Binding>
                 </toolkit:IntegerUpDown.Value>
@@ -82,7 +82,7 @@
                 <toolkit:IntegerUpDown.Value>
                     <Binding Path="Duzina">
                         <Binding.ValidationRules>
-                            <validationrules:NotEmptyValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
+                            <validationrules:NotEmptyOrNullStringValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
                         </Binding.ValidationRules>
                     </Binding>
                 </toolkit:IntegerUpDown.Value>
@@ -97,7 +97,7 @@
                 <toolkit:IntegerUpDown.Value>
                     <Binding Path="Sirina">
                         <Binding.ValidationRules>
-                            <validationrules:NotEmptyValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
+                            <validationrules:NotEmptyOrNullStringValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
                         </Binding.ValidationRules>
                     </Binding>
                 </toolkit:IntegerUpDown.Value>
@@ -112,7 +112,7 @@
                 <toolkit:IntegerUpDown.Value>
                     <Binding Path="BrPutnika">
                         <Binding.ValidationRules>
-                            <validationrules:NotEmptyValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
+                            <validationrules:NotEmptyOrNullStringValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
                         </Binding.ValidationRules>
                     </Binding>
                 </toolkit:IntegerUpDown.Value>
@@ -127,7 +127,7 @@
                 <toolkit:IntegerUpDown.Value>
                     <Binding Path="BrOsoblja">
                         <Binding.ValidationRules>
-                            <validationrules:NotEmptyValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
+                            <validationrules:NotEmptyOrNullStringValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
                         </Binding.ValidationRules>
                     </Binding>
                 </toolkit:IntegerUpDown.Value>

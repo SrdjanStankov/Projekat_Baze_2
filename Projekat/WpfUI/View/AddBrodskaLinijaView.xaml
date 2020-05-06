@@ -20,7 +20,7 @@
                 <TextBox.Text>
                     <Binding Path="Naziv">
                         <Binding.ValidationRules>
-                            <validationrules:NotEmptyValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
+                            <validationrules:NotEmptyOrNullStringValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
                         </Binding.ValidationRules>
                     </Binding>
                 </TextBox.Text>
@@ -33,7 +33,7 @@
                 <TextBox.Text>
                     <Binding Path="Tip">
                         <Binding.ValidationRules>
-                            <validationrules:NotEmptyValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
+                            <validationrules:NotEmptyOrNullStringValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
                         </Binding.ValidationRules>
                     </Binding>
                 </TextBox.Text>
@@ -46,7 +46,7 @@
                 <TextBox.Text>
                     <Binding Path="PolaznaTacka">
                         <Binding.ValidationRules>
-                            <validationrules:NotEmptyValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
+                            <validationrules:NotEmptyOrNullStringValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
                         </Binding.ValidationRules>
                     </Binding>
                 </TextBox.Text>
@@ -59,7 +59,7 @@
                 <TextBox.Text>
                     <Binding Path="KrajnjaTacka">
                         <Binding.ValidationRules>
-                            <validationrules:NotEmptyValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
+                            <validationrules:NotEmptyOrNullStringValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
                         </Binding.ValidationRules>
                     </Binding>
                 </TextBox.Text>

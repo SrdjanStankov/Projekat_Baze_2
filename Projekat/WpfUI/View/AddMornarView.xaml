@@ -20,7 +20,7 @@
                 <TextBox.Text>
                     <Binding Path="Jmbg">
                         <Binding.ValidationRules>
-                            <validationrules:NotEmptyValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
+                            <validationrules:NotEmptyOrNullStringValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
                             <validationrules:JmbgValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
                         </Binding.ValidationRules>
                     </Binding>
@@ -34,7 +34,7 @@
                 <TextBox.Text>
                     <Binding Path="Ime">
                         <Binding.ValidationRules>
-                            <validationrules:NotEmptyValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
+                            <validationrules:NotEmptyOrNullStringValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
                         </Binding.ValidationRules>
                     </Binding>
                 </TextBox.Text>
@@ -47,7 +47,7 @@
                 <TextBox.Text>
                     <Binding Path="Prezime">
                         <Binding.ValidationRules>
-                            <validationrules:NotEmptyValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
+                            <validationrules:NotEmptyOrNullStringValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
                         </Binding.ValidationRules>
                     </Binding>
                 </TextBox.Text>
@@ -60,7 +60,7 @@
                 <TextBox.Text>
                     <Binding Path="Rank">
                         <Binding.ValidationRules>
-                            <validationrules:NotEmptyValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
+                            <validationrules:NotEmptyOrNullStringValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
                         </Binding.ValidationRules>
                     </Binding>
                 </TextBox.Text>

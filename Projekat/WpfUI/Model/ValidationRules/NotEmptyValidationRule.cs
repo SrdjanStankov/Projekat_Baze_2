@@ -4,7 +4,7 @@ using System.Windows.Data;
 
 namespace WpfUI.Model.ValidationRules
 {
-    public class NotEmptyValidationRule : ValidationRule
+    public class NotEmptyOrNullStringValidationRule : ValidationRule
     {
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {

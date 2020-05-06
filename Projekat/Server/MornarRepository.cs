@@ -12,11 +12,11 @@ namespace Server
             ctx = context;
         }
 
-        public void Add(Common.Models.Mornar item)
+        public bool Add(Common.Models.Mornar item)
         {
             if (ctx.Mornar.FirstOrDefault((m) => item.JMBG == m.JMBG) != null)
             {
-                return;
+                return false;
             }
 
             ctx.Mornar.Add(new Mornar()
@@ -27,7 +27,7 @@ namespace Server
                 Pol = item.Pol.ToString(),
                 Rank = item.Rank
             });
-            ctx.SaveChanges();
+            return ctx.SaveChanges() > 0 ? true : false;
         }
 
         public Common.Models.Mornar Get(string jmbg)

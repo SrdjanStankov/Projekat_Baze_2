@@ -1,4 +1,5 @@
-﻿using System.ServiceModel;
+﻿using System;
+using System.ServiceModel;
 using Common;
 using Common.Models;
 
@@ -19,5 +20,7 @@ namespace WpfUI.Model
         {
             return proxy.AddKormilar(kormilar);
         }
+
+        public bool AddMornar(Mornar mornar) => proxy.AddMornar(mornar);
     }
 }

@@ -1,8 +1,5 @@
-﻿using System;
-using System.Globalization;
-using System.Windows;
+﻿using System.Globalization;
 using Common.Models;
-using MaterialDesignThemes.Wpf;
 using WpfUI.Model;
 using WpfUI.Model.ValidationRules;
 
@@ -71,7 +68,7 @@ namespace WpfUI.ViewModel
                 return;
             }
             // sucess
-            SnackbarMessageProvider.Instance.Enqueue("Kormilar dodat");
+            SnackbarMessageProvider.Instance.Enqueue("Kormilar dodat.");
         }
     }
 }

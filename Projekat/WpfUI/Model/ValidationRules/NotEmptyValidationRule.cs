@@ -13,6 +13,10 @@ namespace WpfUI.Model.ValidationRules
             {
                 return string.IsNullOrWhiteSpace((value ?? "").ToString()) ? new ValidationResult(false, "Polje je obavezno.") : ValidationResult.ValidResult;
             }
+            if (exp.DataItem is null)
+            {
+                return new ValidationResult(false, "Polje je obavezno.");
+            }
             var val = exp.DataItem.GetType().GetProperty(exp.ParentBinding.Path.Path).GetValue(exp.DataItem, null) ?? "";
             return string.IsNullOrWhiteSpace(val.ToString()) ? new ValidationResult(false, "Polje je obavezno.") : ValidationResult.ValidResult;
         }

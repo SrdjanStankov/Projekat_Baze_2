@@ -20,7 +20,7 @@ namespace Common
         [OperationContract]
         void AddKruzer(Kruzer kruzer, Guid idBrodogradiliste);
         [OperationContract]
-        void AddMornar(Mornar mornar);
+        bool AddMornar(Mornar mornar);
         [OperationContract]
         void AddPosada(Posada posada, string jmbgKormilar, string jmbgKapetan, Guid idBrod);
         [OperationContract]

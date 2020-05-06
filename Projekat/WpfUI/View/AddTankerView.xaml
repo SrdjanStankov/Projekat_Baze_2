@@ -31,7 +31,7 @@
              design:HintAssist.Hint="Tip tereta"
              Style="{DynamicResource MaterialDesignFloatingHintTextBox}">
                 <TextBox.Text>
-                    <Binding Path="Ime">
+                    <Binding Path="TipTereta">
                         <Binding.ValidationRules>
                             <validationrules:NotEmptyValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
                         </Binding.ValidationRules>

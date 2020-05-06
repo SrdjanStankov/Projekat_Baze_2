@@ -12,6 +12,7 @@ namespace WpfUI.ViewModel
         private List<Brodogradiliste> brodogradilista;
 
         public string Ime { get; set; }
+        public string TipTereta { get; set; }
         public DateTime GodGradnje { get; set; }
         public int MaxBrzina { get; set; }
         public int Duzina { get; set; }
@@ -70,7 +71,7 @@ namespace WpfUI.ViewModel
                 return;
             }
 
-            if (!CommunicationProvider.Instance.AddTanker(new Tanker(Guid.NewGuid(), Ime, GodGradnje, MaxBrzina, Duzina, Sirina, Nosivost, ""), SelectedItem.ID))
+            if (!CommunicationProvider.Instance.AddTanker(new Tanker(Guid.NewGuid(), Ime, GodGradnje, MaxBrzina, Duzina, Sirina, Nosivost, TipTereta), SelectedItem.ID))
             {
                 SnackbarMessageProvider.Instance.Enqueue($"Tanker vec postoji, pokusaj ponovo.");
                 return;

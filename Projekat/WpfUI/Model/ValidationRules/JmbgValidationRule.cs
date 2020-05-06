@@ -12,7 +12,7 @@ namespace WpfUI.Model.ValidationRules
             var val = value.ToString();
             if (exp != null)
             {
-                val = exp.DataItem.GetType().GetProperty(exp.ParentBinding.Path.Path).GetValue(exp.DataItem, null).ToString() ?? "";
+                val = exp.DataItem.GetType().GetProperty(exp.ParentBinding.Path.Path).GetValue(exp.DataItem, null)?.ToString() ?? "";
             }
             if (val.Length != 13)
             {

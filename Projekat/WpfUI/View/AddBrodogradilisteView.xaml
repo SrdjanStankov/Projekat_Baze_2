@@ -39,7 +39,7 @@
                     </Binding>
                 </TextBox.Text>
             </TextBox>
-            <Label Style="{DynamicResource MaterialDesignLabel}">Maksimalna brzina:</Label>
+            <Label Width="200" Style="{DynamicResource MaterialDesignLabel}">Maksimalna brzina:</Label>
             <toolkit:IntegerUpDown
              Width="200"
              Margin="0,5,0,0"

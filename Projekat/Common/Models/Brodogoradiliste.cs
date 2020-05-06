@@ -26,5 +26,7 @@ namespace Common.Models
         public int BrPrist { get; set; }
         public bool PosedSuvDok { get; set; }
         public ICollection<Brod> Brod { get; set; } = new HashSet<Brod>();
+
+        public override string ToString() => $"{Naziv}, {Lokacija}";
     }
 }

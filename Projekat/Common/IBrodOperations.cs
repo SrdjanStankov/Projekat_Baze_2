@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ServiceModel;
 using Common.Models;
 
@@ -27,5 +28,8 @@ namespace Common
         bool AddTanker(Tanker tanker, Guid idBrodogradiliste);
         [OperationContract]
         bool AddTeretniBrod(TeretniBrod teretniBrod, Guid idBrodogradilista);
+        
+        [OperationContract]
+        IEnumerable<Brodogradiliste> GetBrodogradilsta();
     }
 }

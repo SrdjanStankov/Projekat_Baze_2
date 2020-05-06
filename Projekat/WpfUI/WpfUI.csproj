@@ -90,6 +90,7 @@
     <Compile Include="Model\SnackbarMessageProvider.cs" />
     <Compile Include="Model\ValidationRules\JmbgValidationRule.cs" />
     <Compile Include="Model\ValidationRules\NotEmptyValidationRule.cs" />
+    <Compile Include="Model\ValidationRules\NullValidationRule.cs" />
     <Compile Include="ValidationBase.cs" />
     <Compile Include="ValidationErrors.cs" />
     <Compile Include="ViewModel\BrodogradilisteViewModel.cs" />

@@ -13,17 +13,17 @@ namespace Server
             ctx = context;
         }
 
-        public void Add(Common.Models.Brod item, Guid idBrodogradilista)
+        public bool Add(Common.Models.Brod item, Guid idBrodogradilista)
         {
             if (ctx.Brod.FirstOrDefault((b) => item.ID == b.IDBroda) != null)
             {
-                return;
+                return false;
             }
 
             var brodo = ctx.Brodogradiliste.FirstOrDefault((b) => b.IDBrodog == idBrodogradilista);
             if (brodo is null)
             {
-                return;
+                return false;
             }
 
             ctx.Brod.Add(new Brod()
@@ -36,7 +36,7 @@ namespace Server
                 Sirina = item.Sirina,
                 Brodogradiliste = brodo
             });
-            ctx.SaveChanges();
+            return ctx.SaveChanges() > 0 ? true : false;
         }
 
         public Common.Models.Brod Get(Guid id)

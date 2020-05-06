@@ -1,4 +1,6 @@
-﻿using System.ServiceModel;
+﻿using System;
+using System.Collections.Generic;
+using System.ServiceModel;
 using Common;
 using Common.Models;
 
@@ -14,11 +16,11 @@ namespace WpfUI.Model
         {
             proxy = new ChannelFactory<IBrodOperations>("Client").CreateChannel();
         }
-
-        public bool AddKormilar(Kormilar kormilar) => proxy.AddKormilar(kormilar);
-
-        public bool AddMornar(Mornar mornar) => proxy.AddMornar(mornar);
+        internal bool AddKormilar(Kormilar kormilar) => proxy.AddKormilar(kormilar);
+        internal bool AddMornar(Mornar mornar) => proxy.AddMornar(mornar);
         internal bool AddBrodogradiliste(Brodogradiliste brodogradiliste) => proxy.AddBrodogradiliste(brodogradiliste);
         internal bool AddBrodskaLinija(BrodskaLinija brodskaLinija) => proxy.AddBrodskaLinija(brodskaLinija);
+        internal bool AddBrod(Brod brod, Guid idBrodogradilista) => proxy.AddBrod(brod, idBrodogradilista);
+        internal IEnumerable<Brodogradiliste> GetBrodogradilista() => proxy.GetBrodogradilsta();
     }
 }

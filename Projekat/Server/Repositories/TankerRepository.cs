@@ -13,17 +13,17 @@ namespace Server.Repositories
             ctx = context;
         }
 
-        public void Add(Common.Models.Tanker item, Guid idBrodogradilista)
+        public bool Add(Common.Models.Tanker item, Guid idBrodogradilista)
         {
             if (ctx.Tanker.FirstOrDefault((b) => item.ID == b.IDBroda) != null)
             {
-                return;
+                return false;
             }
 
             var brodo = ctx.Brodogradiliste.FirstOrDefault((b) => b.IDBrodog == idBrodogradilista);
             if (brodo is null)
             {
-                return;
+                return false;
             }
 
             ctx.Tanker.Add(new Tanker()
@@ -41,7 +41,7 @@ namespace Server.Repositories
                 Nosivost = item.Nosivost,
                 TipTeret = item.TipTeret
             });
-            ctx.SaveChanges();
+            return ctx.SaveChanges() > 0 ? true : false;
         }
 
         public Common.Models.Tanker Get(Guid idBroda)

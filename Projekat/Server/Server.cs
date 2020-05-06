@@ -15,7 +15,7 @@ namespace Server
         public bool AddKapetan(Common.Models.Kapetan kapetan, Guid idBrodskaLinija, Guid idBrod) => repository.KapetanRepository.Add(kapetan, idBrodskaLinija, idBrod);
         public bool AddKormilar(Common.Models.Kormilar kormilar) => repository.KormilarRepository.Add(kormilar);
 
-        public bool AddKruzer(Common.Models.Kruzer kruzer, Guid idBrodogradiliste) => throw new NotImplementedException();
+        public bool AddKruzer(Common.Models.Kruzer kruzer, Guid idBrodogradiliste) => repository.KruzerRepository.Add(kruzer, idBrodogradiliste);
         public bool AddMornar(Common.Models.Mornar mornar) => repository.MornarRepository.Add(mornar);
         public bool AddPosada(Common.Models.Posada posada, string jmbgKormilar, string jmbgKapetan, Guid idBrod) => throw new NotImplementedException();
         public bool AddTanker(Common.Models.Tanker tanker, Guid idBrodogradiliste) => repository.TankerRepository.Add(tanker, idBrodogradiliste);

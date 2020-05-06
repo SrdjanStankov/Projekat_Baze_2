@@ -13,17 +13,17 @@ namespace Server.Repositories
             ctx = context;
         }
 
-        public void Add(Common.Models.Kruzer item, Guid idBrodogradilista)
+        public bool Add(Common.Models.Kruzer item, Guid idBrodogradilista)
         {
             if (ctx.Kruzer.FirstOrDefault((b) => item.ID == b.IDBroda) != null)
             {
-                return;
+                return false;
             }
 
             var brodo = ctx.Brodogradiliste.FirstOrDefault((b) => b.IDBrodog == idBrodogradilista);
             if (brodo is null)
             {
-                return;
+                return false;
             }
 
             ctx.Kruzer.Add(new Kruzer()
@@ -41,7 +41,7 @@ namespace Server.Repositories
                 BrPutnika = item.BrPutnika,
                 BrOsoblja = item.BrOsoblja
             });
-            ctx.SaveChanges();
+            return ctx.SaveChanges() > 0 ? true : false;
         }
 
         public Common.Models.Kruzer Get(Guid idBroda)

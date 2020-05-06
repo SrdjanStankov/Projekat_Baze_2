@@ -9,7 +9,7 @@
  xmlns:view="clr-namespace:WpfUI.View"
  Title="MainWindow"
  Width="947"
- Height="600"
+ Height="700"
  Background="{DynamicResource MaterialDesignLightBackground}"
  mc:Ignorable="d">
 

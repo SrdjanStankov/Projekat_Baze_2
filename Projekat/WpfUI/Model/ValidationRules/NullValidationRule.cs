@@ -9,6 +9,14 @@ namespace WpfUI.Model.ValidationRules
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
             var exp = value as BindingExpression;
+            if (value is null)
+            {
+                return new ValidationResult(false, "Polje je obavezno.");
+            }
+            if (exp is null)
+            {
+                return ValidationResult.ValidResult;
+            }
             if (exp.DataItem is null)
             {
                 return new ValidationResult(false, "Polje je obavezno.");
@@ -16,7 +24,7 @@ namespace WpfUI.Model.ValidationRules
             var val = exp.DataItem.GetType().GetProperty(exp.ParentBinding.Path.Path).GetValue(exp.DataItem, null);
             return val is null
                 ? new ValidationResult(false, "Polje je obavezno.")
-                : value is null ? new ValidationResult(false, "Polje je obavezno.") : ValidationResult.ValidResult;
+                : ValidationResult.ValidResult;
         }
     }
 }

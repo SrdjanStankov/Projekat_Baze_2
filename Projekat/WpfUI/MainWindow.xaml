@@ -72,8 +72,9 @@
             <MenuItem Command="{Binding KormilarCommand}" Header="Kormilari" />
         </Menu>
         <ContentControl
-         HorizontalAlignment="Center"
-         VerticalAlignment="Center"
+         Margin="0,96,0,0"
+         HorizontalAlignment="Stretch"
+         VerticalAlignment="Stretch"
          HorizontalContentAlignment="Center"
          VerticalContentAlignment="Center"
          Content="{Binding CurrentViewModel}"

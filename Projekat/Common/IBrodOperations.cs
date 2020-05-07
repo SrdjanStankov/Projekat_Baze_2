@@ -37,8 +37,12 @@ namespace Common
         [OperationContract]
         IEnumerable<Kormilar> GetKormilari();
         [OperationContract]
+        void EditKormilar(Kormilar kormilar);
+        [OperationContract]
         IEnumerable<Kapetan> GetKapetani();
         [OperationContract]
         IEnumerable<Brod> GetBrodovi();
+        [OperationContract]
+        Kormilar GetKormilar(string jmbg);
     }
 }

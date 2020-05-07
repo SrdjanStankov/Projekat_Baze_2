@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
-using System.Windows;
 using Common.Models;
 using WpfUI.Model;
+using WpfUI.View;
 
 namespace WpfUI.ViewModel
 {
@@ -9,7 +9,15 @@ namespace WpfUI.ViewModel
     {
         private ObservableCollection<Kormilar> kormilari;
 
-        public ObservableCollection<Kormilar> Kormilari { get => new ObservableCollection<Kormilar>(CommunicationProvider.Instance.GetKormilari()); set => kormilari = value; }
+        public ObservableCollection<Kormilar> Kormilari
+        {
+            get => new ObservableCollection<Kormilar>(CommunicationProvider.Instance.GetKormilari());
+            set
+            {
+                kormilari = value;
+                OnPropertyChanged(nameof(Kormilari));
+            }
+        }
         public Command<string> EditCommand { get; set; }
         public Command<string> RemoveCommand { get; set; }
 
@@ -26,6 +34,15 @@ namespace WpfUI.ViewModel
             SnackbarMessageProvider.Instance.Enqueue("Kormilar obrisan", true);
         }
 
-        private void OnEdit(string jmbg) => MessageBox.Show(jmbg);
+        private void OnEdit(string jmbg)
+        {
+            var kormilar = CommunicationProvider.Instance.GetKormilar(jmbg);
+            var window = new EditKormilarView
+            {
+                DataContext = new EditKormilarViewModel(kormilar)
+            };
+            window.ShowDialog();
+            Kormilari = Kormilari;
+        }
     }
 }

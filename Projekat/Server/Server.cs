@@ -25,6 +25,8 @@ namespace Server
         public IEnumerable<BrodskaLinija> GetBrodskeLinije() => repository.BrodskaLinijaRepository.GetAll();
         public IEnumerable<Common.Models.Kapetan> GetKapetani() => repository.KapetanRepository.GetAll();
         public IEnumerable<Common.Models.Kormilar> GetKormilari() => repository.KormilarRepository.GetAll();
+        public Common.Models.Kormilar GetKormilar(string jmbg) => repository.KormilarRepository.Get(jmbg);
         public void RemoveKormilar(string jmbg) => repository.KormilarRepository.Remove(jmbg);
+        public void EditKormilar(Common.Models.Kormilar kormilar) => repository.KormilarRepository.Update(kormilar);
     }
 }

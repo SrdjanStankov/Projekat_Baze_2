@@ -23,8 +23,10 @@ namespace WpfUI.Model
         internal bool AddBrodskaLinija(BrodskaLinija brodskaLinija) => proxy.AddBrodskaLinija(brodskaLinija);
         internal void RemoveKormilar(string jmbg) => proxy.RemoveKormilar(jmbg);
         internal bool AddBrod(Brod brod, Guid idBrodogradilista) => proxy.AddBrod(brod, idBrodogradilista);
+        internal Kormilar GetKormilar(string jmbg) => proxy.GetKormilar(jmbg);
         internal IEnumerable<BrodskaLinija> GetBrodskeLinije() => proxy.GetBrodskeLinije();
         internal IEnumerable<Brodogradiliste> GetBrodogradilista() => proxy.GetBrodogradilsta();
+        internal void EditKormilar(Kormilar kormilar) => proxy.EditKormilar(kormilar);
         internal IEnumerable<Brod> GetBrodovi() => proxy.GetBrodovi();
         internal IEnumerable<Kormilar> GetKormilari() => proxy.GetKormilari();
         internal IEnumerable<Kapetan> GetKapetani() => proxy.GetKapetani();

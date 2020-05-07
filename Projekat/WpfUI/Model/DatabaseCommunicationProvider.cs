@@ -6,13 +6,13 @@ using Common.Models;
 
 namespace WpfUI.Model
 {
-    public class CommunicationProvider
+    public class DatabaseCommunicationProvider
     {
-        public static CommunicationProvider Instance { get; } = new CommunicationProvider();
+        public static DatabaseCommunicationProvider Instance { get; } = new DatabaseCommunicationProvider();
 
         private IBrodOperations proxy;
 
-        private CommunicationProvider()
+        private DatabaseCommunicationProvider()
         {
             proxy = new ChannelFactory<IBrodOperations>("Client").CreateChannel();
         }

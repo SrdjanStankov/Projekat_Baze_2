@@ -52,7 +52,7 @@ namespace WpfUI.ViewModel
                 return;
             }
 
-            CommunicationProvider.Instance.EditKormilar(new Kormilar(jmbg, Ime, Prezime, Pol));
+            DatabaseCommunicationProvider.Instance.EditKormilar(new Kormilar(jmbg, Ime, Prezime, Pol));
             w.Close();
         }
 

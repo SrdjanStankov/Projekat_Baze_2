@@ -32,9 +32,9 @@ namespace WpfUI.ViewModel
         public string Ime { get; set; }
         public string Prezime { get; set; }
         public string Pol { get; set; }
-        public List<BrodskaLinija> Linije { get => new List<BrodskaLinija>(CommunicationProvider.Instance.GetBrodskeLinije()); set => linije = value; }
+        public List<BrodskaLinija> Linije { get => new List<BrodskaLinija>(DatabaseCommunicationProvider.Instance.GetBrodskeLinije()); set => linije = value; }
         public BrodskaLinija SelectedLinija { get; set; }
-        public List<Brod> Brodovi { get => new List<Brod>(CommunicationProvider.Instance.GetBrodovi()); set => brodovi = value; }
+        public List<Brod> Brodovi { get => new List<Brod>(DatabaseCommunicationProvider.Instance.GetBrodovi()); set => brodovi = value; }
         public Brod SelectedBrod { get; set; }
         public DateTime GodRodj { get; set; }
         public Command AddCommand { get; set; }
@@ -51,7 +51,7 @@ namespace WpfUI.ViewModel
                 return;
             }
 
-            if (!CommunicationProvider.Instance.AddKapetan(new Kapetan(Jmbg, Ime, Prezime, Pol, GodRodj), SelectedLinija.BrojLinije, SelectedBrod.ID))
+            if (!DatabaseCommunicationProvider.Instance.AddKapetan(new Kapetan(Jmbg, Ime, Prezime, Pol, GodRodj), SelectedLinija.BrojLinije, SelectedBrod.ID))
             {
                 // show error
                 SnackbarMessageProvider.Instance.Enqueue($"Kapetan sa jmbg-om: {Jmbg} vec postoji.");

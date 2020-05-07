@@ -22,7 +22,7 @@ namespace WpfUI.ViewModel
         public Command AddCommand { get; set; }
         public List<Brodogradiliste> Brodogradilista
         {
-            get => new List<Brodogradiliste>(CommunicationProvider.Instance.GetBrodogradilista());
+            get => new List<Brodogradiliste>(DatabaseCommunicationProvider.Instance.GetBrodogradilista());
             set => brodogradilista = value;
         }
 
@@ -38,7 +38,7 @@ namespace WpfUI.ViewModel
                 return;
             }
 
-            if (!CommunicationProvider.Instance.AddKruzer(new Kruzer(Guid.NewGuid(), Ime, GodGradnje, MaxBrzina, Duzina, Sirina, BrPutnika, BrOsoblja), SelectedItem.ID))
+            if (!DatabaseCommunicationProvider.Instance.AddKruzer(new Kruzer(Guid.NewGuid(), Ime, GodGradnje, MaxBrzina, Duzina, Sirina, BrPutnika, BrOsoblja), SelectedItem.ID))
             {
                 SnackbarMessageProvider.Instance.Enqueue($"Kruzer vec postoji, pokusaj ponovo.");
                 return;

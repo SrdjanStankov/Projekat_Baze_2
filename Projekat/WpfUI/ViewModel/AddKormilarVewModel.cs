@@ -45,7 +45,7 @@ namespace WpfUI.ViewModel
                 return;
             }
 
-            if (!CommunicationProvider.Instance.AddKormilar(new Kormilar(Jmbg, Ime, Prezime, Pol)))
+            if (!DatabaseCommunicationProvider.Instance.AddKormilar(new Kormilar(Jmbg, Ime, Prezime, Pol)))
             {
                 // show error
                 SnackbarMessageProvider.Instance.Enqueue($"Kormilar sa jmbg-om: {Jmbg} vec postoji.");

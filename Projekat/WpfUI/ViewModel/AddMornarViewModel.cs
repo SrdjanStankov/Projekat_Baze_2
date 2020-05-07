@@ -46,7 +46,7 @@ namespace WpfUI.ViewModel
                 return;
             }
 
-            if (!CommunicationProvider.Instance.AddMornar(new Mornar(Jmbg, Ime, Prezime, Pol, Rank)))
+            if (!DatabaseCommunicationProvider.Instance.AddMornar(new Mornar(Jmbg, Ime, Prezime, Pol, Rank)))
             {
                 // show error
                 SnackbarMessageProvider.Instance.Enqueue($"Mornar sa jmbg-om: {Jmbg} vec postoji.");

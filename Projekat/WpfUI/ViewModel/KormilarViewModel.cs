@@ -11,7 +11,7 @@ namespace WpfUI.ViewModel
 
         public ObservableCollection<Kormilar> Kormilari
         {
-            get => new ObservableCollection<Kormilar>(CommunicationProvider.Instance.GetKormilari());
+            get => new ObservableCollection<Kormilar>(DatabaseCommunicationProvider.Instance.GetKormilari());
             set
             {
                 kormilari = value;
@@ -30,13 +30,13 @@ namespace WpfUI.ViewModel
 
         private void OnRemove(string jmbg)
         {
-            CommunicationProvider.Instance.RemoveKormilar(jmbg);
+            DatabaseCommunicationProvider.Instance.RemoveKormilar(jmbg);
             SnackbarMessageProvider.Instance.Enqueue("Kormilar obrisan", true);
         }
 
         private void OnEdit(string jmbg)
         {
-            var kormilar = CommunicationProvider.Instance.GetKormilar(jmbg);
+            var kormilar = DatabaseCommunicationProvider.Instance.GetKormilar(jmbg);
             var window = new EditKormilarView
             {
                 DataContext = new EditKormilarViewModel(kormilar)

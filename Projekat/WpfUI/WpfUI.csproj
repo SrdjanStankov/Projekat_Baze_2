@@ -86,7 +86,7 @@
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Model\CommunicationProvider.cs" />
+    <Compile Include="Model\DatabaseCommunicationProvider.cs" />
     <Compile Include="Model\SnackbarMessageProvider.cs" />
     <Compile Include="Model\ValidationRules\JmbgValidationRule.cs" />
     <Compile Include="Model\ValidationRules\NotEmptyValidationRule.cs" />

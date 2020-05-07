@@ -26,7 +26,7 @@ namespace WpfUI.ViewModel
                 return;
             }
 
-            if (!CommunicationProvider.Instance.AddBrodogradiliste(new Brodogradiliste(Guid.NewGuid(), Naziv, Lokacija, 0, BrPristanista, PosSuviDok)))
+            if (!DatabaseCommunicationProvider.Instance.AddBrodogradiliste(new Brodogradiliste(Guid.NewGuid(), Naziv, Lokacija, 0, BrPristanista, PosSuviDok)))
             {
                 // show error
                 SnackbarMessageProvider.Instance.Enqueue($"Brodogradiliste vec postoji, pokusaj ponovo.");

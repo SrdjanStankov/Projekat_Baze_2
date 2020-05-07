@@ -20,7 +20,7 @@ namespace WpfUI.ViewModel
         public Command AddCommand { get; set; }
         public List<Brodogradiliste> Brodogradilista
         {
-            get => new List<Brodogradiliste>(CommunicationProvider.Instance.GetBrodogradilista());
+            get => new List<Brodogradiliste>(DatabaseCommunicationProvider.Instance.GetBrodogradilista());
             set => brodogradilista = value;
         }
 
@@ -36,7 +36,7 @@ namespace WpfUI.ViewModel
                 return;
             }
 
-            if (!CommunicationProvider.Instance.AddBrod(new Brod(Guid.NewGuid(), Ime, GodGradnje, MaxBrzina, Duzina, Sirina), SelectedItem.ID))
+            if (!DatabaseCommunicationProvider.Instance.AddBrod(new Brod(Guid.NewGuid(), Ime, GodGradnje, MaxBrzina, Duzina, Sirina), SelectedItem.ID))
             {
                 SnackbarMessageProvider.Instance.Enqueue($"Brod vec postoji, pokusaj ponovo.");
                 return;

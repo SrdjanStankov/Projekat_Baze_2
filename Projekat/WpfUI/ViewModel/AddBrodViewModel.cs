@@ -7,7 +7,7 @@ using WpfUI.Model.ValidationRules;
 
 namespace WpfUI.ViewModel
 {
-    public class BrodViewModel : BindableBase
+    public class AddBrodViewModel : BindableBase
     {
         private List<Brodogradiliste> brodogradilista;
 
@@ -24,42 +24,14 @@ namespace WpfUI.ViewModel
             set => brodogradilista = value;
         }
 
-        public BrodViewModel()
+        public AddBrodViewModel()
         {
             AddCommand = new Command(OnAdd);
         }
 
         private void OnAdd()
         {
-            var notEmptyValidationRule = new NotEmptyOrNullStringValidationRule();
-            var nullValidationRule = new NotNullValidationRule();
-
-            if (!notEmptyValidationRule.Validate(Ime, CultureInfo.CurrentCulture).IsValid)
-            {
-                return;
-            }
-
-            if (!notEmptyValidationRule.Validate(GodGradnje, CultureInfo.CurrentCulture).IsValid)
-            {
-                return;
-            }
-
-            if (!notEmptyValidationRule.Validate(MaxBrzina, CultureInfo.CurrentCulture).IsValid)
-            {
-                return;
-            }
-
-            if (!notEmptyValidationRule.Validate(Duzina, CultureInfo.CurrentCulture).IsValid)
-            {
-                return;
-            }
-
-            if (!notEmptyValidationRule.Validate(Sirina, CultureInfo.CurrentCulture).IsValid)
-            {
-                return;
-            }
-
-            if (!nullValidationRule.Validate(SelectedItem, CultureInfo.CurrentCulture).IsValid)
+            if (!IsValid())
             {
                 return;
             }
@@ -71,6 +43,43 @@ namespace WpfUI.ViewModel
             }
             // sucess
             SnackbarMessageProvider.Instance.Enqueue("Brod dodat.");
+        }
+
+        private bool IsValid()
+        {
+            var notEmptyValidationRule = new NotEmptyOrNullStringValidationRule();
+            var nullValidationRule = new NotNullValidationRule();
+
+            if (!notEmptyValidationRule.Validate(Ime, CultureInfo.CurrentCulture).IsValid)
+            {
+                return false;
+            }
+
+            if (!notEmptyValidationRule.Validate(GodGradnje, CultureInfo.CurrentCulture).IsValid)
+            {
+                return false;
+            }
+
+            if (!notEmptyValidationRule.Validate(MaxBrzina, CultureInfo.CurrentCulture).IsValid)
+            {
+                return false;
+            }
+
+            if (!notEmptyValidationRule.Validate(Duzina, CultureInfo.CurrentCulture).IsValid)
+            {
+                return false;
+            }
+
+            if (!notEmptyValidationRule.Validate(Sirina, CultureInfo.CurrentCulture).IsValid)
+            {
+                return false;
+            }
+
+            if (!nullValidationRule.Validate(SelectedItem, CultureInfo.CurrentCulture).IsValid)
+            {
+                return false;
+            }
+            return true;
         }
     }
 }

@@ -6,7 +6,7 @@ using WpfUI.Model.ValidationRules;
 
 namespace WpfUI.ViewModel
 {
-    public class BrodskaLinijaViewModel : BindableBase
+    public class AddBrodskaLinijaViewModel : BindableBase
     {
         public string Naziv { get; set; }
         public string Tip { get; set; }
@@ -14,31 +14,14 @@ namespace WpfUI.ViewModel
         public string KrajnjaTacka { get; set; }
         public Command AddCommand { get; set; }
 
-        public BrodskaLinijaViewModel()
+        public AddBrodskaLinijaViewModel()
         {
             AddCommand = new Command(OnAdd);
         }
 
         private void OnAdd()
         {
-            var notEmptyValidationRule = new NotEmptyOrNullStringValidationRule();
-
-            if (!notEmptyValidationRule.Validate(Naziv, CultureInfo.CurrentCulture).IsValid)
-            {
-                return;
-            }
-
-            if (!notEmptyValidationRule.Validate(Tip, CultureInfo.CurrentCulture).IsValid)
-            {
-                return;
-            }
-
-            if (!notEmptyValidationRule.Validate(PolaznaTacka, CultureInfo.CurrentCulture).IsValid)
-            {
-                return;
-            }
-
-            if (!notEmptyValidationRule.Validate(KrajnjaTacka, CultureInfo.CurrentCulture).IsValid)
+            if (!IsValid())
             {
                 return;
             }
@@ -51,6 +34,32 @@ namespace WpfUI.ViewModel
             }
             // sucess
             SnackbarMessageProvider.Instance.Enqueue("Brodogradiliste dodato.");
+        }
+
+        private bool IsValid()
+        {
+            var notEmptyValidationRule = new NotEmptyOrNullStringValidationRule();
+
+            if (!notEmptyValidationRule.Validate(Naziv, CultureInfo.CurrentCulture).IsValid)
+            {
+                return false;
+            }
+
+            if (!notEmptyValidationRule.Validate(Tip, CultureInfo.CurrentCulture).IsValid)
+            {
+                return false;
+            }
+
+            if (!notEmptyValidationRule.Validate(PolaznaTacka, CultureInfo.CurrentCulture).IsValid)
+            {
+                return false;
+            }
+
+            if (!notEmptyValidationRule.Validate(KrajnjaTacka, CultureInfo.CurrentCulture).IsValid)
+            {
+                return false;
+            }
+            return true;
         }
     }
 }

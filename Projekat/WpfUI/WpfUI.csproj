@@ -93,17 +93,17 @@
     <Compile Include="Model\ValidationRules\NotNullValidationRule.cs" />
     <Compile Include="ValidationBase.cs" />
     <Compile Include="ValidationErrors.cs" />
-    <Compile Include="ViewModel\BrodogradilisteViewModel.cs" />
-    <Compile Include="ViewModel\BrodskaLinijaViewModel.cs" />
-    <Compile Include="ViewModel\BrodViewModel.cs" />
-    <Compile Include="ViewModel\KapetanViewModel.cs" />
-    <Compile Include="ViewModel\KormilarVewModel.cs" />
-    <Compile Include="ViewModel\MornarViewModel.cs" />
-    <Compile Include="ViewModel\KruzerViewModel.cs" />
+    <Compile Include="ViewModel\AddBrodogradilisteViewModel.cs" />
+    <Compile Include="ViewModel\AddBrodskaLinijaViewModel.cs" />
+    <Compile Include="ViewModel\AddBrodViewModel.cs" />
+    <Compile Include="ViewModel\AddKapetanViewModel.cs" />
+    <Compile Include="ViewModel\AddKormilarVewModel.cs" />
+    <Compile Include="ViewModel\AddMornarViewModel.cs" />
+    <Compile Include="ViewModel\AddKruzerViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
-    <Compile Include="ViewModel\PosadaViewModel.cs" />
-    <Compile Include="ViewModel\TankerViewModel.cs" />
-    <Compile Include="ViewModel\TeretniBrodViewModel.cs" />
+    <Compile Include="ViewModel\AddPosadaViewModel.cs" />
+    <Compile Include="ViewModel\AddTankerViewModel.cs" />
+    <Compile Include="ViewModel\AddTeretniBrodViewModel.cs" />
     <Compile Include="View\AddBrodogradilisteView.xaml.cs">
       <DependentUpon>AddBrodogradilisteView.xaml</DependentUpon>
     </Compile>

@@ -18,34 +18,34 @@
     </Window.DataContext>
 
     <Window.Resources>
-        <DataTemplate DataType="{x:Type veiwModel:KormilarVewModel}">
+        <DataTemplate DataType="{x:Type veiwModel:AddKormilarVewModel}">
             <view:AddKormilarView />
         </DataTemplate>
-        <DataTemplate DataType="{x:Type veiwModel:MornarViewModel}">
+        <DataTemplate DataType="{x:Type veiwModel:AddMornarViewModel}">
             <view:AddMornarView />
         </DataTemplate>
-        <DataTemplate DataType="{x:Type veiwModel:BrodogradilisteViewModel}">
+        <DataTemplate DataType="{x:Type veiwModel:AddBrodogradilisteViewModel}">
             <view:AddBrodogradilisteView />
         </DataTemplate>
-        <DataTemplate DataType="{x:Type veiwModel:BrodskaLinijaViewModel}">
+        <DataTemplate DataType="{x:Type veiwModel:AddBrodskaLinijaViewModel}">
             <view:AddBrodskaLinijaView />
         </DataTemplate>
-        <DataTemplate DataType="{x:Type veiwModel:BrodViewModel}">
+        <DataTemplate DataType="{x:Type veiwModel:AddBrodViewModel}">
             <view:AddBrodView />
         </DataTemplate>
-        <DataTemplate DataType="{x:Type veiwModel:KapetanViewModel}">
+        <DataTemplate DataType="{x:Type veiwModel:AddKapetanViewModel}">
             <view:AddKapetanView />
         </DataTemplate>
-        <DataTemplate DataType="{x:Type veiwModel:TeretniBrodViewModel}">
+        <DataTemplate DataType="{x:Type veiwModel:AddTeretniBrodViewModel}">
             <view:AddTeretniBrodView />
         </DataTemplate>
-        <DataTemplate DataType="{x:Type veiwModel:TankerViewModel}">
+        <DataTemplate DataType="{x:Type veiwModel:AddTankerViewModel}">
             <view:AddTankerView />
         </DataTemplate>
-        <DataTemplate DataType="{x:Type veiwModel:KruzerViewModel}">
+        <DataTemplate DataType="{x:Type veiwModel:AddKruzerViewModel}">
             <view:AddKruzerView />
         </DataTemplate>
-        <DataTemplate DataType="{x:Type veiwModel:PosadaViewModel}">
+        <DataTemplate DataType="{x:Type veiwModel:AddPosadaViewModel}">
             <view:AddPosadaView />
         </DataTemplate>
     </Window.Resources>

@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Windows.Documents;
 using Common.Models;
 using WpfUI.Model;
 using WpfUI.Model.ValidationRules;
 
 namespace WpfUI.ViewModel
 {
-    public class KapetanViewModel : BindableBase
+    public class AddKapetanViewModel : BindableBase
     {
         private int selectedPol;
         private List<BrodskaLinija> linije;
@@ -40,48 +39,14 @@ namespace WpfUI.ViewModel
         public DateTime GodRodj { get; set; }
         public Command AddCommand { get; set; }
 
-        public KapetanViewModel()
+        public AddKapetanViewModel()
         {
             AddCommand = new Command(OnAdd);
         }
 
         private void OnAdd()
         {
-            var notEmptyValidationRule = new NotEmptyOrNullStringValidationRule();
-            var jmbgValidationRule = new JmbgValidationRule();
-            var notNullValidationRule = new NotNullValidationRule();
-
-            if (!notEmptyValidationRule.Validate(Jmbg, CultureInfo.CurrentCulture).IsValid)
-            {
-                return;
-            }
-
-            if (!notEmptyValidationRule.Validate(Ime, CultureInfo.CurrentCulture).IsValid)
-            {
-                return;
-            }
-
-            if (!notEmptyValidationRule.Validate(Prezime, CultureInfo.CurrentCulture).IsValid)
-            {
-                return;
-            }
-
-            if (!jmbgValidationRule.Validate(Jmbg, CultureInfo.CurrentCulture).IsValid)
-            {
-                return;
-            }
-
-            if (!notNullValidationRule.Validate(SelectedLinija, CultureInfo.CurrentCulture).IsValid)
-            {
-                return;
-            }
-
-            if (!notNullValidationRule.Validate(SelectedBrod, CultureInfo.CurrentCulture).IsValid)
-            {
-                return;
-            }
-
-            if (!notNullValidationRule.Validate(GodRodj, CultureInfo.CurrentCulture).IsValid)
+            if (!IsValid())
             {
                 return;
             }
@@ -94,6 +59,49 @@ namespace WpfUI.ViewModel
             }
             // sucess
             SnackbarMessageProvider.Instance.Enqueue("Kapetan dodat.");
+        }
+
+        private bool IsValid()
+        {
+            var notEmptyValidationRule = new NotEmptyOrNullStringValidationRule();
+            var jmbgValidationRule = new JmbgValidationRule();
+            var notNullValidationRule = new NotNullValidationRule();
+
+            if (!notEmptyValidationRule.Validate(Jmbg, CultureInfo.CurrentCulture).IsValid)
+            {
+                return false;
+            }
+
+            if (!notEmptyValidationRule.Validate(Ime, CultureInfo.CurrentCulture).IsValid)
+            {
+                return false;
+            }
+
+            if (!notEmptyValidationRule.Validate(Prezime, CultureInfo.CurrentCulture).IsValid)
+            {
+                return false;
+            }
+
+            if (!jmbgValidationRule.Validate(Jmbg, CultureInfo.CurrentCulture).IsValid)
+            {
+                return false;
+            }
+
+            if (!notNullValidationRule.Validate(SelectedLinija, CultureInfo.CurrentCulture).IsValid)
+            {
+                return false;
+            }
+
+            if (!notNullValidationRule.Validate(SelectedBrod, CultureInfo.CurrentCulture).IsValid)
+            {
+                return false;
+            }
+
+            if (!notNullValidationRule.Validate(GodRodj, CultureInfo.CurrentCulture).IsValid)
+            {
+                return false;
+            }
+            return true;
         }
     }
 }

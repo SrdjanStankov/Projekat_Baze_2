@@ -8,16 +8,16 @@ namespace WpfUI.ViewModel
     {
         private BindableBase currentViewModel;
 
-        private KormilarVewModel kormilarVewModel = new KormilarVewModel();
-        private MornarViewModel mornarViewModel = new MornarViewModel();
-        private BrodogradilisteViewModel brodogradilisteViewModel = new BrodogradilisteViewModel();
-        private BrodskaLinijaViewModel brodskaLinijaViewModel = new BrodskaLinijaViewModel();
-        private BrodViewModel brodViewModel = new BrodViewModel();
-        private KapetanViewModel kapetanViewModel = new KapetanViewModel();
-        private TeretniBrodViewModel teretniBrodViewModel = new TeretniBrodViewModel();
-        private TankerViewModel tankerViewModel = new TankerViewModel();
-        private KruzerViewModel kruzerViewModel = new KruzerViewModel();
-        private PosadaViewModel posadaViewModel = new PosadaViewModel();
+        private AddKormilarVewModel kormilarVewModel = new AddKormilarVewModel();
+        private AddMornarViewModel mornarViewModel = new AddMornarViewModel();
+        private AddBrodogradilisteViewModel brodogradilisteViewModel = new AddBrodogradilisteViewModel();
+        private AddBrodskaLinijaViewModel brodskaLinijaViewModel = new AddBrodskaLinijaViewModel();
+        private AddBrodViewModel brodViewModel = new AddBrodViewModel();
+        private AddKapetanViewModel kapetanViewModel = new AddKapetanViewModel();
+        private AddTeretniBrodViewModel teretniBrodViewModel = new AddTeretniBrodViewModel();
+        private AddTankerViewModel tankerViewModel = new AddTankerViewModel();
+        private AddKruzerViewModel kruzerViewModel = new AddKruzerViewModel();
+        private AddPosadaViewModel posadaViewModel = new AddPosadaViewModel();
 
         public Command KormilarCommand { get; set; }
         public Command MornarCommand { get; set; }

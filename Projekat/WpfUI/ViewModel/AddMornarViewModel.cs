@@ -1,11 +1,12 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using Common.Models;
 using WpfUI.Model;
 using WpfUI.Model.ValidationRules;
 
 namespace WpfUI.ViewModel
 {
-    public class KormilarVewModel : BindableBase
+    public class AddMornarViewModel : BindableBase
     {
         private int selectedPol;
 
@@ -29,9 +30,10 @@ namespace WpfUI.ViewModel
         public string Ime { get; set; }
         public string Prezime { get; set; }
         public string Pol { get; set; }
+        public string Rank { get; set; }
         public Command AddCommand { get; set; }
 
-        public KormilarVewModel()
+        public AddMornarViewModel()
         {
             AddCommand = new Command(OnAdd);
             SelectedPol = 0;
@@ -39,36 +41,50 @@ namespace WpfUI.ViewModel
 
         private void OnAdd()
         {
+            if (!IsValid())
+            {
+                return;
+            }
+
+            if (!CommunicationProvider.Instance.AddMornar(new Mornar(Jmbg, Ime, Prezime, Pol, Rank)))
+            {
+                // show error
+                SnackbarMessageProvider.Instance.Enqueue($"Mornar sa jmbg-om: {Jmbg} vec postoji.");
+                return;
+            }
+            // sucess
+            SnackbarMessageProvider.Instance.Enqueue("Mornar dodat.");
+        }
+
+        private bool IsValid()
+        {
             var notEmptyValidationRule = new NotEmptyOrNullStringValidationRule();
             var jmbgValidationRule = new JmbgValidationRule();
             if (!notEmptyValidationRule.Validate(Jmbg, CultureInfo.CurrentCulture).IsValid)
             {
-                return;
+                return false;
             }
 
             if (!notEmptyValidationRule.Validate(Ime, CultureInfo.CurrentCulture).IsValid)
             {
-                return;
+                return false;
             }
 
             if (!notEmptyValidationRule.Validate(Prezime, CultureInfo.CurrentCulture).IsValid)
             {
-                return;
+                return false;
+            }
+
+            if (!notEmptyValidationRule.Validate(Rank, CultureInfo.CurrentCulture).IsValid)
+            {
+                return false;
             }
 
             if (!jmbgValidationRule.Validate(Jmbg, CultureInfo.CurrentCulture).IsValid)
             {
-                return;
+                return false;
             }
-
-            if (!CommunicationProvider.Instance.AddKormilar(new Kormilar(Jmbg, Ime, Prezime, Pol)))
-            {
-                // show error
-                SnackbarMessageProvider.Instance.Enqueue($"Kormilar sa jmbg-om: {Jmbg} vec postoji.");
-                return;
-            }
-            // sucess
-            SnackbarMessageProvider.Instance.Enqueue("Kormilar dodat.");
+            return true;
         }
     }
 }

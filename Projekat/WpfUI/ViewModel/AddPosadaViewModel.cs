@@ -7,7 +7,7 @@ using WpfUI.Model.ValidationRules;
 
 namespace WpfUI.ViewModel
 {
-    public class PosadaViewModel : BindableBase
+    public class AddPosadaViewModel : BindableBase
     {
         private List<Kormilar> kormilari;
         private List<Kapetan> kapetani;
@@ -23,37 +23,14 @@ namespace WpfUI.ViewModel
         public Brod SelectedBrod { get; set; }
         public Command AddCommand { get; set; }
 
-        public PosadaViewModel()
+        public AddPosadaViewModel()
         {
             AddCommand = new Command(OnAdd);
         }
 
         private void OnAdd()
         {
-            var notEmptyOrNullStringValidationRule = new NotEmptyOrNullStringValidationRule();
-            var notNullValidationRule = new NotNullValidationRule();
-
-            if (!notEmptyOrNullStringValidationRule.Validate(Ime, CultureInfo.CurrentCulture).IsValid)
-            {
-                return;
-            }
-
-            if (!notEmptyOrNullStringValidationRule.Validate(Kapacitet, CultureInfo.CurrentCulture).IsValid)
-            {
-                return;
-            }
-
-            if (!notNullValidationRule.Validate(SelectedKormilar, CultureInfo.CurrentCulture).IsValid)
-            {
-                return;
-            }
-
-            if (!notNullValidationRule.Validate(SelectedKapetan, CultureInfo.CurrentCulture).IsValid)
-            {
-                return;
-            }
-
-            if (!notNullValidationRule.Validate(SelectedBrod, CultureInfo.CurrentCulture).IsValid)
+            if (!IsValid())
             {
                 return;
             }
@@ -65,6 +42,38 @@ namespace WpfUI.ViewModel
             }
             // sucess
             SnackbarMessageProvider.Instance.Enqueue("Posada dodata.");
+        }
+
+        private bool IsValid()
+        {
+            var notEmptyOrNullStringValidationRule = new NotEmptyOrNullStringValidationRule();
+            var notNullValidationRule = new NotNullValidationRule();
+
+            if (!notEmptyOrNullStringValidationRule.Validate(Ime, CultureInfo.CurrentCulture).IsValid)
+            {
+                return false;
+            }
+
+            if (!notEmptyOrNullStringValidationRule.Validate(Kapacitet, CultureInfo.CurrentCulture).IsValid)
+            {
+                return false;
+            }
+
+            if (!notNullValidationRule.Validate(SelectedKormilar, CultureInfo.CurrentCulture).IsValid)
+            {
+                return false;
+            }
+
+            if (!notNullValidationRule.Validate(SelectedKapetan, CultureInfo.CurrentCulture).IsValid)
+            {
+                return false;
+            }
+
+            if (!notNullValidationRule.Validate(SelectedBrod, CultureInfo.CurrentCulture).IsValid)
+            {
+                return false;
+            }
+            return true;
         }
     }
 }

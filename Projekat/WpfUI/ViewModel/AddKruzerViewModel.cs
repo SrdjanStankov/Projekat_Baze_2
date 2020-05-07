@@ -7,7 +7,7 @@ using Common.Models;
 
 namespace WpfUI.ViewModel
 {
-    public class KruzerViewModel : BindableBase
+    public class AddKruzerViewModel : BindableBase
     {
         private List<Brodogradiliste> brodogradilista;
 
@@ -26,52 +26,14 @@ namespace WpfUI.ViewModel
             set => brodogradilista = value;
         }
 
-        public KruzerViewModel()
+        public AddKruzerViewModel()
         {
             AddCommand = new Command(OnAdd);
         }
 
         private void OnAdd()
         {
-            var notEmptyValidationRule = new NotEmptyOrNullStringValidationRule();
-            var notNullValidationRule = new NotNullValidationRule();
-
-            if (!notEmptyValidationRule.Validate(Ime, CultureInfo.CurrentCulture).IsValid)
-            {
-                return;
-            }
-
-            if (!notEmptyValidationRule.Validate(GodGradnje, CultureInfo.CurrentCulture).IsValid)
-            {
-                return;
-            }
-
-            if (!notEmptyValidationRule.Validate(MaxBrzina, CultureInfo.CurrentCulture).IsValid)
-            {
-                return;
-            }
-
-            if (!notEmptyValidationRule.Validate(Duzina, CultureInfo.CurrentCulture).IsValid)
-            {
-                return;
-            }
-
-            if (!notEmptyValidationRule.Validate(Sirina, CultureInfo.CurrentCulture).IsValid)
-            {
-                return;
-            }
-
-            if (!notEmptyValidationRule.Validate(BrPutnika, CultureInfo.CurrentCulture).IsValid)
-            {
-                return;
-            }
-
-            if (!notEmptyValidationRule.Validate(BrOsoblja, CultureInfo.CurrentCulture).IsValid)
-            {
-                return;
-            }
-
-            if (!notNullValidationRule.Validate(SelectedItem, CultureInfo.CurrentCulture).IsValid)
+            if (!IsValid())
             {
                 return;
             }
@@ -83,6 +45,53 @@ namespace WpfUI.ViewModel
             }
             // sucess
             SnackbarMessageProvider.Instance.Enqueue("Kruzer dodat.");
+        }
+
+        private bool IsValid()
+        {
+            var notEmptyValidationRule = new NotEmptyOrNullStringValidationRule();
+            var notNullValidationRule = new NotNullValidationRule();
+
+            if (!notEmptyValidationRule.Validate(Ime, CultureInfo.CurrentCulture).IsValid)
+            {
+                return false;
+            }
+
+            if (!notEmptyValidationRule.Validate(GodGradnje, CultureInfo.CurrentCulture).IsValid)
+            {
+                return false;
+            }
+
+            if (!notEmptyValidationRule.Validate(MaxBrzina, CultureInfo.CurrentCulture).IsValid)
+            {
+                return false;
+            }
+
+            if (!notEmptyValidationRule.Validate(Duzina, CultureInfo.CurrentCulture).IsValid)
+            {
+                return false;
+            }
+
+            if (!notEmptyValidationRule.Validate(Sirina, CultureInfo.CurrentCulture).IsValid)
+            {
+                return false;
+            }
+
+            if (!notEmptyValidationRule.Validate(BrPutnika, CultureInfo.CurrentCulture).IsValid)
+            {
+                return false;
+            }
+
+            if (!notEmptyValidationRule.Validate(BrOsoblja, CultureInfo.CurrentCulture).IsValid)
+            {
+                return false;
+            }
+
+            if (!notNullValidationRule.Validate(SelectedItem, CultureInfo.CurrentCulture).IsValid)
+            {
+                return false;
+            }
+            return true;
         }
     }
 }

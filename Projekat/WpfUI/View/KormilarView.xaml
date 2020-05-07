@@ -14,6 +14,7 @@
          HorizontalAlignment="Right"
          VerticalAlignment="Bottom"
          Panel.ZIndex="5"
+         Command="{Binding AddCommand}"
          Style="{DynamicResource MaterialDesignFloatingActionButton}">
             <materialDesign:PackIcon
              Width="40"

@@ -20,12 +20,13 @@ namespace WpfUI.ViewModel
         }
         public Command<string> EditCommand { get; set; }
         public Command<string> RemoveCommand { get; set; }
-
+        public Command AddCommand { get; set; } 
 
         public KormilarViewModel()
         {
             EditCommand = new Command<string>(OnEdit);
             RemoveCommand = new Command<string>(OnRemove);
+            AddCommand = new Command(() => ViewCommunicationProvider.Instance.RaiseAddKormilarEvent());
         }
 
         private void OnRemove(string jmbg)

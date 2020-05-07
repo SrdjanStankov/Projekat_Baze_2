@@ -91,6 +91,7 @@
     <Compile Include="Model\ValidationRules\JmbgValidationRule.cs" />
     <Compile Include="Model\ValidationRules\NotEmptyValidationRule.cs" />
     <Compile Include="Model\ValidationRules\NotNullValidationRule.cs" />
+    <Compile Include="Model\ViewCommunicationProvider.cs" />
     <Compile Include="ValidationBase.cs" />
     <Compile Include="ValidationErrors.cs" />
     <Compile Include="ViewModel\AddBrodogradilisteViewModel.cs" />

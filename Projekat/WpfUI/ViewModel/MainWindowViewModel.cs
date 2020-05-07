@@ -56,6 +56,8 @@ namespace WpfUI.ViewModel
 
             KormilarCommand = new Command(OnKormilar);
             MessageQueue = SnackbarMessageProvider.Instance.MessageQueue;
+
+            ViewCommunicationProvider.Instance.AddKormilarEvent += OnAddKormilar;
         }
 
         private void OnKormilar() => CurrentViewModel = kormilarViewModel;

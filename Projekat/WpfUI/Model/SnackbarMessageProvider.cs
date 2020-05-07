@@ -12,5 +12,10 @@ namespace WpfUI.Model
         {
             MessageQueue.Enqueue(content);
         }
+
+        public void Enqueue(object content, bool neverConsiderToBeDuplicate)
+        {
+            MessageQueue.Enqueue(content, neverConsiderToBeDuplicate);
+        }
     }
 }

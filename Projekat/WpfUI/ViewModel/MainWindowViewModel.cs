@@ -8,27 +8,30 @@ namespace WpfUI.ViewModel
     {
         private BindableBase currentViewModel;
 
-        private AddKormilarVewModel kormilarVewModel = new AddKormilarVewModel();
-        private AddMornarViewModel mornarViewModel = new AddMornarViewModel();
-        private AddBrodogradilisteViewModel brodogradilisteViewModel = new AddBrodogradilisteViewModel();
-        private AddBrodskaLinijaViewModel brodskaLinijaViewModel = new AddBrodskaLinijaViewModel();
-        private AddBrodViewModel brodViewModel = new AddBrodViewModel();
-        private AddKapetanViewModel kapetanViewModel = new AddKapetanViewModel();
-        private AddTeretniBrodViewModel teretniBrodViewModel = new AddTeretniBrodViewModel();
-        private AddTankerViewModel tankerViewModel = new AddTankerViewModel();
-        private AddKruzerViewModel kruzerViewModel = new AddKruzerViewModel();
-        private AddPosadaViewModel posadaViewModel = new AddPosadaViewModel();
+        private AddKormilarVewModel addKormilarVewModel = new AddKormilarVewModel();
+        private AddMornarViewModel addMornarViewModel = new AddMornarViewModel();
+        private AddBrodogradilisteViewModel addBrodogradilisteViewModel = new AddBrodogradilisteViewModel();
+        private AddBrodskaLinijaViewModel addBrodskaLinijaViewModel = new AddBrodskaLinijaViewModel();
+        private AddBrodViewModel addBrodViewModel = new AddBrodViewModel();
+        private AddKapetanViewModel addKapetanViewModel = new AddKapetanViewModel();
+        private AddTeretniBrodViewModel addTeretniBrodViewModel = new AddTeretniBrodViewModel();
+        private AddTankerViewModel addTankerViewModel = new AddTankerViewModel();
+        private AddKruzerViewModel addKruzerViewModel = new AddKruzerViewModel();
+        private AddPosadaViewModel addPosadaViewModel = new AddPosadaViewModel();
+        private KormilarViewModel kormilarViewModel = new KormilarViewModel();
+
+        public Command AddKormilarCommand { get; set; }
+        public Command AddMornarCommand { get; set; }
+        public Command AddBrodogradilisteCommand { get; set; }
+        public Command AddBrodskaLinijaCommand { get; set; }
+        public Command AddBrodCommand { get; set; }
+        public Command AddKapetanCommand { get; set; }
+        public Command AddTeretniBrodCommand { get; set; }
+        public Command AddTankerCommand { get; set; }
+        public Command AddKruzerCommand { get; set; }
+        public Command AddPosadaCommand { get; set; }
 
         public Command KormilarCommand { get; set; }
-        public Command MornarCommand { get; set; }
-        public Command BrodogradilisteCommand { get; set; }
-        public Command BrodskaLinijaCommand { get; set; }
-        public Command BrodCommand { get; set; }
-        public Command KapetanCommand { get; set; }
-        public Command TeretniBrodCommand { get; set; }
-        public Command TankerCommand { get; set; }
-        public Command KruzerCommand { get; set; }
-        public Command PosadaCommand { get; set; }
         public SnackbarMessageQueue MessageQueue { get; set; }
 
         public BindableBase CurrentViewModel
@@ -39,38 +42,42 @@ namespace WpfUI.ViewModel
 
         public MainWindowViewModel()
         {
-            CurrentViewModel = kormilarVewModel;
+            CurrentViewModel = addKormilarVewModel;
+            AddKormilarCommand = new Command(OnAddKormilar);
+            AddMornarCommand = new Command(OnAddMornar);
+            AddBrodogradilisteCommand = new Command(OnAddBrodogradiliste);
+            AddBrodskaLinijaCommand = new Command(OnAddBrodskaLinija);
+            AddBrodCommand = new Command(OnAddBrod);
+            AddKapetanCommand = new Command(OnAddKapetan);
+            AddTeretniBrodCommand = new Command(OnAddTeretniBrod);
+            AddTankerCommand = new Command(OnAddTanker);
+            AddKruzerCommand = new Command(OnAddKruzer);
+            AddPosadaCommand = new Command(OnAddPosada);
+
             KormilarCommand = new Command(OnKormilar);
-            MornarCommand = new Command(OnMornar);
-            BrodogradilisteCommand = new Command(OnBrodogradiliste);
-            BrodskaLinijaCommand = new Command(OnBrodskaLinija);
-            BrodCommand = new Command(OnBrod);
-            KapetanCommand = new Command(OnKapetan);
-            TeretniBrodCommand = new Command(OnTeretniBrod);
-            TankerCommand = new Command(OnTanker);
-            KruzerCommand = new Command(OnKruzer);
-            PosadaCommand = new Command(OnPosada);
             MessageQueue = SnackbarMessageProvider.Instance.MessageQueue;
         }
 
-        private void OnPosada() => CurrentViewModel = posadaViewModel;
+        private void OnKormilar() => CurrentViewModel = kormilarViewModel;
 
-        private void OnKruzer() => CurrentViewModel = kruzerViewModel;
+        private void OnAddPosada() => CurrentViewModel = addPosadaViewModel;
 
-        private void OnTanker() => CurrentViewModel = tankerViewModel;
+        private void OnAddKruzer() => CurrentViewModel = addKruzerViewModel;
 
-        private void OnTeretniBrod() => CurrentViewModel = teretniBrodViewModel;
+        private void OnAddTanker() => CurrentViewModel = addTankerViewModel;
 
-        private void OnKapetan() => CurrentViewModel = kapetanViewModel;
+        private void OnAddTeretniBrod() => CurrentViewModel = addTeretniBrodViewModel;
 
-        private void OnBrod() => CurrentViewModel = brodViewModel;
+        private void OnAddKapetan() => CurrentViewModel = addKapetanViewModel;
 
-        private void OnBrodskaLinija() => CurrentViewModel = brodskaLinijaViewModel;
+        private void OnAddBrod() => CurrentViewModel = addBrodViewModel;
 
-        private void OnBrodogradiliste() => CurrentViewModel = brodogradilisteViewModel;
+        private void OnAddBrodskaLinija() => CurrentViewModel = addBrodskaLinijaViewModel;
 
-        private void OnMornar() => CurrentViewModel = mornarViewModel;
+        private void OnAddBrodogradiliste() => CurrentViewModel = addBrodogradilisteViewModel;
 
-        private void OnKormilar() => CurrentViewModel = kormilarVewModel;
+        private void OnAddMornar() => CurrentViewModel = addMornarViewModel;
+
+        private void OnAddKormilar() => CurrentViewModel = addKormilarVewModel;
     }
 }

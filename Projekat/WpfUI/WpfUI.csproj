@@ -100,6 +100,7 @@
     <Compile Include="ViewModel\AddKormilarVewModel.cs" />
     <Compile Include="ViewModel\AddMornarViewModel.cs" />
     <Compile Include="ViewModel\AddKruzerViewModel.cs" />
+    <Compile Include="ViewModel\KormilarViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="ViewModel\AddPosadaViewModel.cs" />
     <Compile Include="ViewModel\AddTankerViewModel.cs" />
@@ -139,6 +140,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="BindableBase.cs" />
+    <Compile Include="View\KormilarView.xaml.cs">
+      <DependentUpon>KormilarView.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -180,6 +184,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\AddTeretniBrodView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\KormilarView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

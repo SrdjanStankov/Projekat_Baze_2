@@ -48,6 +48,10 @@
         <DataTemplate DataType="{x:Type veiwModel:AddPosadaViewModel}">
             <view:AddPosadaView />
         </DataTemplate>
+
+        <DataTemplate DataType="{x:Type veiwModel:KormilarViewModel}">
+            <view:KormilarView />
+        </DataTemplate>
     </Window.Resources>
 
     <Grid>
@@ -55,16 +59,17 @@
          Width="932"
          HorizontalAlignment="Center"
          VerticalAlignment="Top">
-            <MenuItem Command="{Binding KormilarCommand}" Header="Kormilar" />
-            <MenuItem Command="{Binding MornarCommand}" Header="Mornar" />
-            <MenuItem Command="{Binding BrodogradilisteCommand}" Header="Brodogradiliste" />
-            <MenuItem Command="{Binding BrodskaLinijaCommand}" Header="Brodska linija" />
-            <MenuItem Command="{Binding BrodCommand}" Header="Brod" />
-            <MenuItem Command="{Binding KapetanCommand}" Header="Kapetan" />
-            <MenuItem Command="{Binding TeretniBrodCommand}" Header="Teretni brod" />
-            <MenuItem Command="{Binding TankerCommand}" Header="Tanker" />
-            <MenuItem Command="{Binding KruzerCommand}" Header="Kruzer" />
-            <MenuItem Command="{Binding PosadaCommand}" Header="Posada" />
+            <MenuItem Command="{Binding AddKormilarCommand}" Header="Kormilar" />
+            <MenuItem Command="{Binding AddMornarCommand}" Header="Mornar" />
+            <MenuItem Command="{Binding AddBrodogradilisteCommand}" Header="Brodogradiliste" />
+            <MenuItem Command="{Binding AddBrodskaLinijaCommand}" Header="Brodska linija" />
+            <MenuItem Command="{Binding AddBrodCommand}" Header="Brod" />
+            <MenuItem Command="{Binding AddKapetanCommand}" Header="Kapetan" />
+            <MenuItem Command="{Binding AddTeretniBrodCommand}" Header="Teretni brod" />
+            <MenuItem Command="{Binding AddTankerCommand}" Header="Tanker" />
+            <MenuItem Command="{Binding AddKruzerCommand}" Header="Kruzer" />
+            <MenuItem Command="{Binding AddPosadaCommand}" Header="Posada" />
+            <MenuItem Command="{Binding KormilarCommand}" Header="Kormilari" />
         </Menu>
         <ContentControl
          HorizontalAlignment="Center"

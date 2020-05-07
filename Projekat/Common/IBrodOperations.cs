@@ -29,6 +29,8 @@ namespace Common
         [OperationContract]
         bool AddTeretniBrod(TeretniBrod teretniBrod, Guid idBrodogradilista);
         [OperationContract]
+        void RemoveKormilar(string jmbg);
+        [OperationContract]
         IEnumerable<BrodskaLinija> GetBrodskeLinije();
         [OperationContract]
         IEnumerable<Brodogradiliste> GetBrodogradilsta();

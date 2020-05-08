@@ -101,6 +101,8 @@
     <Compile Include="ViewModel\Add\AddKormilarVewModel.cs" />
     <Compile Include="ViewModel\Add\AddMornarViewModel.cs" />
     <Compile Include="ViewModel\Add\AddKruzerViewModel.cs" />
+    <Compile Include="ViewModel\BrodogradilisteViewModel.cs" />
+    <Compile Include="ViewModel\EditBrodogradilisteViewModel.cs" />
     <Compile Include="ViewModel\EditKormilarViewModel.cs" />
     <Compile Include="ViewModel\EditMornarViewModel.cs" />
     <Compile Include="ViewModel\KormilarViewModel.cs" />
@@ -144,6 +146,12 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="BindableBase.cs" />
+    <Compile Include="View\BrodogradilisteView.xaml.cs">
+      <DependentUpon>BrodogradilisteView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EditBrodogradililsteView.xaml.cs">
+      <DependentUpon>EditBrodogradililsteView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\EditKormilarView.xaml.cs">
       <DependentUpon>EditKormilarView.xaml</DependentUpon>
     </Compile>
@@ -197,6 +205,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Add\AddTeretniBrodView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BrodogradilisteView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EditBrodogradililsteView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

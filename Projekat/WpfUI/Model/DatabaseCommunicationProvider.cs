@@ -18,6 +18,7 @@ namespace WpfUI.Model
         }
 
         internal bool AddKormilar(Kormilar kormilar) => proxy.AddKormilar(kormilar);
+        internal Brodogradiliste GetBrodogradiliste(Guid guid) => proxy.GetBrodogradiliste(guid);
         internal bool AddMornar(Mornar mornar) => proxy.AddMornar(mornar);
         internal bool AddBrodogradiliste(Brodogradiliste brodogradiliste) => proxy.AddBrodogradiliste(brodogradiliste);
         internal bool AddBrodskaLinija(BrodskaLinija brodskaLinija) => proxy.AddBrodskaLinija(brodskaLinija);
@@ -25,6 +26,8 @@ namespace WpfUI.Model
         internal void RemoveMornar(string jmbg) => proxy.RemoveMornar(jmbg);
         internal void RemoveKormilar(string jmbg) => proxy.RemoveKormilar(jmbg);
         internal bool AddBrod(Brod brod, Guid idBrodogradilista) => proxy.AddBrod(brod, idBrodogradilista);
+        internal void EditBrodogradiliste(Brodogradiliste brodogradiliste) => proxy.EditBrodogradiliste(brodogradiliste);
+        internal void RemoveBrodogradiliste(Guid idBrodogradililste) => proxy.RemoveBrodogradiliste(idBrodogradililste);
         internal Kormilar GetKormilar(string jmbg) => proxy.GetKormilar(jmbg);
         internal IEnumerable<BrodskaLinija> GetBrodskeLinije() => proxy.GetBrodskeLinije();
         internal IEnumerable<Brodogradiliste> GetBrodogradilista() => proxy.GetBrodogradilsta();

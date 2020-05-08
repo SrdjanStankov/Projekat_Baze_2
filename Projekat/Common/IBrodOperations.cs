@@ -21,6 +21,8 @@ namespace Common
         [OperationContract]
         bool AddKruzer(Kruzer kruzer, Guid idBrodogradiliste);
         [OperationContract]
+        Brodogradiliste GetBrodogradiliste(Guid guid);
+        [OperationContract]
         bool AddMornar(Mornar mornar);
         [OperationContract]
         bool AddPosada(Posada posada, string jmbgKormilar, string jmbgKapetan, Guid idBrod);
@@ -34,6 +36,10 @@ namespace Common
         bool AddTeretniBrod(TeretniBrod teretniBrod, Guid idBrodogradilista);
         [OperationContract]
         void RemoveKormilar(string jmbg);
+        [OperationContract]
+        void EditBrodogradiliste(Brodogradiliste brodogradiliste);
+        [OperationContract]
+        void RemoveBrodogradiliste(Guid idBrodogradililste);
         [OperationContract]
         IEnumerable<BrodskaLinija> GetBrodskeLinije();
         [OperationContract]

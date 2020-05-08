@@ -20,6 +20,7 @@ namespace WpfUI.ViewModel
         private AddPosadaViewModel addPosadaViewModel = new AddPosadaViewModel();
         private KormilarViewModel kormilarViewModel = new KormilarViewModel();
         private MornarViewModel mornarViewModel = new MornarViewModel();
+        private BrodogradilisteViewModel brodogradilisteViewModel = new BrodogradilisteViewModel();
 
         public Command AddKormilarCommand { get; set; }
         public Command AddMornarCommand { get; set; }
@@ -34,6 +35,8 @@ namespace WpfUI.ViewModel
 
         public Command KormilarCommand { get; set; }
         public Command MornarCommand { get; set; }
+        public Command BrodogradilisteCommand { get; set; }
+
         public SnackbarMessageQueue MessageQueue { get; set; }
 
         public BindableBase CurrentViewModel
@@ -58,13 +61,18 @@ namespace WpfUI.ViewModel
 
             KormilarCommand = new Command(OnKormilar);
             MornarCommand = new Command(OnMornar);
+            BrodogradilisteCommand = new Command(OnBrodogradiliste);
             MessageQueue = SnackbarMessageProvider.Instance.MessageQueue;
 
             ViewCommunicationProvider.Instance.AddKormilarEvent += OnAddKormilar;
             ViewCommunicationProvider.Instance.AddMornarEvent += OnAddMornar;
+            ViewCommunicationProvider.Instance.AddBrodogradilisteEvent += OnAddBrodogradiliste;
         }
 
+        private void OnBrodogradiliste() => CurrentViewModel = brodogradilisteViewModel;
+
         private void OnMornar() => CurrentViewModel = mornarViewModel;
+
         private void OnKormilar() => CurrentViewModel = kormilarViewModel;
 
         private void OnAddPosada() => CurrentViewModel = addPosadaViewModel;

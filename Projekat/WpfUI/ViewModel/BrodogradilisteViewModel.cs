@@ -1,0 +1,41 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Common.Models;
+using WpfUI.Model;
+
+namespace WpfUI.ViewModel
+{
+    public class BrodogradilisteViewModel : BindableBase
+    {
+        private ObservableCollection<Brodogradiliste> brodogradilista;
+
+        public ObservableCollection<Brodogradiliste> Brodogradilista
+        {
+            get => new ObservableCollection<Brodogradiliste>(DatabaseCommunicationProvider.Instance.GetBrodogradilista());
+            set
+            {
+                brodogradilista = value;
+                OnPropertyChanged(nameof(Brodogradilista));
+            }
+        }
+        public Command<Guid> RemoveCommand { get; set; }
+        public Command AddCommand { get; set; }
+
+        public BrodogradilisteViewModel()
+        {
+            RemoveCommand = new Command<Guid>(OnRemove);
+            AddCommand = new Command(() => ViewCommunicationProvider.Instance.RaiseAddBrodogradilisteEvent());
+        }
+
+        private void OnRemove(Guid idBrodogradiliste)
+        {
+            DatabaseCommunicationProvider.Instance.RemoveBrodogradiliste(idBrodogradiliste);
+            SnackbarMessageProvider.Instance.Enqueue("Brodogradiliste obrisano", true);
+            Brodogradilista = Brodogradilista;
+        }
+    }
+}

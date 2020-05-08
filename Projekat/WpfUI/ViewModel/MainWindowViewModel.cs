@@ -21,11 +21,8 @@ namespace WpfUI.ViewModel
         private KormilarViewModel kormilarViewModel = new KormilarViewModel();
         private MornarViewModel mornarViewModel = new MornarViewModel();
         private BrodogradilisteViewModel brodogradilisteViewModel = new BrodogradilisteViewModel();
+        private BrodskaLinijaViewModel brodskaLinijaViewModel = new BrodskaLinijaViewModel();
 
-        public Command AddKormilarCommand { get; set; }
-        public Command AddMornarCommand { get; set; }
-        public Command AddBrodogradilisteCommand { get; set; }
-        public Command AddBrodskaLinijaCommand { get; set; }
         public Command AddBrodCommand { get; set; }
         public Command AddKapetanCommand { get; set; }
         public Command AddTeretniBrodCommand { get; set; }
@@ -36,6 +33,7 @@ namespace WpfUI.ViewModel
         public Command KormilarCommand { get; set; }
         public Command MornarCommand { get; set; }
         public Command BrodogradilisteCommand { get; set; }
+        public Command BrodskaLinijaCommand { get; set; }
 
         public SnackbarMessageQueue MessageQueue { get; set; }
 
@@ -48,10 +46,6 @@ namespace WpfUI.ViewModel
         public MainWindowViewModel()
         {
             CurrentViewModel = addKormilarVewModel;
-            AddKormilarCommand = new Command(OnAddKormilar);
-            AddMornarCommand = new Command(OnAddMornar);
-            AddBrodogradilisteCommand = new Command(OnAddBrodogradiliste);
-            AddBrodskaLinijaCommand = new Command(OnAddBrodskaLinija);
             AddBrodCommand = new Command(OnAddBrod);
             AddKapetanCommand = new Command(OnAddKapetan);
             AddTeretniBrodCommand = new Command(OnAddTeretniBrod);
@@ -62,12 +56,17 @@ namespace WpfUI.ViewModel
             KormilarCommand = new Command(OnKormilar);
             MornarCommand = new Command(OnMornar);
             BrodogradilisteCommand = new Command(OnBrodogradiliste);
+            BrodskaLinijaCommand = new Command(OnBrodskaLinija);
+
             MessageQueue = SnackbarMessageProvider.Instance.MessageQueue;
 
-            ViewCommunicationProvider.Instance.AddKormilarEvent += OnAddKormilar;
-            ViewCommunicationProvider.Instance.AddMornarEvent += OnAddMornar;
-            ViewCommunicationProvider.Instance.AddBrodogradilisteEvent += OnAddBrodogradiliste;
+            ViewCommunicationProvider.Instance.AddKormilarEvent += () => CurrentViewModel = addKormilarVewModel;
+            ViewCommunicationProvider.Instance.AddMornarEvent += () => CurrentViewModel = addMornarViewModel;
+            ViewCommunicationProvider.Instance.AddBrodogradilisteEvent += () => CurrentViewModel = addBrodogradilisteViewModel;
+            ViewCommunicationProvider.Instance.AddBrodskaLinijaEvent += () => CurrentViewModel = addBrodskaLinijaViewModel;
         }
+
+        private void OnBrodskaLinija() => CurrentViewModel = brodskaLinijaViewModel;
 
         private void OnBrodogradiliste() => CurrentViewModel = brodogradilisteViewModel;
 
@@ -86,13 +85,5 @@ namespace WpfUI.ViewModel
         private void OnAddKapetan() => CurrentViewModel = addKapetanViewModel;
 
         private void OnAddBrod() => CurrentViewModel = addBrodViewModel;
-
-        private void OnAddBrodskaLinija() => CurrentViewModel = addBrodskaLinijaViewModel;
-
-        private void OnAddBrodogradiliste() => CurrentViewModel = addBrodogradilisteViewModel;
-
-        private void OnAddMornar() => CurrentViewModel = addMornarViewModel;
-
-        private void OnAddKormilar() => CurrentViewModel = addKormilarVewModel;
     }
 }

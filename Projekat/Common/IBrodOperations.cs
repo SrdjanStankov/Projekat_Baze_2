@@ -27,11 +27,17 @@ namespace Common
         [OperationContract]
         bool AddPosada(Posada posada, string jmbgKormilar, string jmbgKapetan, Guid idBrod);
         [OperationContract]
+        BrodskaLinija GetBrodskaLinija(Guid id);
+        [OperationContract]
         bool AddTanker(Tanker tanker, Guid idBrodogradiliste);
+        [OperationContract]
+        void RemoveBrodskaLinija(Guid id);
         [OperationContract]
         Mornar GetMornar(string jmbg);
         [OperationContract]
         void RemoveMornar(string jmbg);
+        [OperationContract]
+        void EditBrodskaLinija(BrodskaLinija brodskaLinija);
         [OperationContract]
         bool AddTeretniBrod(TeretniBrod teretniBrod, Guid idBrodogradilista);
         [OperationContract]

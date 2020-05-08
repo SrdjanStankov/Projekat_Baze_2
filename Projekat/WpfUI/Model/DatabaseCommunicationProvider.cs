@@ -21,9 +21,12 @@ namespace WpfUI.Model
         internal Brodogradiliste GetBrodogradiliste(Guid guid) => proxy.GetBrodogradiliste(guid);
         internal bool AddMornar(Mornar mornar) => proxy.AddMornar(mornar);
         internal bool AddBrodogradiliste(Brodogradiliste brodogradiliste) => proxy.AddBrodogradiliste(brodogradiliste);
+        internal BrodskaLinija GetBrodskaLinija(Guid id) => proxy.GetBrodskaLinija(id);
         internal bool AddBrodskaLinija(BrodskaLinija brodskaLinija) => proxy.AddBrodskaLinija(brodskaLinija);
+        internal void RemoveBrodskaLinija(Guid id) => proxy.RemoveBrodskaLinija(id);
         internal Mornar GetMornar(string jmbg) => proxy.GetMornar(jmbg);
         internal void RemoveMornar(string jmbg) => proxy.RemoveMornar(jmbg);
+        internal void EditBrodskaLinija(BrodskaLinija brodskaLinija) => proxy.EditBrodskaLinija(brodskaLinija);
         internal void RemoveKormilar(string jmbg) => proxy.RemoveKormilar(jmbg);
         internal bool AddBrod(Brod brod, Guid idBrodogradilista) => proxy.AddBrod(brod, idBrodogradilista);
         internal void EditBrodogradiliste(Brodogradiliste brodogradiliste) => proxy.EditBrodogradiliste(brodogradiliste);

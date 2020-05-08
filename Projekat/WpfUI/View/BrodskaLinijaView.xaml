@@ -1,0 +1,75 @@
+﻿<UserControl
+ x:Class="WpfUI.View.BrodskaLinijaView"
+ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+ xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+ xmlns:local="clr-namespace:WpfUI.View"
+ xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ d:DesignHeight="450"
+ d:DesignWidth="800"
+ mc:Ignorable="d">
+    <Grid>
+        <Button
+         Margin="15"
+         HorizontalAlignment="Right"
+         VerticalAlignment="Bottom"
+         Panel.ZIndex="5"
+         Command="{Binding AddCommand}"
+         Style="{DynamicResource MaterialDesignFloatingActionButton}">
+            <materialDesign:PackIcon
+             Width="40"
+             Height="40"
+             Kind="Plus" />
+        </Button>
+        <DataGrid
+         MaxHeight="500"
+         HorizontalAlignment="Center"
+         VerticalAlignment="Top"
+         AutoGenerateColumns="False"
+         CanUserAddRows="False"
+         CanUserDeleteRows="False"
+         IsReadOnly="True"
+         ItemsSource="{Binding Linije, UpdateSourceTrigger=PropertyChanged}"
+         RowHeaderWidth="0"
+         ScrollViewer.CanContentScroll="True"
+         ScrollViewer.VerticalScrollBarVisibility="Auto"
+         SelectionMode="Single"
+         Style="{DynamicResource MaterialDesignDataGrid}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Naziv}" Header="Naziv" />
+                <DataGridTextColumn Binding="{Binding Tip}" Header="Tip" />
+                <DataGridTextColumn Binding="{Binding Polazna_tacka}" Header="Polazna tacka" />
+                <DataGridTextColumn Binding="{Binding Krajnja_tacka}" Header="Krajnja tacka" />
+                <DataGridTextColumn Binding="{Binding Kapetan}" Header="Kapetani" />
+                <DataGridTextColumn Binding="{Binding Brodovi}" Header="Brodovi" />
+                <DataGridTemplateColumn Width="110">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Button
+                                 Click="Button_Click"
+                                 CommandParameter="{Binding BrojLinije}"
+                                 Content="Edit"
+                                 Style="{DynamicResource MaterialDesignOutlinedButton}" />
+                            </Grid>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="110">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Button
+                                 Command="{Binding Path=DataContext.RemoveCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                                 CommandParameter="{Binding BrojLinije}"
+                                 Content="Remove"
+                                 Style="{DynamicResource MaterialDesignOutlinedButton}" />
+                            </Grid>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

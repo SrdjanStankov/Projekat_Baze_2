@@ -30,13 +30,16 @@ namespace Server
         public Common.Models.Mornar GetMornar(string jmbg) => repository.MornarRepository.Get(jmbg);
         public Common.Models.Kormilar GetKormilar(string jmbg) => repository.KormilarRepository.Get(jmbg);
         public Common.Models.Brodogradiliste GetBrodogradiliste(Guid guid) => repository.BrodogradilisteRepository.Get(guid);
+        public BrodskaLinija GetBrodskaLinija(Guid id) => repository.BrodskaLinijaRepository.Get(id);
 
         public void RemoveKormilar(string jmbg) => repository.KormilarRepository.Remove(jmbg);
         public void RemoveMornar(string jmbg) => repository.MornarRepository.Remove(jmbg);
         public void RemoveBrodogradiliste(Guid idBrodogradililste) => repository.BrodogradilisteRepository.Remove(idBrodogradililste);
+        public void RemoveBrodskaLinija(Guid id) => repository.BrodskaLinijaRepository.Remove(id);
 
         public void EditKormilar(Common.Models.Kormilar kormilar) => repository.KormilarRepository.Update(kormilar);
         public void EditMornar(Common.Models.Mornar mornar) => repository.MornarRepository.Update(mornar);
         public void EditBrodogradiliste(Common.Models.Brodogradiliste brodogradiliste) => repository.BrodogradilisteRepository.Update(brodogradiliste);
+        public void EditBrodskaLinija(BrodskaLinija brodskaLinija) => repository.BrodskaLinijaRepository.Update(brodskaLinija);
     }
 }

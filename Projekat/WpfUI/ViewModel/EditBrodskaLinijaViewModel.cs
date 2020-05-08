@@ -1,39 +1,46 @@
 ﻿using System;
 using System.Globalization;
+using System.Windows;
 using Common.Models;
 using WpfUI.Model;
 using WpfUI.Model.ValidationRules;
 
 namespace WpfUI.ViewModel
 {
-    public class AddBrodskaLinijaViewModel : BindableBase
+    public class EditBrodskaLinijaViewModel : BindableBase
     {
+        private Guid id;
+
         public string Naziv { get; set; }
         public string Tip { get; set; }
         public string PolaznaTacka { get; set; }
         public string KrajnjaTacka { get; set; }
-        public Command AddCommand { get; set; }
 
-        public AddBrodskaLinijaViewModel()
+        public Command<Window> EditCommand { get; set; }
+
+        public EditBrodskaLinijaViewModel()
         {
-            AddCommand = new Command(OnAdd);
+            EditCommand = new Command<Window>(OnEdit);
         }
 
-        private void OnAdd()
+        public EditBrodskaLinijaViewModel(BrodskaLinija linija) : this()
+        {
+            id = linija.BrojLinije;
+            Naziv = linija.Naziv;
+            Tip = linija.Tip;
+            PolaznaTacka = linija.Polazna_tacka;
+            KrajnjaTacka = linija.Krajnja_tacka;
+        }
+
+        private void OnEdit(Window w)
         {
             if (!IsValid())
             {
                 return;
             }
 
-            if (!DatabaseCommunicationProvider.Instance.AddBrodskaLinija(new BrodskaLinija(Guid.NewGuid(), Naziv, Tip, PolaznaTacka, KrajnjaTacka)))
-            {
-                // show error
-                SnackbarMessageProvider.Instance.Enqueue($"Brodska linija vec postoji, pokusaj ponovo.");
-                return;
-            }
-            // sucess
-            SnackbarMessageProvider.Instance.Enqueue("Brodska linija dodato.");
+            DatabaseCommunicationProvider.Instance.EditBrodskaLinija(new BrodskaLinija(id, Naziv, Tip, PolaznaTacka, KrajnjaTacka));
+            w.Close();
         }
 
         private bool IsValid()
@@ -59,6 +66,7 @@ namespace WpfUI.ViewModel
             {
                 return false;
             }
+
             return true;
         }
     }

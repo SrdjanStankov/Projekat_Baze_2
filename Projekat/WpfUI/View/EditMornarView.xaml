@@ -1,0 +1,77 @@
+﻿<Window
+ x:Class="WpfUI.View.EditMornarView"
+ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+ xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+ xmlns:design="http://materialdesigninxaml.net/winfx/xaml/themes"
+ xmlns:local="clr-namespace:WpfUI.View"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:validationrules="clr-namespace:WpfUI.Model.ValidationRules"
+ Name="win"
+ Title="Edit"
+ Width="227"
+ Height="296"
+ WindowStartupLocation="CenterOwner"
+ WindowStyle="ToolWindow"
+ mc:Ignorable="d">
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBox
+             Width="200"
+             Margin="0,0,0,15"
+             design:HintAssist.Hint="Ime"
+             Style="{DynamicResource MaterialDesignFloatingHintTextBox}">
+                <TextBox.Text>
+                    <Binding Path="Ime">
+                        <Binding.ValidationRules>
+                            <validationrules:NotEmptyOrNullStringValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+            <TextBox
+             Width="200"
+             Margin="0,0,0,15"
+             design:HintAssist.Hint="Prezime"
+             Style="{DynamicResource MaterialDesignFloatingHintTextBox}">
+                <TextBox.Text>
+                    <Binding Path="Prezime">
+                        <Binding.ValidationRules>
+                            <validationrules:NotEmptyOrNullStringValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+            <TextBox
+             Width="200"
+             Margin="0,0,0,15"
+             design:HintAssist.Hint="Rank"
+             Style="{DynamicResource MaterialDesignFloatingHintTextBox}">
+                <TextBox.Text>
+                    <Binding Path="Rank">
+                        <Binding.ValidationRules>
+                            <validationrules:NotEmptyOrNullStringValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+
+            <ComboBox
+             Width="200"
+             design:ComboBoxAssist.ShowSelectedItem="false"
+             design:HintAssist.Hint="Pol"
+             SelectedIndex="{Binding SelectedPol}"
+             Style="{DynamicResource MaterialDesignFloatingHintComboBox}">
+                <ComboBoxItem Content="Muski" />
+                <ComboBoxItem Content="Zenski" />
+            </ComboBox>
+
+            <Button
+             Width="200"
+             Margin="0,5"
+             Command="{Binding EditCommand}"
+             CommandParameter="{Binding ElementName=win}"
+             Content="Save" />
+        </StackPanel>
+    </Grid>
+</Window>

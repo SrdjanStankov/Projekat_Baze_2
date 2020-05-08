@@ -52,6 +52,9 @@
         <DataTemplate DataType="{x:Type veiwModel:KormilarViewModel}">
             <view:KormilarView />
         </DataTemplate>
+        <DataTemplate DataType="{x:Type veiwModel:MornarViewModel}">
+            <view:MornarView />
+        </DataTemplate>
     </Window.Resources>
 
     <Grid>
@@ -70,6 +73,7 @@
             <MenuItem Command="{Binding AddKruzerCommand}" Header="Kruzer" />
             <MenuItem Command="{Binding AddPosadaCommand}" Header="Posada" />
             <MenuItem Command="{Binding KormilarCommand}" Header="Kormilari" />
+            <MenuItem Command="{Binding MornarCommand}" Header="Mornari" />
         </Menu>
         <ContentControl
          Margin="0,96,0,0"

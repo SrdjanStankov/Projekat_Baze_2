@@ -47,7 +47,7 @@ namespace Server.Repositories
 
         public void Update(Common.Models.Kormilar item)
         {
-            var kormilar = ctx.Kormilar.FirstOrDefault((mor) => mor.JMBG == item.JMBG);
+            var kormilar = ctx.Kormilar.FirstOrDefault((korm) => korm.JMBG == item.JMBG);
             ctx.Entry(kormilar).CurrentValues.SetValues(item);
             ctx.SaveChanges();
         }

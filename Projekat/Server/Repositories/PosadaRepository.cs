@@ -68,8 +68,8 @@ namespace Server.Repositories
 
         public void Update(Common.Models.Posada item)
         {
-            var brod = ctx.Posada.FirstOrDefault((b) => b.ID == item.ID);
-            ctx.Entry(brod).CurrentValues.SetValues(item);
+            var posada = ctx.Posada.FirstOrDefault((b) => b.ID == item.ID);
+            ctx.Entry(posada).CurrentValues.SetValues(item);
             ctx.SaveChanges();
         }
 

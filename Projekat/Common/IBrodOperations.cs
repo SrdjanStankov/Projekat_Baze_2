@@ -27,6 +27,10 @@ namespace Common
         [OperationContract]
         bool AddTanker(Tanker tanker, Guid idBrodogradiliste);
         [OperationContract]
+        Mornar GetMornar(string jmbg);
+        [OperationContract]
+        void RemoveMornar(string jmbg);
+        [OperationContract]
         bool AddTeretniBrod(TeretniBrod teretniBrod, Guid idBrodogradilista);
         [OperationContract]
         void RemoveKormilar(string jmbg);
@@ -39,10 +43,14 @@ namespace Common
         [OperationContract]
         void EditKormilar(Kormilar kormilar);
         [OperationContract]
+        void EditMornar(Mornar mornar);
+        [OperationContract]
         IEnumerable<Kapetan> GetKapetani();
         [OperationContract]
         IEnumerable<Brod> GetBrodovi();
         [OperationContract]
         Kormilar GetKormilar(string jmbg);
+        [OperationContract]
+        IEnumerable<Mornar> GetMornari();
     }
 }

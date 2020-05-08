@@ -30,6 +30,7 @@ namespace WpfUI.ViewModel
         {
             DatabaseCommunicationProvider.Instance.RemoveKormilar(jmbg);
             SnackbarMessageProvider.Instance.Enqueue("Kormilar obrisan", true);
+            Kormilari = Kormilari;
         }
     }
 }

@@ -1,7 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using Common.Models;
 using WpfUI.Model;
-using WpfUI.View;
 
 namespace WpfUI.ViewModel
 {
@@ -18,13 +17,11 @@ namespace WpfUI.ViewModel
                 OnPropertyChanged(nameof(Kormilari));
             }
         }
-        public Command<string> EditCommand { get; set; }
         public Command<string> RemoveCommand { get; set; }
-        public Command AddCommand { get; set; } 
+        public Command AddCommand { get; set; }
 
         public KormilarViewModel()
         {
-            EditCommand = new Command<string>(OnEdit);
             RemoveCommand = new Command<string>(OnRemove);
             AddCommand = new Command(() => ViewCommunicationProvider.Instance.RaiseAddKormilarEvent());
         }
@@ -33,17 +30,6 @@ namespace WpfUI.ViewModel
         {
             DatabaseCommunicationProvider.Instance.RemoveKormilar(jmbg);
             SnackbarMessageProvider.Instance.Enqueue("Kormilar obrisan", true);
-        }
-
-        private void OnEdit(string jmbg)
-        {
-            var kormilar = DatabaseCommunicationProvider.Instance.GetKormilar(jmbg);
-            var window = new EditKormilarView
-            {
-                DataContext = new EditKormilarViewModel(kormilar)
-            };
-            window.ShowDialog();
-            Kormilari = Kormilari;
         }
     }
 }

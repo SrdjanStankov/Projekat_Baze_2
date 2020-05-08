@@ -45,7 +45,7 @@
                         <DataTemplate>
                             <Grid>
                                 <Button
-                                 Command="{Binding Path=DataContext.EditCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                                 Click="Button_Click"
                                  CommandParameter="{Binding JMBG}"
                                  Content="Edit"
                                  Style="{DynamicResource MaterialDesignOutlinedButton}" />

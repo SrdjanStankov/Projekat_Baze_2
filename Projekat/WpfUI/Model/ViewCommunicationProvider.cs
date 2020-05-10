@@ -13,6 +13,9 @@ namespace WpfUI.Model
         public event Action AddBrodEvent;
         public event Action AddKapetanEvent;
         public event Action AddTeretniBrodEvent;
+        public event Action AddTankerEvent;
+        public event Action AddKruzerEvent;
+        public event Action AddPosadaEvent;
 
         public void RaiseAddBrodogradilisteEvent() => AddBrodogradilisteEvent?.Invoke();
         public void RaiseAddKormilarEvent() => AddKormilarEvent?.Invoke();
@@ -21,5 +24,8 @@ namespace WpfUI.Model
         public void RaiseAddBrodEvent() => AddBrodEvent?.Invoke();
         public void RaiseAddKapetanEvent() => AddKapetanEvent?.Invoke();
         public void RaiseAddTeretniBrodEvent() => AddTeretniBrodEvent?.Invoke();
+        public void RaiseAddTankerEvent() => AddTankerEvent?.Invoke();
+        public void RaiseAddKruzerEvent() => AddKruzerEvent?.Invoke();
+        public void RaiseAddPosadaEvent() => AddPosadaEvent?.Invoke();
     }
 }

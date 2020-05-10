@@ -18,6 +18,7 @@ namespace WpfUI.Model
         }
 
         internal IEnumerable<Posada> GetPosade() => proxy.GetPosade();
+        internal Posada GetPosada(Guid id) => proxy.GetPosada(id);
         internal IEnumerable<Kruzer> GetKruzeri() => proxy.GetKruzeri();
         internal Tanker GetTanker(Guid id) => proxy.GetTanker(id);
         internal IEnumerable<Tanker> GetTankeri() => proxy.GetTankeri();

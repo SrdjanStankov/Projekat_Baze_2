@@ -1,17 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using WpfUI.Model;
+using WpfUI.ViewModel;
 
 namespace WpfUI.View
 {
@@ -27,7 +18,15 @@ namespace WpfUI.View
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            var posada = DatabaseCommunicationProvider.Instance.GetPosada(((sender as Button).CommandParameter as Guid?).Value);
+            _ = new EditPosadaView
+            {
+                DataContext = new EditPosadaViewModel(posada),
+                Owner = Window.GetWindow(this)
+            }.ShowDialog();
 
+            var posadaViewModel = DataContext as PosadaViewModel;
+            posadaViewModel.Posade = posadaViewModel.Posade;
         }
     }
 }

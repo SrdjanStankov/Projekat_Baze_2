@@ -20,6 +20,21 @@ namespace Server.Repositories
                 return false;
             }
 
+            if (ctx.Posada.FirstOrDefault((p) => p.JMBG_Kormilar == jmbgKormilar) != null)
+            {
+                return false;
+            }
+
+            if (ctx.Posada.FirstOrDefault((p) => p.JMBG_Kapetan == jmbgKapetan) != null)
+            {
+                return false;
+            }
+
+            if (ctx.Posada.FirstOrDefault((p) => p.IDBroda == idBroda) != null)
+            {
+                return false;
+            }
+
             var kormilar = ctx.Kormilar.FirstOrDefault((k) => k.JMBG == jmbgKormilar);
             if (kormilar is null)
             {
@@ -38,7 +53,7 @@ namespace Server.Repositories
                 return false;
             }
 
-            ctx.Posada.Add(new Posada()
+            var entity = new Posada()
             {
                 ID = item.ID,
                 Ime = item.Ime,
@@ -46,7 +61,8 @@ namespace Server.Repositories
                 Kormilar = kormilar,
                 Kapetan = kapetan,
                 Brod = brod
-            });
+            };
+            ctx.Posada.Add(entity);
             return ctx.SaveChanges() > 0 ? true : false;
         }
 

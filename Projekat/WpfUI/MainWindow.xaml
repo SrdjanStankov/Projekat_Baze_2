@@ -73,6 +73,9 @@
         <DataTemplate DataType="{x:Type veiwModel:TankerViewModel}">
             <view:TankerView />
         </DataTemplate>
+        <DataTemplate DataType="{x:Type veiwModel:KruzerViewModel}">
+            <view:KruzerView />
+        </DataTemplate>
     </Window.Resources>
 
     <Grid>
@@ -80,7 +83,6 @@
          Width="932"
          HorizontalAlignment="Center"
          VerticalAlignment="Top">
-            <MenuItem Command="{Binding AddKruzerCommand}" Header="Kruzer" />
             <MenuItem Command="{Binding AddPosadaCommand}" Header="Posada" />
             <MenuItem Command="{Binding KormilarCommand}" Header="Kormilari" />
             <MenuItem Command="{Binding MornarCommand}" Header="Mornari" />
@@ -90,6 +92,7 @@
             <MenuItem Command="{Binding KapetanCommand}" Header="Kapetani" />
             <MenuItem Command="{Binding TeretniBrodCommand}" Header="Teretni brodovi" />
             <MenuItem Command="{Binding TankerCommand}" Header="Tankeri" />
+            <MenuItem Command="{Binding KruzerCommand}" Header="Kruzeri" />
         </Menu>
         <ContentControl
          Margin="0,96,0,0"

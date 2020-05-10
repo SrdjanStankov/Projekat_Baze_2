@@ -109,11 +109,13 @@
     <Compile Include="ViewModel\EditBrodViewModel.cs" />
     <Compile Include="ViewModel\EditKapetanViewModel.cs" />
     <Compile Include="ViewModel\EditKormilarViewModel.cs" />
+    <Compile Include="ViewModel\EditKruzerViewModel.cs" />
     <Compile Include="ViewModel\EditMornarViewModel.cs" />
     <Compile Include="ViewModel\EditTankerViewModel.cs" />
     <Compile Include="ViewModel\EditTeretniBrodViewModel.cs" />
     <Compile Include="ViewModel\KapetanViewModel.cs" />
     <Compile Include="ViewModel\KormilarViewModel.cs" />
+    <Compile Include="ViewModel\KruzerViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="ViewModel\Add\AddPosadaViewModel.cs" />
     <Compile Include="ViewModel\Add\AddTankerViewModel.cs" />
@@ -180,6 +182,9 @@
     <Compile Include="View\EditKormilarView.xaml.cs">
       <DependentUpon>EditKormilarView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\EditKruzerView.xaml.cs">
+      <DependentUpon>EditKruzerView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\EditMornarView.xaml.cs">
       <DependentUpon>EditMornarView.xaml</DependentUpon>
     </Compile>
@@ -194,6 +199,9 @@
     </Compile>
     <Compile Include="View\KormilarView.xaml.cs">
       <DependentUpon>KormilarView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\KruzerView.xaml.cs">
+      <DependentUpon>KruzerView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\MornarView.xaml.cs">
       <DependentUpon>MornarView.xaml</DependentUpon>
@@ -280,6 +288,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\EditKruzerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\EditMornarView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -297,6 +309,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\KormilarView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\KruzerView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

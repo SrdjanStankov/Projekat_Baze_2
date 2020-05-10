@@ -12,6 +12,7 @@ namespace WpfUI.Model
         public event Action AddBrodskaLinijaEvent;
         public event Action AddBrodEvent;
         public event Action AddKapetanEvent;
+        public event Action AddTeretniBrodEvent;
 
         public void RaiseAddBrodogradilisteEvent() => AddBrodogradilisteEvent?.Invoke();
         public void RaiseAddKormilarEvent() => AddKormilarEvent?.Invoke();
@@ -19,5 +20,6 @@ namespace WpfUI.Model
         public void RaiseAddBrodskaLinijaEvent() => AddBrodskaLinijaEvent?.Invoke();
         public void RaiseAddBrodEvent() => AddBrodEvent?.Invoke();
         public void RaiseAddKapetanEvent() => AddKapetanEvent?.Invoke();
+        public void RaiseAddTeretniBrodEvent() => AddTeretniBrodEvent?.Invoke();
     }
 }

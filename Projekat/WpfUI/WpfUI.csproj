@@ -110,6 +110,7 @@
     <Compile Include="ViewModel\EditKapetanViewModel.cs" />
     <Compile Include="ViewModel\EditKormilarViewModel.cs" />
     <Compile Include="ViewModel\EditMornarViewModel.cs" />
+    <Compile Include="ViewModel\EditTeretniBrodViewModel.cs" />
     <Compile Include="ViewModel\KapetanViewModel.cs" />
     <Compile Include="ViewModel\KormilarViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
@@ -117,6 +118,7 @@
     <Compile Include="ViewModel\Add\AddTankerViewModel.cs" />
     <Compile Include="ViewModel\Add\AddTeretniBrodViewModel.cs" />
     <Compile Include="ViewModel\MornarViewModel.cs" />
+    <Compile Include="ViewModel\TeretniBrodViewModel.cs" />
     <Compile Include="View\Add\AddBrodogradilisteView.xaml.cs">
       <DependentUpon>AddBrodogradilisteView.xaml</DependentUpon>
     </Compile>
@@ -179,6 +181,9 @@
     <Compile Include="View\EditMornarView.xaml.cs">
       <DependentUpon>EditMornarView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\EditTeretniBrodView.xaml.cs">
+      <DependentUpon>EditTeretniBrodView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\KapetanView.xaml.cs">
       <DependentUpon>KapetanView.xaml</DependentUpon>
     </Compile>
@@ -187,6 +192,9 @@
     </Compile>
     <Compile Include="View\MornarView.xaml.cs">
       <DependentUpon>MornarView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TeretniBrodView.xaml.cs">
+      <DependentUpon>TeretniBrodView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -268,6 +276,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\EditTeretniBrodView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\KapetanView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -277,6 +289,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\MornarView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TeretniBrodView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

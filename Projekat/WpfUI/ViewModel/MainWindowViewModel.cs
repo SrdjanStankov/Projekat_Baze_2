@@ -23,6 +23,7 @@ namespace WpfUI.ViewModel
         private BrodskaLinijaViewModel brodskaLinijaViewModel = new BrodskaLinijaViewModel();
         private BrodViewModel brodViewModel = new BrodViewModel();
         private KapetanViewModel kapetanViewModel = new KapetanViewModel();
+        private TeretniBrodViewModel teretniBrodViewModel = new TeretniBrodViewModel();
 
         public Command AddTeretniBrodCommand { get; set; }
         public Command AddTankerCommand { get; set; }
@@ -35,6 +36,7 @@ namespace WpfUI.ViewModel
         public Command BrodskaLinijaCommand { get; set; }
         public Command BrodCommand { get; set; }
         public Command KapetanCommand { get; set; }
+        public Command TeretniBrodCommand { get; set; }
 
         public SnackbarMessageQueue MessageQueue { get; set; }
 
@@ -47,7 +49,6 @@ namespace WpfUI.ViewModel
         public MainWindowViewModel()
         {
             CurrentViewModel = addKormilarVewModel;
-            AddTeretniBrodCommand = new Command(() => CurrentViewModel = addTeretniBrodViewModel);
             AddTankerCommand = new Command(() => CurrentViewModel = addTankerViewModel);
             AddKruzerCommand = new Command(() => CurrentViewModel = addKruzerViewModel);
             AddPosadaCommand = new Command(() => CurrentViewModel = addPosadaViewModel);
@@ -58,6 +59,7 @@ namespace WpfUI.ViewModel
             BrodskaLinijaCommand = new Command(() => CurrentViewModel = brodskaLinijaViewModel);
             BrodCommand = new Command(() => CurrentViewModel = brodViewModel);
             KapetanCommand = new Command(() => CurrentViewModel = kapetanViewModel);
+            TeretniBrodCommand = new Command(() => CurrentViewModel = teretniBrodViewModel);
 
             MessageQueue = SnackbarMessageProvider.Instance.MessageQueue;
 
@@ -67,6 +69,7 @@ namespace WpfUI.ViewModel
             ViewCommunicationProvider.Instance.AddBrodskaLinijaEvent += () => CurrentViewModel = addBrodskaLinijaViewModel;
             ViewCommunicationProvider.Instance.AddBrodEvent += () => CurrentViewModel = addBrodViewModel;
             ViewCommunicationProvider.Instance.AddKapetanEvent += () => CurrentViewModel = addKapetanViewModel;
+            ViewCommunicationProvider.Instance.AddTeretniBrodEvent += () => CurrentViewModel = addTeretniBrodViewModel;
         }
     }
 }

@@ -17,14 +17,18 @@ namespace WpfUI.Model
             proxy = new ChannelFactory<IBrodOperations>("Client").CreateChannel();
         }
 
+        internal IEnumerable<TeretniBrod> GetTeretniBrodovi() => proxy.GetTeretniBrodovi();
         internal Kapetan GetKapetan(string jmbg) => proxy.GetKapetan(jmbg);
         internal bool AddKormilar(Kormilar kormilar) => proxy.AddKormilar(kormilar);
         internal Brod GetBrod(Guid id) => proxy.GetBrod(id);
         internal Brodogradiliste GetBrodogradiliste(Guid guid) => proxy.GetBrodogradiliste(guid);
+        internal TeretniBrod GetTeretniBrod(Guid id) => proxy.GetTeretniBrod(id);
         internal bool AddMornar(Mornar mornar) => proxy.AddMornar(mornar);
         internal bool AddBrodogradiliste(Brodogradiliste brodogradiliste) => proxy.AddBrodogradiliste(brodogradiliste);
+        internal void RemoveTeretniBrod(Guid id) => proxy.RemoveTeretniBrod(id);
         internal BrodskaLinija GetBrodskaLinija(Guid id) => proxy.GetBrodskaLinija(id);
         internal void RemoveKapetan(string jmbg) => proxy.RemoveKapetan(jmbg);
+        internal void EditTeretniBrod(TeretniBrod teretniBrod) => proxy.EditTeretniBrod(teretniBrod);
         internal void RemoveBrod(Guid id) => proxy.RemoveBrod(id);
         internal bool AddBrodskaLinija(BrodskaLinija brodskaLinija) => proxy.AddBrodskaLinija(brodskaLinija);
         internal void EditBrod(Brod brod) => proxy.EditBrod(brod);

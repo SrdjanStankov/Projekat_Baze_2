@@ -107,8 +107,10 @@
     <Compile Include="ViewModel\EditBrodogradilisteViewModel.cs" />
     <Compile Include="ViewModel\EditBrodskaLinijaViewModel.cs" />
     <Compile Include="ViewModel\EditBrodViewModel.cs" />
+    <Compile Include="ViewModel\EditKapetanViewModel.cs" />
     <Compile Include="ViewModel\EditKormilarViewModel.cs" />
     <Compile Include="ViewModel\EditMornarViewModel.cs" />
+    <Compile Include="ViewModel\KapetanViewModel.cs" />
     <Compile Include="ViewModel\KormilarViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="ViewModel\Add\AddPosadaViewModel.cs" />
@@ -168,11 +170,17 @@
     <Compile Include="View\EditBrodView.xaml.cs">
       <DependentUpon>EditBrodView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\EditKapetanView.xaml.cs">
+      <DependentUpon>EditKapetanView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\EditKormilarView.xaml.cs">
       <DependentUpon>EditKormilarView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\EditMornarView.xaml.cs">
       <DependentUpon>EditMornarView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\KapetanView.xaml.cs">
+      <DependentUpon>KapetanView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\KormilarView.xaml.cs">
       <DependentUpon>KormilarView.xaml</DependentUpon>
@@ -248,11 +256,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\EditKapetanView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\EditKormilarView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\EditMornarView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\KapetanView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

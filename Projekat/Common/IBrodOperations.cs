@@ -31,6 +31,8 @@ namespace Common
         [OperationContract]
         BrodskaLinija GetBrodskaLinija(Guid id);
         [OperationContract]
+        void RemoveKapetan(string jmbg);
+        [OperationContract]
         void RemoveBrod(Guid id);
         [OperationContract]
         bool AddTanker(Tanker tanker, Guid idBrodogradiliste);
@@ -70,5 +72,41 @@ namespace Common
         Kormilar GetKormilar(string jmbg);
         [OperationContract]
         IEnumerable<Mornar> GetMornari();
+        [OperationContract]
+        IEnumerable<Kruzer> GetKruzeri();
+        [OperationContract]
+        IEnumerable<Posada> GetPosade();
+        [OperationContract]
+        IEnumerable<Tanker> GetTankeri();
+        [OperationContract]
+        IEnumerable<TeretniBrod> GetTeretniBrodovi();
+        [OperationContract]
+        Kapetan GetKapetan(string jmbg);
+        [OperationContract]
+        Kruzer GetKruzer(Guid id);
+        [OperationContract]
+        Posada GetPosada(Guid id);
+        [OperationContract]
+        Tanker GetTanker(Guid id);
+        [OperationContract]
+        TeretniBrod GetTeretniBrod(Guid id);
+        [OperationContract]
+        void RemoveKruzer(Guid id);
+        [OperationContract]
+        void RemovePosada(Guid id);
+        [OperationContract]
+        void RemoveTanker(Guid id);
+        [OperationContract]
+        void RemoveTeretniBrod(Guid id);
+        [OperationContract]
+        void EditKapetan(Kapetan kapetan);
+        [OperationContract]
+        void EditKruzer(Kruzer kruzer);
+        [OperationContract]
+        void EditPosada(Posada posada);
+        [OperationContract]
+        void EditTanker(Tanker tanker);
+        [OperationContract]
+        void EditTeretniBrod(TeretniBrod teretniBrod);
     }
 }

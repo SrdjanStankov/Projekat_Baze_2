@@ -8,10 +8,12 @@ namespace Server.Repositories
     public class BrodskaLinijaRepository
     {
         private readonly ModelContext ctx;
+        private PosedujeRepository posedujeRepo;
 
         public BrodskaLinijaRepository(ModelContext context)
         {
             ctx = context;
+            posedujeRepo = new PosedujeRepository(context);
         }
 
         public bool Add(Common.Models.BrodskaLinija item)
@@ -41,15 +43,21 @@ namespace Server.Repositories
         public IEnumerable<Common.Models.BrodskaLinija> GetAll()
         {
             var ret = new List<Common.Models.BrodskaLinija>();
-            ctx.Brodska_Linija.AsNoTracking().Include((bl)=> bl.Kapetan).ToList().ForEach((item) =>
-            {
-                var linija = new Common.Models.BrodskaLinija(item.BrLin, item.Naziv, item.Tip, item.Polazna_tacka, item.Krajnja_tacka);
-                foreach (var kap in item.Kapetan)
-                {
-                    linija.Kapetan.Add(new Common.Models.Kapetan(kap.JMBG, kap.Ime, kap.Prezime, kap.Pol, kap.GodRodj.Value));
-                }
-                ret.Add(linija);
-            });
+            ctx.Brodska_Linija.AsNoTracking().Include((bl) => bl.Kapetan).Include((bl) => bl.Poseduje).ToList().ForEach((linija) =>
+               {
+                   var CLinija = new Common.Models.BrodskaLinija(linija.BrLin, linija.Naziv, linija.Tip, linija.Polazna_tacka, linija.Krajnja_tacka);
+                   foreach (var kap in linija.Kapetan)
+                   {
+                       CLinija.Kapetan.Add(new Common.Models.Kapetan(kap.JMBG, kap.Ime, kap.Prezime, kap.Pol, kap.GodRodj.Value));
+                   }
+                   var brod = posedujeRepo.GetBrod(linija.BrLin);
+                   if (brod != null)
+                   {
+                       CLinija.Brodovi.Add(new Common.Models.Brod(brod.IDBroda, brod.Ime, brod.GodGrad, brod.MaxBrzina.Value, brod.Duzina.Value, brod.Sirina.Value)); 
+                   }
+
+                   ret.Add(CLinija);
+               });
             return ret;
         }
 

@@ -94,6 +94,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\PosedujeRepository.cs" />
     <Compile Include="Server.cs" />
     <Compile Include="ShipModel.Context.cs">
       <AutoGen>True</AutoGen>

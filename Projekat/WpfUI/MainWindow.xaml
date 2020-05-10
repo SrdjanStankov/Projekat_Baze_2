@@ -8,7 +8,7 @@
  xmlns:veiwModel="clr-namespace:WpfUI.ViewModel"
  xmlns:view="clr-namespace:WpfUI.View"
  Title="MainWindow"
- Width="947"
+ Width="1000"
  Height="700"
  Background="{DynamicResource MaterialDesignLightBackground}"
  mc:Ignorable="d">
@@ -76,14 +76,16 @@
         <DataTemplate DataType="{x:Type veiwModel:KruzerViewModel}">
             <view:KruzerView />
         </DataTemplate>
+        <DataTemplate DataType="{x:Type veiwModel:PosadaViewModel}">
+            <view:PosadaView />
+        </DataTemplate>
     </Window.Resources>
 
     <Grid>
         <Menu
-         Width="932"
+         Width="992"
          HorizontalAlignment="Center"
          VerticalAlignment="Top">
-            <MenuItem Command="{Binding AddPosadaCommand}" Header="Posada" />
             <MenuItem Command="{Binding KormilarCommand}" Header="Kormilari" />
             <MenuItem Command="{Binding MornarCommand}" Header="Mornari" />
             <MenuItem Command="{Binding BrodogradilisteCommand}" Header="Brodogradilista" />
@@ -93,6 +95,7 @@
             <MenuItem Command="{Binding TeretniBrodCommand}" Header="Teretni brodovi" />
             <MenuItem Command="{Binding TankerCommand}" Header="Tankeri" />
             <MenuItem Command="{Binding KruzerCommand}" Header="Kruzeri" />
+            <MenuItem Command="{Binding PosadaCommand}" Header="Posade" />
         </Menu>
         <ContentControl
          Margin="0,96,0,0"

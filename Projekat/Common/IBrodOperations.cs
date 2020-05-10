@@ -19,6 +19,8 @@ namespace Common
         [OperationContract]
         bool AddKormilar(Kormilar kormilar);
         [OperationContract]
+        Brod GetBrod(Guid id);
+        [OperationContract]
         bool AddKruzer(Kruzer kruzer, Guid idBrodogradiliste);
         [OperationContract]
         Brodogradiliste GetBrodogradiliste(Guid guid);
@@ -29,7 +31,11 @@ namespace Common
         [OperationContract]
         BrodskaLinija GetBrodskaLinija(Guid id);
         [OperationContract]
+        void RemoveBrod(Guid id);
+        [OperationContract]
         bool AddTanker(Tanker tanker, Guid idBrodogradiliste);
+        [OperationContract]
+        void EditBrod(Brod brod);
         [OperationContract]
         void RemoveBrodskaLinija(Guid id);
         [OperationContract]

@@ -10,10 +10,12 @@ namespace WpfUI.Model
         public event Action AddKormilarEvent;
         public event Action AddBrodogradilisteEvent;
         public event Action AddBrodskaLinijaEvent;
+        public event Action AddBrodEvent;
 
         public void RaiseAddBrodogradilisteEvent() => AddBrodogradilisteEvent?.Invoke();
         public void RaiseAddKormilarEvent() => AddKormilarEvent?.Invoke();
         public void RaiseAddMornarEvent() => AddMornarEvent?.Invoke();
         public void RaiseAddBrodskaLinijaEvent() => AddBrodskaLinijaEvent?.Invoke();
+        public void RaiseAddBrodEvent() => AddBrodEvent?.Invoke();
     }
 }

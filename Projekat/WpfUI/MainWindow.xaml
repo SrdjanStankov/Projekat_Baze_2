@@ -61,6 +61,9 @@
         <DataTemplate DataType="{x:Type veiwModel:BrodskaLinijaViewModel}">
             <view:BrodskaLinijaView />
         </DataTemplate>
+        <DataTemplate DataType="{x:Type veiwModel:BrodViewModel}">
+            <view:BrodView />
+        </DataTemplate>
     </Window.Resources>
 
     <Grid>
@@ -68,7 +71,6 @@
          Width="932"
          HorizontalAlignment="Center"
          VerticalAlignment="Top">
-            <MenuItem Command="{Binding AddBrodCommand}" Header="Brod" />
             <MenuItem Command="{Binding AddKapetanCommand}" Header="Kapetan" />
             <MenuItem Command="{Binding AddTeretniBrodCommand}" Header="Teretni brod" />
             <MenuItem Command="{Binding AddTankerCommand}" Header="Tanker" />
@@ -78,6 +80,7 @@
             <MenuItem Command="{Binding MornarCommand}" Header="Mornari" />
             <MenuItem Command="{Binding BrodogradilisteCommand}" Header="Brodogradilista" />
             <MenuItem Command="{Binding BrodskaLinijaCommand}" Header="Brodske linije" />
+            <MenuItem Command="{Binding BrodCommand}" Header="Brodovi" />
         </Menu>
         <ContentControl
          Margin="0,96,0,0"

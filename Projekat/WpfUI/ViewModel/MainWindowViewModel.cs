@@ -1,5 +1,4 @@
-﻿using System;
-using MaterialDesignThemes.Wpf;
+﻿using MaterialDesignThemes.Wpf;
 using WpfUI.Model;
 
 namespace WpfUI.ViewModel
@@ -22,6 +21,7 @@ namespace WpfUI.ViewModel
         private MornarViewModel mornarViewModel = new MornarViewModel();
         private BrodogradilisteViewModel brodogradilisteViewModel = new BrodogradilisteViewModel();
         private BrodskaLinijaViewModel brodskaLinijaViewModel = new BrodskaLinijaViewModel();
+        private BrodViewModel brodViewModel = new BrodViewModel();
 
         public Command AddBrodCommand { get; set; }
         public Command AddKapetanCommand { get; set; }
@@ -34,6 +34,7 @@ namespace WpfUI.ViewModel
         public Command MornarCommand { get; set; }
         public Command BrodogradilisteCommand { get; set; }
         public Command BrodskaLinijaCommand { get; set; }
+        public Command BrodCommand { get; set; }
 
         public SnackbarMessageQueue MessageQueue { get; set; }
 
@@ -46,17 +47,17 @@ namespace WpfUI.ViewModel
         public MainWindowViewModel()
         {
             CurrentViewModel = addKormilarVewModel;
-            AddBrodCommand = new Command(OnAddBrod);
-            AddKapetanCommand = new Command(OnAddKapetan);
-            AddTeretniBrodCommand = new Command(OnAddTeretniBrod);
-            AddTankerCommand = new Command(OnAddTanker);
-            AddKruzerCommand = new Command(OnAddKruzer);
-            AddPosadaCommand = new Command(OnAddPosada);
+            AddKapetanCommand = new Command(() => CurrentViewModel = addKapetanViewModel);
+            AddTeretniBrodCommand = new Command(() => CurrentViewModel = addTeretniBrodViewModel);
+            AddTankerCommand = new Command(() => CurrentViewModel = addTankerViewModel);
+            AddKruzerCommand = new Command(() => CurrentViewModel = addKruzerViewModel);
+            AddPosadaCommand = new Command(() => CurrentViewModel = addPosadaViewModel);
 
-            KormilarCommand = new Command(OnKormilar);
-            MornarCommand = new Command(OnMornar);
-            BrodogradilisteCommand = new Command(OnBrodogradiliste);
-            BrodskaLinijaCommand = new Command(OnBrodskaLinija);
+            KormilarCommand = new Command(() => CurrentViewModel = kormilarViewModel);
+            MornarCommand = new Command(() => CurrentViewModel = mornarViewModel);
+            BrodogradilisteCommand = new Command(() => CurrentViewModel = brodogradilisteViewModel);
+            BrodskaLinijaCommand = new Command(() => CurrentViewModel = brodskaLinijaViewModel);
+            BrodCommand = new Command(() => CurrentViewModel = brodViewModel);
 
             MessageQueue = SnackbarMessageProvider.Instance.MessageQueue;
 
@@ -64,26 +65,7 @@ namespace WpfUI.ViewModel
             ViewCommunicationProvider.Instance.AddMornarEvent += () => CurrentViewModel = addMornarViewModel;
             ViewCommunicationProvider.Instance.AddBrodogradilisteEvent += () => CurrentViewModel = addBrodogradilisteViewModel;
             ViewCommunicationProvider.Instance.AddBrodskaLinijaEvent += () => CurrentViewModel = addBrodskaLinijaViewModel;
+            ViewCommunicationProvider.Instance.AddBrodEvent += () => CurrentViewModel = addBrodViewModel;
         }
-
-        private void OnBrodskaLinija() => CurrentViewModel = brodskaLinijaViewModel;
-
-        private void OnBrodogradiliste() => CurrentViewModel = brodogradilisteViewModel;
-
-        private void OnMornar() => CurrentViewModel = mornarViewModel;
-
-        private void OnKormilar() => CurrentViewModel = kormilarViewModel;
-
-        private void OnAddPosada() => CurrentViewModel = addPosadaViewModel;
-
-        private void OnAddKruzer() => CurrentViewModel = addKruzerViewModel;
-
-        private void OnAddTanker() => CurrentViewModel = addTankerViewModel;
-
-        private void OnAddTeretniBrod() => CurrentViewModel = addTeretniBrodViewModel;
-
-        private void OnAddKapetan() => CurrentViewModel = addKapetanViewModel;
-
-        private void OnAddBrod() => CurrentViewModel = addBrodViewModel;
     }
 }

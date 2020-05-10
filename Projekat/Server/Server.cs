@@ -31,15 +31,18 @@ namespace Server
         public Common.Models.Kormilar GetKormilar(string jmbg) => repository.KormilarRepository.Get(jmbg);
         public Common.Models.Brodogradiliste GetBrodogradiliste(Guid guid) => repository.BrodogradilisteRepository.Get(guid);
         public BrodskaLinija GetBrodskaLinija(Guid id) => repository.BrodskaLinijaRepository.Get(id);
+        public Common.Models.Brod GetBrod(Guid id) => repository.BrodRepository.Get(id);
 
         public void RemoveKormilar(string jmbg) => repository.KormilarRepository.Remove(jmbg);
         public void RemoveMornar(string jmbg) => repository.MornarRepository.Remove(jmbg);
         public void RemoveBrodogradiliste(Guid idBrodogradililste) => repository.BrodogradilisteRepository.Remove(idBrodogradililste);
         public void RemoveBrodskaLinija(Guid id) => repository.BrodskaLinijaRepository.Remove(id);
+        public void RemoveBrod(Guid id) => repository.BrodRepository.Remove(id);
 
         public void EditKormilar(Common.Models.Kormilar kormilar) => repository.KormilarRepository.Update(kormilar);
         public void EditMornar(Common.Models.Mornar mornar) => repository.MornarRepository.Update(mornar);
         public void EditBrodogradiliste(Common.Models.Brodogradiliste brodogradiliste) => repository.BrodogradilisteRepository.Update(brodogradiliste);
         public void EditBrodskaLinija(BrodskaLinija brodskaLinija) => repository.BrodskaLinijaRepository.Update(brodskaLinija);
+        public void EditBrod(Common.Models.Brod brod) => repository.BrodRepository.Update(brod);
     }
 }

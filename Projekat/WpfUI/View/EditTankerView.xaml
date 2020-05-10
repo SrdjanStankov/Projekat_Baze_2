@@ -1,0 +1,133 @@
+﻿<Window
+ x:Class="WpfUI.View.EditTankerView"
+ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+ xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+ xmlns:design="http://materialdesigninxaml.net/winfx/xaml/themes"
+ xmlns:local="clr-namespace:WpfUI.View"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:toolkit="http://schemas.xceed.com/wpf/xaml/toolkit"
+ xmlns:validationrules="clr-namespace:WpfUI.Model.ValidationRules"
+ Name="win"
+ Title="Edit"
+ Width="227"
+ Height="470"
+ WindowStartupLocation="CenterOwner"
+ WindowStyle="ToolWindow"
+ mc:Ignorable="d">
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBox
+             Width="200"
+             Margin="0,0,0,15"
+             design:HintAssist.Hint="Ime"
+             Style="{DynamicResource MaterialDesignFloatingHintTextBox}">
+                <TextBox.Text>
+                    <Binding Path="Ime">
+                        <Binding.ValidationRules>
+                            <validationrules:NotEmptyOrNullStringValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+            <Label Width="200" Style="{DynamicResource MaterialDesignLabel}">Godina gradnje:</Label>
+            <toolkit:DateTimePicker
+             Width="200"
+             Margin="0,5"
+             AllowSpin="True"
+             AllowTextInput="False"
+             AutoCloseCalendar="True"
+             Format="ShortDate"
+             TimePickerVisibility="Hidden"
+             Watermark="Godina gradnje">
+                <toolkit:DateTimePicker.Value>
+                    <Binding Path="GodGrad">
+                        <Binding.ValidationRules>
+                            <validationrules:NotEmptyOrNullStringValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </toolkit:DateTimePicker.Value>
+            </toolkit:DateTimePicker>
+            <Label Width="200" Style="{DynamicResource MaterialDesignLabel}">Maksimalna brzina:</Label>
+            <toolkit:IntegerUpDown
+             Width="200"
+             Margin="0,5"
+             FormatString="N0"
+             Increment="1"
+             Watermark="Maksmialna brzina">
+                <toolkit:IntegerUpDown.Value>
+                    <Binding Path="MaxBrzina">
+                        <Binding.ValidationRules>
+                            <validationrules:NotEmptyOrNullStringValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </toolkit:IntegerUpDown.Value>
+            </toolkit:IntegerUpDown>
+            <Label Width="200" Style="{DynamicResource MaterialDesignLabel}">Duzina:</Label>
+            <toolkit:IntegerUpDown
+             Width="200"
+             Margin="0,5"
+             FormatString="N0"
+             Increment="1"
+             Watermark="Duzina">
+                <toolkit:IntegerUpDown.Value>
+                    <Binding Path="Duzina">
+                        <Binding.ValidationRules>
+                            <validationrules:NotEmptyOrNullStringValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </toolkit:IntegerUpDown.Value>
+            </toolkit:IntegerUpDown>
+            <Label Width="200" Style="{DynamicResource MaterialDesignLabel}">Sirina:</Label>
+            <toolkit:IntegerUpDown
+             Width="200"
+             Margin="0,5,0,0"
+             FormatString="N0"
+             Increment="1"
+             Watermark="Sirina">
+                <toolkit:IntegerUpDown.Value>
+                    <Binding Path="Sirina">
+                        <Binding.ValidationRules>
+                            <validationrules:NotEmptyOrNullStringValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </toolkit:IntegerUpDown.Value>
+            </toolkit:IntegerUpDown>
+            <Label Width="200" Style="{DynamicResource MaterialDesignLabel}">Nosivost:</Label>
+            <toolkit:IntegerUpDown
+             Width="200"
+             Margin="0,5,0,0"
+             FormatString="N0"
+             Increment="1"
+             Watermark="Nosivost">
+                <toolkit:IntegerUpDown.Value>
+                    <Binding Path="Nosivost">
+                        <Binding.ValidationRules>
+                            <validationrules:NotEmptyOrNullStringValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </toolkit:IntegerUpDown.Value>
+            </toolkit:IntegerUpDown>
+            <TextBox
+             Width="200"
+             Margin="0,0,0,15"
+             design:HintAssist.Hint="Tip tereta"
+             Style="{DynamicResource MaterialDesignFloatingHintTextBox}">
+                <TextBox.Text>
+                    <Binding Path="TipTeret">
+                        <Binding.ValidationRules>
+                            <validationrules:NotEmptyOrNullStringValidationRule ValidatesOnTargetUpdated="True" ValidationStep="UpdatedValue" />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+
+            <Button
+             Width="200"
+             Margin="0,5"
+             Command="{Binding EditCommand}"
+             CommandParameter="{Binding ElementName=win}"
+             Content="Save" />
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Entity;
 
 namespace Server.Repositories
 {
@@ -40,9 +41,14 @@ namespace Server.Repositories
         public IEnumerable<Common.Models.BrodskaLinija> GetAll()
         {
             var ret = new List<Common.Models.BrodskaLinija>();
-            ctx.Brodska_Linija.AsNoTracking().ToList().ForEach((item) =>
+            ctx.Brodska_Linija.AsNoTracking().Include((bl)=> bl.Kapetan).ToList().ForEach((item) =>
             {
-                ret.Add(new Common.Models.BrodskaLinija(item.BrLin, item.Naziv, item.Tip, item.Polazna_tacka, item.Krajnja_tacka));
+                var linija = new Common.Models.BrodskaLinija(item.BrLin, item.Naziv, item.Tip, item.Polazna_tacka, item.Krajnja_tacka);
+                foreach (var kap in item.Kapetan)
+                {
+                    linija.Kapetan.Add(new Common.Models.Kapetan(kap.JMBG, kap.Ime, kap.Prezime, kap.Pol, kap.GodRodj.Value));
+                }
+                ret.Add(linija);
             });
             return ret;
         }

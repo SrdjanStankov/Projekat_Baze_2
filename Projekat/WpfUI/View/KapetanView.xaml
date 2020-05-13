@@ -42,8 +42,6 @@
                 <DataGridTextColumn Binding="{Binding Prezime}" Header="Prezime" />
                 <DataGridTextColumn Binding="{Binding Pol}" Header="Pol" />
                 <DataGridTextColumn Binding="{Binding GodRodj}" Header="Godina rodjenja" />
-                <DataGridTextColumn Binding="{Binding Brod}" Header="Brod" />
-                <DataGridTextColumn Binding="{Binding BrodskaLinija}" Header="Brodska linija" />
                 <DataGridTemplateColumn Width="110">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -71,6 +69,29 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
+
+            <DataGrid.RowDetailsTemplate>
+                <DataTemplate>
+                    <StackPanel MaxHeight="150" HorizontalAlignment="Center">
+                        <StackPanel Orientation="Vertical">
+                            <StackPanel Orientation="Horizontal">
+                                <Label HorizontalAlignment="Center" Content="Brod: " />
+                                <Label Content="{Binding Brod.Ime}" />
+                                <Label Content="{Binding Brod.GodGrad}" />
+                                <Label Content="{Binding Brod.MaxBrzina}" />
+                            </StackPanel>
+                            <Separator Style="{DynamicResource MaterialDesignDarkSeparator}" />
+                            <StackPanel Orientation="Horizontal">
+                                <Label HorizontalAlignment="Center" Content="Linija: " />
+                                <Label Content="{Binding BrodskaLinija.Naziv}" />
+                                <Label Content="{Binding BrodskaLinija.Tip}" />
+                                <Label Content="{Binding BrodskaLinija.Polazna_tacka}" />
+                                <Label Content="{Binding BrodskaLinija.Krajnja_tacka}" />
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </DataGrid.RowDetailsTemplate>
         </DataGrid>
     </Grid>
 </UserControl>

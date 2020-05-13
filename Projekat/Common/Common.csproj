@@ -42,7 +42,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IBrodOperations.cs" />
+    <Compile Include="Interfaces\IAddBrodOperations.cs" />
+    <Compile Include="Interfaces\IBrodOperations.cs" />
+    <Compile Include="Interfaces\IEditBrodOperations.cs" />
+    <Compile Include="Interfaces\IGetBrodOperations.cs" />
+    <Compile Include="Interfaces\IGetMultipleBrodOperations.cs" />
+    <Compile Include="Interfaces\IGetSingleBrodOperations.cs" />
+    <Compile Include="Interfaces\IRemoveBrodOperations.cs" />
     <Compile Include="Models\Brod.cs" />
     <Compile Include="Models\Brodogoradiliste.cs" />
     <Compile Include="Models\BrodskaLinija.cs" />

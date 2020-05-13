@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 
 namespace Server.Repositories
@@ -75,10 +76,21 @@ namespace Server.Repositories
         public IEnumerable<Common.Models.Posada> GetAll()
         {
             var ret = new List<Common.Models.Posada>();
-            ctx.Posada.AsNoTracking().ToList().ForEach((item) =>
-            {
-                ret.Add(new Common.Models.Posada(item.ID, item.Ime, item.Kapacitet.Value));
-            });
+            ctx.Posada.AsNoTracking().Include((p) => p.Brod).Include((p) => p.Kapetan).Include((p) => p.Kormilar).Include((p) => p.Mornar).ToList().ForEach((posada) =>
+             {
+                 var CPosada = new Common.Models.Posada(posada.ID, posada.Ime, posada.Kapacitet.Value)
+                 {
+                     Brod = new Common.Models.Brod(posada.Brod.IDBroda, posada.Brod.Ime, posada.Brod.GodGrad, posada.Brod.MaxBrzina.Value, posada.Brod.Duzina.Value, posada.Brod.Sirina.Value),
+                     Kapetan = new Common.Models.Kapetan(posada.Kapetan.JMBG, posada.Kapetan.Ime, posada.Kapetan.Prezime, posada.Kapetan.Pol, posada.Kapetan.GodRodj.Value),
+                     Kormilar = new Common.Models.Kormilar(posada.Kormilar.JMBG, posada.Kormilar.Ime, posada.Kormilar.Prezime, posada.Kormilar.Pol),
+                     Mornari = new List<Common.Models.Mornar>()
+                 };
+                 foreach (var m in posada.Mornar)
+                 {
+                     CPosada.Mornari.Add(new Common.Models.Mornar(m.JMBG, m.Ime, m.Prezime, m.Pol, m.Rank));
+                 }
+                 ret.Add(CPosada);
+             });
             return ret;
         }
 

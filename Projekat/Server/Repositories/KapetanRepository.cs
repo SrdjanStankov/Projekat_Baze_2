@@ -55,13 +55,15 @@ namespace Server.Repositories
         public IEnumerable<Common.Models.Kapetan> GetAll()
         {
             var ret = new List<Common.Models.Kapetan>();
-            ctx.Kapetan.AsNoTracking().Include((k)=> k.Brod).Include((k)=> k.Brodska_Linija).ToList().ForEach((kapetan) =>
-            {
-                var CKapetan = new Common.Models.Kapetan(kapetan.JMBG, kapetan.Ime, kapetan.Prezime, kapetan.Pol, kapetan.GodRodj.Value);
-                CKapetan.Brod = new Common.Models.Brod(kapetan.Brod.IDBroda, kapetan.Brod.Ime, kapetan.Brod.GodGrad, kapetan.Brod.MaxBrzina.Value, kapetan.Brod.Duzina.Value, kapetan.Brod.Sirina.Value);
-                CKapetan.BrodskaLinija = new Common.Models.BrodskaLinija(kapetan.Brodska_Linija.BrLin, kapetan.Brodska_Linija.Naziv, kapetan.Brodska_Linija.Tip, kapetan.Brodska_Linija.Polazna_tacka, kapetan.Brodska_Linija.Krajnja_tacka);
-                ret.Add(CKapetan);
-            });
+            ctx.Kapetan.AsNoTracking().Include((k) => k.Brod).Include((k) => k.Brodska_Linija).ToList().ForEach((kapetan) =>
+              {
+                  var CKapetan = new Common.Models.Kapetan(kapetan.JMBG, kapetan.Ime, kapetan.Prezime, kapetan.Pol, kapetan.GodRodj.Value)
+                  {
+                      Brod = new Common.Models.Brod(kapetan.Brod.IDBroda, kapetan.Brod.Ime, kapetan.Brod.GodGrad, kapetan.Brod.MaxBrzina.Value, kapetan.Brod.Duzina.Value, kapetan.Brod.Sirina.Value),
+                      BrodskaLinija = new Common.Models.BrodskaLinija(kapetan.Brodska_Linija.BrLin, kapetan.Brodska_Linija.Naziv, kapetan.Brodska_Linija.Tip, kapetan.Brodska_Linija.Polazna_tacka, kapetan.Brodska_Linija.Krajnja_tacka)
+                  };
+                  ret.Add(CKapetan);
+              });
             return ret;
         }
 

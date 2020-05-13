@@ -41,8 +41,6 @@
                 <DataGridTextColumn Binding="{Binding Tip}" Header="Tip" />
                 <DataGridTextColumn Binding="{Binding Polazna_tacka}" Header="Polazna tacka" />
                 <DataGridTextColumn Binding="{Binding Krajnja_tacka}" Header="Krajnja tacka" />
-                <DataGridTextColumn Binding="{Binding Kapetan}" Header="Kapetani" />
-                <DataGridTextColumn Binding="{Binding Brodovi}" Header="Brodovi" />
                 <DataGridTemplateColumn Width="110">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -70,6 +68,53 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
+
+            <DataGrid.RowDetailsTemplate>
+                <DataTemplate>
+                    <DockPanel MaxHeight="150" HorizontalAlignment="Stretch">
+                        <StackPanel DockPanel.Dock="Left">
+                            <Label
+                             HorizontalAlignment="Center"
+                             Content="Kapetani"
+                             Style="{DynamicResource MaterialDesignLabel}" />
+                            <DataGrid
+                             HorizontalAlignment="Left"
+                             AutoGenerateColumns="False"
+                             CanUserAddRows="False"
+                             CanUserDeleteRows="False"
+                             IsReadOnly="True"
+                             ItemsSource="{Binding Kapetan}"
+                             VerticalScrollBarVisibility="Auto">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Binding="{Binding JMBG}" Header="JMBG" />
+                                    <DataGridTextColumn Binding="{Binding Ime}" Header="Ime" />
+                                    <DataGridTextColumn Binding="{Binding Prezime}" Header="Prezime" />
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </StackPanel>
+
+                        <StackPanel DockPanel.Dock="Right">
+                            <Label
+                             HorizontalAlignment="Center"
+                             Content="Brodovi"
+                             Style="{DynamicResource MaterialDesignLabel}" />
+                            <DataGrid
+                             HorizontalAlignment="Right"
+                             AutoGenerateColumns="False"
+                             CanUserAddRows="False"
+                             CanUserDeleteRows="False"
+                             IsReadOnly="True"
+                             ItemsSource="{Binding Brodovi}"
+                             VerticalScrollBarVisibility="Auto">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Binding="{Binding Ime}" Header="Ime" />
+                                    <DataGridTextColumn Binding="{Binding GodGrad}" Header="Godina gradnje" />
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </StackPanel>
+                    </DockPanel>
+                </DataTemplate>
+            </DataGrid.RowDetailsTemplate>
         </DataGrid>
     </Grid>
 </UserControl>

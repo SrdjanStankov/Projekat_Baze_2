@@ -8,14 +8,8 @@ namespace WpfUI.Model
         public static SnackbarMessageProvider Instance { get; } = new SnackbarMessageProvider();
         public SnackbarMessageQueue MessageQueue { get; set; } = new SnackbarMessageQueue(TimeSpan.FromSeconds(2));
 
-        public void Enqueue(object content)
-        {
-            MessageQueue.Enqueue(content);
-        }
+        public void Enqueue(object content) => MessageQueue.Enqueue(content);
 
-        public void Enqueue(object content, bool neverConsiderToBeDuplicate)
-        {
-            MessageQueue.Enqueue(content, neverConsiderToBeDuplicate);
-        }
+        public void Enqueue(object content, bool neverConsiderToBeDuplicate) => MessageQueue.Enqueue(content, neverConsiderToBeDuplicate);
     }
 }

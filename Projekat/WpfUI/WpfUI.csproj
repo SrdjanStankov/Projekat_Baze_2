@@ -90,7 +90,7 @@
     <Compile Include="Model\DatabaseCommunicationProvider.cs" />
     <Compile Include="Model\SnackbarMessageProvider.cs" />
     <Compile Include="Model\ValidationRules\JmbgValidationRule.cs" />
-    <Compile Include="Model\ValidationRules\NotEmptyValidationRule.cs" />
+    <Compile Include="Model\ValidationRules\NotEmptyOrNullStringValidationRule.cs" />
     <Compile Include="Model\ValidationRules\NotNullValidationRule.cs" />
     <Compile Include="Model\ViewCommunicationProvider.cs" />
     <Compile Include="ValidationBase.cs" />
@@ -104,16 +104,16 @@
     <Compile Include="ViewModel\Add\AddKruzerViewModel.cs" />
     <Compile Include="ViewModel\BrodogradilisteViewModel.cs" />
     <Compile Include="ViewModel\BrodskaLinijaViewModel.cs" />
-    <Compile Include="ViewModel\EditBrodogradilisteViewModel.cs" />
-    <Compile Include="ViewModel\EditBrodskaLinijaViewModel.cs" />
-    <Compile Include="ViewModel\EditBrodViewModel.cs" />
-    <Compile Include="ViewModel\EditKapetanViewModel.cs" />
-    <Compile Include="ViewModel\EditKormilarViewModel.cs" />
-    <Compile Include="ViewModel\EditKruzerViewModel.cs" />
-    <Compile Include="ViewModel\EditMornarViewModel.cs" />
-    <Compile Include="ViewModel\EditPosadaViewModel.cs" />
-    <Compile Include="ViewModel\EditTankerViewModel.cs" />
-    <Compile Include="ViewModel\EditTeretniBrodViewModel.cs" />
+    <Compile Include="ViewModel\Edit\EditBrodogradilisteViewModel.cs" />
+    <Compile Include="ViewModel\Edit\EditBrodskaLinijaViewModel.cs" />
+    <Compile Include="ViewModel\Edit\EditBrodViewModel.cs" />
+    <Compile Include="ViewModel\Edit\EditKapetanViewModel.cs" />
+    <Compile Include="ViewModel\Edit\EditKormilarViewModel.cs" />
+    <Compile Include="ViewModel\Edit\EditKruzerViewModel.cs" />
+    <Compile Include="ViewModel\Edit\EditMornarViewModel.cs" />
+    <Compile Include="ViewModel\Edit\EditPosadaViewModel.cs" />
+    <Compile Include="ViewModel\Edit\EditTankerViewModel.cs" />
+    <Compile Include="ViewModel\Edit\EditTeretniBrodViewModel.cs" />
     <Compile Include="ViewModel\KapetanViewModel.cs" />
     <Compile Include="ViewModel\KormilarViewModel.cs" />
     <Compile Include="ViewModel\KruzerViewModel.cs" />
@@ -169,34 +169,34 @@
     <Compile Include="View\BrodView.xaml.cs">
       <DependentUpon>BrodView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\EditBrodogradililsteView.xaml.cs">
+    <Compile Include="View\Edit\EditBrodogradililsteView.xaml.cs">
       <DependentUpon>EditBrodogradililsteView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\EditBrodskaLinijaView.xaml.cs">
+    <Compile Include="View\Edit\EditBrodskaLinijaView.xaml.cs">
       <DependentUpon>EditBrodskaLinijaView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\EditBrodView.xaml.cs">
+    <Compile Include="View\Edit\EditBrodView.xaml.cs">
       <DependentUpon>EditBrodView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\EditKapetanView.xaml.cs">
+    <Compile Include="View\Edit\EditKapetanView.xaml.cs">
       <DependentUpon>EditKapetanView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\EditKormilarView.xaml.cs">
+    <Compile Include="View\Edit\EditKormilarView.xaml.cs">
       <DependentUpon>EditKormilarView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\EditKruzerView.xaml.cs">
+    <Compile Include="View\Edit\EditKruzerView.xaml.cs">
       <DependentUpon>EditKruzerView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\EditMornarView.xaml.cs">
+    <Compile Include="View\Edit\EditMornarView.xaml.cs">
       <DependentUpon>EditMornarView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\EditPosadaView.xaml.cs">
+    <Compile Include="View\Edit\EditPosadaView.xaml.cs">
       <DependentUpon>EditPosadaView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\EditTankerView.xaml.cs">
+    <Compile Include="View\Edit\EditTankerView.xaml.cs">
       <DependentUpon>EditTankerView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\EditTeretniBrodView.xaml.cs">
+    <Compile Include="View\Edit\EditTeretniBrodView.xaml.cs">
       <DependentUpon>EditTeretniBrodView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\KapetanView.xaml.cs">
@@ -276,43 +276,43 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\EditBrodogradililsteView.xaml">
+    <Page Include="View\Edit\EditBrodogradililsteView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\EditBrodskaLinijaView.xaml">
+    <Page Include="View\Edit\EditBrodskaLinijaView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\EditBrodView.xaml">
+    <Page Include="View\Edit\EditBrodView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\EditKapetanView.xaml">
+    <Page Include="View\Edit\EditKapetanView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\EditKormilarView.xaml">
+    <Page Include="View\Edit\EditKormilarView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\EditKruzerView.xaml">
+    <Page Include="View\Edit\EditKruzerView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\EditMornarView.xaml">
+    <Page Include="View\Edit\EditMornarView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\EditPosadaView.xaml">
+    <Page Include="View\Edit\EditPosadaView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\EditTankerView.xaml">
+    <Page Include="View\Edit\EditTankerView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\EditTeretniBrodView.xaml">
+    <Page Include="View\Edit\EditTeretniBrodView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

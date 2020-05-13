@@ -1,9 +1,9 @@
-﻿using Common.Models;
+﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System;
-using WpfUI.Model.ValidationRules;
+using Common.Models;
 using WpfUI.Model;
+using WpfUI.Model.ValidationRules;
 
 namespace WpfUI.ViewModel
 {

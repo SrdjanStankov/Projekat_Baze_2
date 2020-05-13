@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Data.Entity;
+using System.Linq;
 
 namespace Server.Repositories
 {
@@ -53,7 +53,7 @@ namespace Server.Repositories
                    var brod = posedujeRepo.GetBrod(linija.BrLin);
                    if (brod != null)
                    {
-                       CLinija.Brodovi.Add(new Common.Models.Brod(brod.IDBroda, brod.Ime, brod.GodGrad, brod.MaxBrzina.Value, brod.Duzina.Value, brod.Sirina.Value)); 
+                       CLinija.Brodovi.Add(new Common.Models.Brod(brod.IDBroda, brod.Ime, brod.GodGrad, brod.MaxBrzina.Value, brod.Duzina.Value, brod.Sirina.Value));
                    }
 
                    ret.Add(CLinija);

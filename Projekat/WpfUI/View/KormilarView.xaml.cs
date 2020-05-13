@@ -23,7 +23,7 @@ namespace WpfUI.View
                 DataContext = new EditKormilarViewModel(kormilar),
                 Owner = Window.GetWindow(this)
             }.ShowDialog();
-            
+
             var kormilarViewModel = (DataContext as KormilarViewModel);
             kormilarViewModel.Kormilari = kormilarViewModel.Kormilari;
         }

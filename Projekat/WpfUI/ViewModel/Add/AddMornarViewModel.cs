@@ -1,5 +1,4 @@
-﻿using System;
-using System.Globalization;
+﻿using System.Globalization;
 using Common.Models;
 using WpfUI.Model;
 using WpfUI.Model.ValidationRules;

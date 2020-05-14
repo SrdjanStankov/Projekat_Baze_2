@@ -71,6 +71,31 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
+
+            <DataGrid.RowDetailsTemplate>
+                <DataTemplate>
+                    <ScrollViewer MaxHeight="150" VerticalScrollBarVisibility="Auto">
+                        <StackPanel HorizontalAlignment="Center">
+                            <Label HorizontalAlignment="Center" Content="Mornari: " />
+                            <DataGrid
+                             HorizontalAlignment="Center"
+                             AutoGenerateColumns="False"
+                             CanUserAddRows="False"
+                             CanUserDeleteRows="False"
+                             IsReadOnly="True"
+                             ItemsSource="{Binding Mornari}"
+                             VerticalScrollBarVisibility="Auto"
+                             Visibility="{Binding Mornari, TargetNullValue=Collapsed}">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Binding="{Binding JMBG}" Header="JMBG" />
+                                    <DataGridTextColumn Binding="{Binding Ime}" Header="Ime" />
+                                    <DataGridTextColumn Binding="{Binding Prezime}" Header="Prezime" />
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </StackPanel>
+                    </ScrollViewer>
+                </DataTemplate>
+            </DataGrid.RowDetailsTemplate>
         </DataGrid>
     </Grid>
 </UserControl>

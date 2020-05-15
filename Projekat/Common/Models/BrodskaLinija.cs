@@ -27,5 +27,6 @@ namespace Common.Models
         public ICollection<Brod> Brodovi { get; set; } = new HashSet<Brod>();
 
         public override string ToString() => $"{Naziv}, {Polazna_tacka}, {Krajnja_tacka}";
+        public override bool Equals(object obj) => (obj as BrodskaLinija)?.BrojLinije == BrojLinije;
     }
 }

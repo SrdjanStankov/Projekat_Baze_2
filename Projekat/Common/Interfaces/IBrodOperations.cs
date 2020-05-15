@@ -11,5 +11,7 @@ namespace Common
         void AddMornarToPosada(string mornarJmbg, Guid selectedPosadaId);
         [OperationContract]
         void AddMoranrToTeretniBrod(string mornarJmbg, Guid iD);
+        [OperationContract]
+        void AddBrodToLinija(Guid brodId, Guid brojLinije);
     }
 }

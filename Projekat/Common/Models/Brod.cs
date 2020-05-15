@@ -24,6 +24,7 @@ namespace Common.Models
         public int MaxBrzina { get; set; }
         public int Duzina { get; set; }
         public int Sirina { get; set; }
+        public BrodskaLinija BrodskaLinija { get; set; }
 
         public override string ToString() => $"{Ime}, {GodGrad.ToShortDateString()}";
     }

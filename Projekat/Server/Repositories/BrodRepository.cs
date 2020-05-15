@@ -1,16 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Entity;
 
 namespace Server.Repositories
 {
     public class BrodRepository
     {
         private readonly ModelContext ctx;
+        private PosedujeRepository posedujeRepo;
 
         public BrodRepository(ModelContext context)
         {
             ctx = context;
+            posedujeRepo = new PosedujeRepository(context);
         }
 
         public bool Add(Common.Models.Brod item, Guid idBrodogradilista)
@@ -42,15 +45,28 @@ namespace Server.Repositories
         public Common.Models.Brod Get(Guid id)
         {
             var brod = ctx.Brod.AsNoTracking().FirstOrDefault((item) => item.IDBroda == id);
-            return new Common.Models.Brod(brod.IDBroda, brod.Ime, brod.GodGrad, brod.MaxBrzina.Value, brod.Duzina.Value, brod.Sirina.Value);
+            var CBrod = new Common.Models.Brod(brod.IDBroda, brod.Ime, brod.GodGrad, brod.MaxBrzina.Value, brod.Duzina.Value, brod.Sirina.Value);
+
+            var linija = posedujeRepo.GetLinija(brod.IDBroda);
+            if (linija != null)
+            {
+                CBrod.BrodskaLinija = new Common.Models.BrodskaLinija(linija.BrLin, linija.Naziv, linija.Tip, linija.Polazna_tacka, linija.Krajnja_tacka);
+            }
+            return CBrod;
         }
 
         public IEnumerable<Common.Models.Brod> GetAll()
         {
             var ret = new List<Common.Models.Brod>();
-            ctx.Brod.AsNoTracking().ToList().ForEach((item) =>
+            ctx.Brod.Include((bl) => bl.Poseduje).AsNoTracking().ToList().ForEach((item) =>
             {
-                ret.Add(new Common.Models.Brod(item.IDBroda, item.Ime, item.GodGrad, item.MaxBrzina.Value, item.Duzina.Value, item.Sirina.Value));
+                var brod = new Common.Models.Brod(item.IDBroda, item.Ime, item.GodGrad, item.MaxBrzina.Value, item.Duzina.Value, item.Sirina.Value);
+                var linija = posedujeRepo.GetLinija(brod.ID);
+                if (linija != null)
+                {
+                    brod.BrodskaLinija = new Common.Models.BrodskaLinija(linija.BrLin, linija.Naziv, linija.Tip, linija.Polazna_tacka, linija.Krajnja_tacka);
+                }
+                ret.Add(brod);
             });
             return ret;
         }
@@ -66,6 +82,13 @@ namespace Server.Repositories
         {
             ctx.Brod.Remove(ctx.Brod.FirstOrDefault((item) => item.IDBroda == id));
             ctx.SaveChanges();
+        }
+
+        public void AddLinija(Guid brodId, Guid brojLinije)
+        {
+            var brod = ctx.Brod.FirstOrDefault((b) => b.IDBroda == brodId);
+            var linija = ctx.Brodska_Linija.FirstOrDefault((l) => l.BrLin == brojLinije);
+            posedujeRepo.Add(brod, linija);
         }
 
         ~BrodRepository()

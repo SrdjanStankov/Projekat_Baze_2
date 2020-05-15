@@ -50,8 +50,8 @@ namespace Server.Repositories
                    {
                        CLinija.Kapetan.Add(new Common.Models.Kapetan(kap.JMBG, kap.Ime, kap.Prezime, kap.Pol, kap.GodRodj.Value));
                    }
-                   var brod = posedujeRepo.GetBrod(linija.BrLin);
-                   if (brod != null)
+                   var brodovi = posedujeRepo.GetBrodAll(linija.BrLin);
+                   foreach (var brod in brodovi)
                    {
                        CLinija.Brodovi.Add(new Common.Models.Brod(brod.IDBroda, brod.Ime, brod.GodGrad, brod.MaxBrzina.Value, brod.Duzina.Value, brod.Sirina.Value));
                    }

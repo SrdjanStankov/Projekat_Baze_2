@@ -66,5 +66,6 @@ namespace Server
 
         public void AddMornarToPosada(string mornarJmbg, Guid selectedPosadaId) => repository.MornarRepository.AddPosada(mornarJmbg, selectedPosadaId);
         public void AddMoranrToTeretniBrod(string mornarJmbg, Guid iD) => repository.MornarRepository.AddTeretniBrod(mornarJmbg, iD);
+        public void AddBrodToLinija(Guid brodId, Guid brojLinije) => repository.BrodRepository.AddLinija(brodId, brojLinije);
     }
 }

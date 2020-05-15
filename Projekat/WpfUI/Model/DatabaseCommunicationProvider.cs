@@ -27,6 +27,7 @@ namespace WpfUI.Model
         internal Kapetan GetKapetan(string jmbg) => proxy.GetKapetan(jmbg);
         internal void AddMornarToPosada(string mornarJmbg, Guid selectedPosadaId) => proxy.AddMornarToPosada(mornarJmbg, selectedPosadaId);
         internal void EditPosada(Posada posada) => proxy.EditPosada(posada);
+        internal void AddMoranrToTeretniBrod(string mornarJmbg, Guid iD) => proxy.AddMoranrToTeretniBrod(mornarJmbg, iD);
         internal void RemovePosada(Guid id) => proxy.RemovePosada(id);
         internal bool AddKormilar(Kormilar kormilar) => proxy.AddKormilar(kormilar);
         internal Brod GetBrod(Guid id) => proxy.GetBrod(id);

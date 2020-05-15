@@ -24,8 +24,7 @@ namespace WpfUI.View
                 Owner = Window.GetWindow(this)
             }.ShowDialog();
 
-            var mornarViewModel = (DataContext as MornarViewModel);
-            mornarViewModel.Mornari = mornarViewModel.Mornari;
+            RefreshTable();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -37,7 +36,24 @@ namespace WpfUI.View
                 Owner = Window.GetWindow(this)
             }.ShowDialog();
 
-            var mornarViewModel = (DataContext as MornarViewModel);
+            RefreshTable();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            var mornar = DatabaseCommunicationProvider.Instance.GetMornar((sender as Button).CommandParameter as string);
+            _ = new AddMornarToTeretniBrod
+            {
+                DataContext = new ViewModel.AddMornarToTeretniBrod(mornar.JMBG, mornar.TeretniBrod),
+                Owner = Window.GetWindow(this)
+            }.ShowDialog();
+
+            RefreshTable();
+        }
+
+        private void RefreshTable()
+        {
+            var mornarViewModel = DataContext as MornarViewModel;
             mornarViewModel.Mornari = mornarViewModel.Mornari;
         }
     }

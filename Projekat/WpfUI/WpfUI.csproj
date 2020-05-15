@@ -87,6 +87,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\AddMornarToPosadaViewModel.cs" />
+    <Compile Include="ViewModel\AddMornarToTeretniBrod.cs" />
     <Compile Include="ViewModel\BrodViewModel.cs" />
     <Compile Include="Model\DatabaseCommunicationProvider.cs" />
     <Compile Include="Model\SnackbarMessageProvider.cs" />
@@ -128,6 +129,9 @@
     <Compile Include="ViewModel\TeretniBrodViewModel.cs" />
     <Compile Include="View\AddMornarToPosadaView.xaml.cs">
       <DependentUpon>AddMornarToPosadaView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AddMornarToTeretniBrod.xaml.cs">
+      <DependentUpon>AddMornarToTeretniBrod.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Add\AddBrodogradilisteView.xaml.cs">
       <DependentUpon>AddBrodogradilisteView.xaml</DependentUpon>
@@ -229,6 +233,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\AddMornarToPosadaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AddMornarToTeretniBrod.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 
 namespace Server.Repositories
@@ -53,10 +54,15 @@ namespace Server.Repositories
         public IEnumerable<Common.Models.TeretniBrod> GetAll()
         {
             var ret = new List<Common.Models.TeretniBrod>();
-            ctx.Teretni_Brod.AsNoTracking().ToList().ForEach((item) =>
-            {
-                ret.Add(new Common.Models.TeretniBrod(item.IDBroda, item.Brod.Ime, item.Brod.GodGrad, item.Brod.MaxBrzina.Value, item.Brod.Duzina.Value, item.Brod.Sirina.Value, item.KapacTeret.Value, item.StatUtov));
-            });
+            ctx.Teretni_Brod.Include((t) => t.Mornar).AsNoTracking().ToList().ForEach((item) =>
+              {
+                  var teretniBrod = new Common.Models.TeretniBrod(item.IDBroda, item.Brod.Ime, item.Brod.GodGrad, item.Brod.MaxBrzina.Value, item.Brod.Duzina.Value, item.Brod.Sirina.Value, item.KapacTeret.Value, item.StatUtov);
+                  foreach (var mornar in item.Mornar)
+                  {
+                      teretniBrod.Mornari.Add(new Common.Models.Mornar(mornar.JMBG, mornar.Ime, mornar.Prezime, mornar.Pol, mornar.Rank));
+                  }
+                  ret.Add(teretniBrod);
+              });
             return ret;
         }
 

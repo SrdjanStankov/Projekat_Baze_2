@@ -9,5 +9,7 @@ namespace Common
     {
         [OperationContract]
         void AddMornarToPosada(string mornarJmbg, Guid selectedPosadaId);
+        [OperationContract]
+        void AddMoranrToTeretniBrod(string mornarJmbg, Guid iD);
     }
 }

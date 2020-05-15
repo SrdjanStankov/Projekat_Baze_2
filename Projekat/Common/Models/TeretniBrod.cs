@@ -18,5 +18,7 @@ namespace Common.Models
         public int KapacTeret { get; set; }
         public string StatUtov { get; set; }
         public ICollection<Mornar> Mornari { get; set; } = new HashSet<Mornar>();
+
+        public override bool Equals(object obj) => (obj as TeretniBrod)?.ID == ID;
     }
 }

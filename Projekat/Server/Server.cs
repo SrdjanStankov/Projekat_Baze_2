@@ -65,5 +65,6 @@ namespace Server
         public void EditTeretniBrod(TeretniBrod teretniBrod) => repository.TeretniBrodRepository.Update(teretniBrod);
 
         public void AddMornarToPosada(string mornarJmbg, Guid selectedPosadaId) => repository.MornarRepository.AddPosada(mornarJmbg, selectedPosadaId);
+        public void AddMoranrToTeretniBrod(string mornarJmbg, Guid iD) => repository.MornarRepository.AddTeretniBrod(mornarJmbg, iD);
     }
 }

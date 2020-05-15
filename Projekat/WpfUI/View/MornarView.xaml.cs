@@ -27,5 +27,18 @@ namespace WpfUI.View
             var mornarViewModel = (DataContext as MornarViewModel);
             mornarViewModel.Mornari = mornarViewModel.Mornari;
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            var mornar = DatabaseCommunicationProvider.Instance.GetMornar((sender as Button).CommandParameter as string);
+            _ = new AddMornarToPosadaView
+            {
+                DataContext = new AddMornarToPosadaViewModel(mornar.JMBG, mornar.Posada),
+                Owner = Window.GetWindow(this)
+            }.ShowDialog();
+
+            var mornarViewModel = (DataContext as MornarViewModel);
+            mornarViewModel.Mornari = mornarViewModel.Mornari;
+        }
     }
 }

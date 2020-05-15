@@ -23,5 +23,9 @@ namespace Common.Models
         public Kapetan Kapetan { get; set; }
         public Kormilar Kormilar { get; set; }
         public ICollection<Mornar> Mornari { get; set; } = new HashSet<Mornar>();
+
+        public override string ToString() => $"{Ime}";
+
+        public override bool Equals(object obj) => (obj as Posada)?.ID == ID;
     }
 }

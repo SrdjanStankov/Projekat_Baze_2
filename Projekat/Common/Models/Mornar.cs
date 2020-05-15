@@ -20,5 +20,6 @@
         public string Prezime { get; set; }
         public string Pol { get; set; }
         public string Rank { get; set; }
+        public Posada Posada { get; set; }
     }
 }

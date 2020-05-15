@@ -68,6 +68,19 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="150">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Button
+                                 Click="Button_Click_1"
+                                 CommandParameter="{Binding JMBG}"
+                                 Content="Add to posada"
+                                 Style="{DynamicResource MaterialDesignOutlinedButton}" />
+                            </Grid>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

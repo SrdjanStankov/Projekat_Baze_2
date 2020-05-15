@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Data.Entity;
 
 namespace Server.Repositories
 {
@@ -32,16 +34,26 @@ namespace Server.Repositories
 
         public Common.Models.Mornar Get(string jmbg)
         {
-            var m = ctx.Mornar.AsNoTracking().FirstOrDefault((item) => item.JMBG == jmbg);
-            return new Common.Models.Mornar(m.JMBG, m.Ime, m.Prezime, m.Pol, m.Rank);
+            var mornar = ctx.Mornar.Include((m) => m.Posada).AsNoTracking().FirstOrDefault((item) => item.JMBG == jmbg);
+            var mornar1 = new Common.Models.Mornar(mornar.JMBG, mornar.Ime, mornar.Prezime, mornar.Pol, mornar.Rank);
+            if(mornar.Posada != null)
+            {
+                mornar1.Posada = new Common.Models.Posada(mornar.Posada.ID, mornar.Posada.Ime, mornar.Posada.Kapacitet.Value);
+            }
+            return mornar1;
         }
 
         public IEnumerable<Common.Models.Mornar> GetAll()
         {
             var ret = new List<Common.Models.Mornar>();
-            ctx.Mornar.AsNoTracking().ToList().ForEach((item) =>
+            ctx.Mornar.Include((m) => m.Posada).AsNoTracking().ToList().ForEach((item) =>
             {
-                ret.Add(new Common.Models.Mornar(item.JMBG, item.Ime, item.Prezime, item.Pol, item.Rank));
+                var moranr = new Common.Models.Mornar(item.JMBG, item.Ime, item.Prezime, item.Pol, item.Rank);
+                if (item.Posada != null)
+                {
+                    moranr.Posada = new Common.Models.Posada(item.Posada.ID, item.Posada.Ime, item.Posada.Kapacitet.Value);
+                }
+                ret.Add(moranr);
             });
             return ret;
         }
@@ -56,6 +68,14 @@ namespace Server.Repositories
         public void Remove(string jmbg)
         {
             ctx.Mornar.Remove(ctx.Mornar.FirstOrDefault((item) => item.JMBG == jmbg));
+            ctx.SaveChanges();
+        }
+
+        public void AddPosada(string jmbg, Guid posadaId)
+        {
+            var mornar = ctx.Mornar.FirstOrDefault((m) => m.JMBG == jmbg);
+            var posada = ctx.Posada.FirstOrDefault((p) => p.ID == posadaId);
+            mornar.Posada = posada;
             ctx.SaveChanges();
         }
 

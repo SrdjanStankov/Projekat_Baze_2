@@ -63,5 +63,7 @@ namespace Server
         public void EditPosada(Common.Models.Posada posada) => repository.PosadaRepository.Update(posada);
         public void EditTanker(Common.Models.Tanker tanker) => repository.TankerRepository.Update(tanker);
         public void EditTeretniBrod(TeretniBrod teretniBrod) => repository.TeretniBrodRepository.Update(teretniBrod);
+
+        public void AddMornarToPosada(string mornarJmbg, Guid selectedPosadaId) => repository.MornarRepository.AddPosada(mornarJmbg, selectedPosadaId);
     }
 }

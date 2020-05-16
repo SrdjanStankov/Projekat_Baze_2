@@ -12,6 +12,8 @@ namespace Server
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class Projekat_Entities : DbContext
     {
@@ -36,5 +38,15 @@ namespace Server
         public virtual DbSet<Poseduje> Poseduje { get; set; }
         public virtual DbSet<Tanker> Tanker { get; set; }
         public virtual DbSet<Teretni_Brod> Teretni_Brod { get; set; }
+    
+        public virtual ObjectResult<Posada> selectPosadaAndMornar()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Posada>("selectPosadaAndMornar");
+        }
+    
+        public virtual ObjectResult<Posada> selectPosadaAndMornar(MergeOption mergeOption)
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Posada>("selectPosadaAndMornar", mergeOption);
+        }
     }
 }

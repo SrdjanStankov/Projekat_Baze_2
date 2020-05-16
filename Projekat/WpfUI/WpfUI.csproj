@@ -86,7 +86,7 @@
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\AddBrodToLinijaViewModel.cs" />
+    <Compile Include="ViewModel\Add\AddBrodToLinijaViewModel.cs" />
     <Compile Include="ViewModel\Add\AddMornarToPosadaViewModel.cs" />
     <Compile Include="ViewModel\Add\AddMornarToTeretniBrod.cs" />
     <Compile Include="ViewModel\BrodViewModel.cs" />
@@ -128,7 +128,7 @@
     <Compile Include="ViewModel\PosadaViewModel.cs" />
     <Compile Include="ViewModel\TankerViewModel.cs" />
     <Compile Include="ViewModel\TeretniBrodViewModel.cs" />
-    <Compile Include="View\AddBrodToLinija.xaml.cs">
+    <Compile Include="View\Add\AddBrodToLinija.xaml.cs">
       <DependentUpon>AddBrodToLinija.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Add\AddMornarToPosadaView.xaml.cs">
@@ -236,7 +236,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\AddBrodToLinija.xaml">
+    <Page Include="View\Add\AddBrodToLinija.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

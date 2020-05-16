@@ -6,6 +6,7 @@
 	- Microsoft SQL Server
 	- Visual studio 2017/2019
 	- C# verion 8.0
+	- .NET Framework 4.7.2 (minimum)
 ---
 ### Setup
 

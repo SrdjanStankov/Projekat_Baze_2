@@ -6,9 +6,9 @@ namespace Server.Repositories
 {
     public class BrodogradilisteRepository
     {
-        private readonly ModelContext ctx;
+        private readonly Projekat_Entities ctx;
 
-        public BrodogradilisteRepository(ModelContext context)
+        public BrodogradilisteRepository(Projekat_Entities context)
         {
             ctx = context;
         }

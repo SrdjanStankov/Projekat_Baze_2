@@ -4,7 +4,7 @@ namespace Server
 {
     public class MasterRepository
     {
-        private readonly ModelContext context;
+        private readonly Projekat_Entities context;
 
         public BrodogradilisteRepository BrodogradilisteRepository { get; }
         public BrodRepository BrodRepository { get; }
@@ -17,7 +17,7 @@ namespace Server
         public TankerRepository TankerRepository { get; }
         public TeretniBrodRepository TeretniBrodRepository { get; }
 
-        public MasterRepository(ModelContext ctx)
+        public MasterRepository(Projekat_Entities ctx)
         {
             context = ctx;
             BrodogradilisteRepository = new BrodogradilisteRepository(context);

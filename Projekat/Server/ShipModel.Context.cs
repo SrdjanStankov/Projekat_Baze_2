@@ -13,10 +13,10 @@ namespace Server
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ModelContext : DbContext
+    public partial class Projekat_Entities : DbContext
     {
-        public ModelContext()
-            : base("name=ModelContext")
+        public Projekat_Entities()
+            : base("name=Projekat_Entities")
         {
         }
     

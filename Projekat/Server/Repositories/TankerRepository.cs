@@ -6,9 +6,9 @@ namespace Server.Repositories
 {
     public class TankerRepository
     {
-        private readonly ModelContext ctx;
+        private readonly Projekat_Entities ctx;
 
-        public TankerRepository(ModelContext context)
+        public TankerRepository(Projekat_Entities context)
         {
             ctx = context;
         }

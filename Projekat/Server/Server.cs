@@ -7,7 +7,7 @@ namespace Server
 {
     public class Server : IBrodOperations
     {
-        private MasterRepository repository = new MasterRepository(new ModelContext());
+        private MasterRepository repository = new MasterRepository(new Projekat_Entities());
 
         public bool AddBrod(Common.Models.Brod brod, Guid idBrodogradiliste) => repository.BrodRepository.Add(brod, idBrodogradiliste);
         public bool AddBrodogradiliste(Common.Models.Brodogradiliste brodogradiliste) => repository.BrodogradilisteRepository.Add(brodogradiliste);

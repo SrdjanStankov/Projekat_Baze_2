@@ -7,10 +7,10 @@ namespace Server.Repositories
 {
     public class BrodRepository
     {
-        private readonly ModelContext ctx;
+        private readonly Projekat_Entities ctx;
         private PosedujeRepository posedujeRepo;
 
-        public BrodRepository(ModelContext context)
+        public BrodRepository(Projekat_Entities context)
         {
             ctx = context;
             posedujeRepo = new PosedujeRepository(context);

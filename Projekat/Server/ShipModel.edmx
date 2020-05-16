@@ -306,6 +306,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="selectPosadaAndMornar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="Projekat_ModelStoreContainer">
           <EntitySet Name="Brod" EntityType="Self.Brod" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Brodogradiliste" EntityType="Self.Brodogradiliste" Schema="dbo" store:Type="Tables" />
@@ -749,6 +750,7 @@
             <End Role="Poseduje" EntitySet="Poseduje" />
             <End Role="Brodogradiliste" EntitySet="Brodogradiliste" />
           </AssociationSet>
+          <FunctionImport Name="selectPosadaAndMornar" EntitySet="Posada" ReturnType="Collection(Projekat_Model.Posada)" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -884,6 +886,7 @@
               <ScalarProperty Name="IDBrodog" ColumnName="IDBrodog" />
             </EndProperty>
           </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="selectPosadaAndMornar" FunctionName="Projekat_Model.Store.selectPosadaAndMornar" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

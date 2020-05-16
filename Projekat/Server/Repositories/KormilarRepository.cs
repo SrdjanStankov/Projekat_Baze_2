@@ -5,9 +5,9 @@ namespace Server.Repositories
 {
     public class KormilarRepository
     {
-        private readonly ModelContext ctx;
+        private readonly Projekat_Entities ctx;
 
-        public KormilarRepository(ModelContext context)
+        public KormilarRepository(Projekat_Entities context)
         {
             ctx = context;
         }

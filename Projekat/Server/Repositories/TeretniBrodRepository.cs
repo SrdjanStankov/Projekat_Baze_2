@@ -7,9 +7,9 @@ namespace Server.Repositories
 {
     public class TeretniBrodRepository
     {
-        private readonly ModelContext ctx;
+        private readonly Projekat_Entities ctx;
 
-        public TeretniBrodRepository(ModelContext context)
+        public TeretniBrodRepository(Projekat_Entities context)
         {
             ctx = context;
         }

@@ -7,9 +7,9 @@ namespace Server.Repositories
 {
     public class KapetanRepository
     {
-        private readonly ModelContext ctx;
+        private readonly Projekat_Entities ctx;
 
-        public KapetanRepository(ModelContext context)
+        public KapetanRepository(Projekat_Entities context)
         {
             ctx = context;
         }

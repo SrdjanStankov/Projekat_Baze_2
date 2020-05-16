@@ -6,9 +6,9 @@ namespace Server.Repositories
 {
     public class KruzerRepository
     {
-        private readonly ModelContext ctx;
+        private readonly Projekat_Entities ctx;
 
-        public KruzerRepository(ModelContext context)
+        public KruzerRepository(Projekat_Entities context)
         {
             ctx = context;
         }

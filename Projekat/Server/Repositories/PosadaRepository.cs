@@ -7,9 +7,9 @@ namespace Server.Repositories
 {
     public class PosadaRepository
     {
-        private readonly ModelContext ctx;
+        private readonly Projekat_Entities ctx;
 
-        public PosadaRepository(ModelContext context)
+        public PosadaRepository(Projekat_Entities context)
         {
             ctx = context;
         }

@@ -7,9 +7,9 @@ namespace Server.Repositories
 {
     public class MornarRepository
     {
-        private readonly ModelContext ctx;
+        private readonly Projekat_Entities ctx;
 
-        public MornarRepository(ModelContext context)
+        public MornarRepository(Projekat_Entities context)
         {
             ctx = context;
         }

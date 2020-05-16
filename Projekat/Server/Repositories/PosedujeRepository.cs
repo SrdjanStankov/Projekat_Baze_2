@@ -7,9 +7,9 @@ namespace Server.Repositories
 {
     internal class PosedujeRepository
     {
-        private readonly ModelContext ctx;
+        private readonly Projekat_Entities ctx;
 
-        public PosedujeRepository(ModelContext context)
+        public PosedujeRepository(Projekat_Entities context)
         {
             ctx = context;
         }

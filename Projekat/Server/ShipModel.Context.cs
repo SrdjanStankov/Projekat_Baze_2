@@ -39,14 +39,14 @@ namespace Server
         public virtual DbSet<Tanker> Tanker { get; set; }
         public virtual DbSet<Teretni_Brod> Teretni_Brod { get; set; }
     
-        public virtual ObjectResult<Posada> selectPosadaAndMornar()
+        public virtual ObjectResult<Posada> SelectPosadaAndMornar()
         {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Posada>("selectPosadaAndMornar");
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Posada>("SelectPosadaAndMornar");
         }
     
-        public virtual ObjectResult<Posada> selectPosadaAndMornar(MergeOption mergeOption)
+        public virtual ObjectResult<Posada> SelectPosadaAndMornar(MergeOption mergeOption)
         {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Posada>("selectPosadaAndMornar", mergeOption);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Posada>("SelectPosadaAndMornar", mergeOption);
         }
     }
 }

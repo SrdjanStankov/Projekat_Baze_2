@@ -1,7 +1,5 @@
-if not exists (select 1 from sys.databases where name = N'Projekat_Baze_2')
-begin
-	create database Projekat_Baze_2;
-end;
+create database Projekat_Baze_2;
+go
 
 use Projekat_Baze_2;
 

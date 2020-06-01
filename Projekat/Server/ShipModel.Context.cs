@@ -48,5 +48,15 @@ namespace Server
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Posada>("SelectPosadaAndMornar", mergeOption);
         }
+    
+        public virtual ObjectResult<Teretni_Brod> SelectTeretniBrodAndMornar()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Teretni_Brod>("SelectTeretniBrodAndMornar");
+        }
+    
+        public virtual ObjectResult<Teretni_Brod> SelectTeretniBrodAndMornar(MergeOption mergeOption)
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Teretni_Brod>("SelectTeretniBrodAndMornar", mergeOption);
+        }
     }
 }

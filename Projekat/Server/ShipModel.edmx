@@ -307,6 +307,7 @@
           </ReferentialConstraint>
         </Association>
         <Function Name="SelectPosadaAndMornar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SelectTeretniBrodAndMornar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="Projekat_ModelStoreContainer">
           <EntitySet Name="Brod" EntityType="Self.Brod" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Brodogradiliste" EntityType="Self.Brodogradiliste" Schema="dbo" store:Type="Tables" />
@@ -751,7 +752,13 @@
             <End Role="Brodogradiliste" EntitySet="Brodogradiliste" />
           </AssociationSet>
           <FunctionImport Name="SelectPosadaAndMornar" EntitySet="Posada" ReturnType="Collection(Projekat_Model.Posada)" />
+          <FunctionImport Name="SelectTeretniBrodAndMornar" EntitySet="Teretni_Brod" ReturnType="Collection(Projekat_Model.Teretni_Brod)" />
         </EntityContainer>
+        <ComplexType Name="SelectTeretniBrodAndMornar_Result">
+          <Property Type="Guid" Name="IDBroda" Nullable="false" />
+          <Property Type="Int32" Name="KapacTeret" Nullable="true" />
+          <Property Type="String" Name="StatUtov" Nullable="true" MaxLength="50" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -887,6 +894,8 @@
             </EndProperty>
           </AssociationSetMapping>
           <FunctionImportMapping FunctionImportName="SelectPosadaAndMornar" FunctionName="Projekat_Model.Store.SelectPosadaAndMornar" />
+          <FunctionImportMapping FunctionImportName="SelectTeretniBrodAndMornar" FunctionName="Projekat_Model.Store.SelectTeretniBrodAndMornar">
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -60,13 +60,16 @@ namespace Server.Repositories
             var ret = new List<Common.Models.Brod>();
             ctx.Brod.Include((bl) => bl.Poseduje).AsNoTracking().ToList().ForEach((item) =>
             {
-                var brod = new Common.Models.Brod(item.IDBroda, item.Ime, item.GodGrad, item.MaxBrzina.Value, item.Duzina.Value, item.Sirina.Value);
-                var linija = posedujeRepo.GetLinija(brod.ID);
-                if (linija != null)
+                if (ctx.Teretni_Brod.Find(item.IDBroda) is null && ctx.Kruzer.Find(item.IDBroda) is null && ctx.Tanker.Find(item.IDBroda) is null)
                 {
-                    brod.BrodskaLinija = new Common.Models.BrodskaLinija(linija.BrLin, linija.Naziv, linija.Tip, linija.Polazna_tacka, linija.Krajnja_tacka);
+                    var brod = new Common.Models.Brod(item.IDBroda, item.Ime, item.GodGrad, item.MaxBrzina.Value, item.Duzina.Value, item.Sirina.Value);
+                    var linija = posedujeRepo.GetLinija(brod.ID);
+                    if (linija != null)
+                    {
+                        brod.BrodskaLinija = new Common.Models.BrodskaLinija(linija.BrLin, linija.Naziv, linija.Tip, linija.Polazna_tacka, linija.Krajnja_tacka);
+                    }
+                    ret.Add(brod); 
                 }
-                ret.Add(brod);
             });
             return ret;
         }

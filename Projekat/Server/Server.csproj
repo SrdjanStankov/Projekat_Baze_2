@@ -95,9 +95,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\PosedujeRepository.cs" />
-    <Compile Include="SelectTeretniBrodAndMornar_Result.cs">
-      <DependentUpon>ShipModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Server.cs" />
     <Compile Include="ShipModel.Context.cs">
       <AutoGen>True</AutoGen>

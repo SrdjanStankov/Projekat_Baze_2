@@ -1,6 +1,5 @@
 create database Projekat_Baze_2;
 go
-
 use Projekat_Baze_2;
 
 create table Kormilar (
@@ -35,28 +34,28 @@ create table Brod (
 	Duzina int,
 	Sirina int,
 	IDBrodog uniqueidentifier not null,
-	foreign key (IDBrodog) references Brodogradiliste(IDBrodog)
+	foreign key (IDBrodog) references Brodogradiliste(IDBrodog) on delete cascade
 );
 
 create table Teretni_Brod (
 	IDBroda uniqueidentifier primary key,
 	KapacTeret int default 0,
 	StatUtov nvarchar(50),
-	foreign key (IDBroda) references Brod(IDBroda)
+	foreign key (IDBroda) references Brod(IDBroda) on delete cascade
 );
 
 create table Tanker (
 	IDBroda uniqueidentifier primary key,
 	Nosivost int default 0,
 	TipTeret nvarchar(50),
-	foreign key (IDBroda) references Brod(IDBroda)
+	foreign key (IDBroda) references Brod(IDBroda) on delete cascade
 );
 
 create table Kruzer (
 	IDBroda uniqueidentifier primary key,
 	BrPutnika int default 0,
 	BrOsoblja int default 0,
-	foreign key (IDBroda) references Brod(IDBroda)
+	foreign key (IDBroda) references Brod(IDBroda) on delete cascade
 );
 
 create table Kapetan (
@@ -67,8 +66,8 @@ create table Kapetan (
 	GodRodj date,
 	BrLin uniqueidentifier not null,
 	IDBroda uniqueidentifier not null,
-	foreign key (BrLin) references Brodska_Linija(BrLin),
-	foreign key (IDBroda) references Brod(IDBroda)
+	foreign key (BrLin) references Brodska_Linija(BrLin) on delete cascade,
+	foreign key (IDBroda) references Brod(IDBroda) on delete cascade
 );
 
 create table Posada (
@@ -78,9 +77,9 @@ create table Posada (
 	JMBG_Kormilar varchar(13) not null,
 	JMBG_Kapetan varchar(13) not null,
 	IDBroda uniqueidentifier not null,
-	foreign key (JMBG_Kormilar) references Kormilar(JMBG),
-	foreign key (JMBG_Kapetan) references Kapetan(JMBG),
-	foreign key (IDBroda) references Brod(IDBroda)
+	foreign key (JMBG_Kormilar) references Kormilar(JMBG) on delete cascade,
+	foreign key (JMBG_Kapetan) references Kapetan(JMBG) on delete cascade,
+	foreign key (IDBroda) references Brod(IDBroda),-- on delete cascade
 );
 
 create table Mornar (
@@ -91,15 +90,15 @@ create table Mornar (
 	Rank nvarchar(150) not null,
 	ID uniqueidentifier,
 	IDBroda uniqueidentifier,
-	foreign key (ID) references Posada(ID),
-	foreign key (IDBroda) references Teretni_Brod(IDBroda)
+	foreign key (ID) references Posada(ID) on delete cascade,
+	foreign key (IDBroda) references Teretni_Brod(IDBroda),-- on delete cascade
 );
 
 create table Poseduje (
 	IDBroda uniqueidentifier,
 	BrLin uniqueidentifier,
-	foreign key (IDBroda) references Brod(IDBroda),
-	foreign key (BrLin) references Brodska_Linija(BrLin),
+	foreign key (IDBroda) references Brod(IDBroda) on delete cascade,
+	foreign key (BrLin) references Brodska_Linija(BrLin) on delete cascade,
 	primary key (IDBroda, BrLin)
 );
 
@@ -107,7 +106,8 @@ create table Popravlja (
 	IDBroda uniqueidentifier,
 	BrLin uniqueidentifier,
 	IDBrodog uniqueidentifier,
-	foreign key (IDBrodog) references Brodogradiliste(IDBrodog),
-	foreign key (IDBroda, BrLin) references Poseduje(IDBroda, BrLin),
+	foreign key (IDBrodog) references Brodogradiliste(IDBrodog),-- on delete cascade,
+	foreign key (IDBroda, BrLin) references Poseduje(IDBroda, BrLin) on delete cascade,
 	primary key (IDBroda, BrLin, IDBrodog)
 );
+go

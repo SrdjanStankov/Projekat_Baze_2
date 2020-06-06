@@ -9,7 +9,5 @@ namespace WpfUI.Model
         public SnackbarMessageQueue MessageQueue { get; set; } = new SnackbarMessageQueue(TimeSpan.FromSeconds(2));
 
         public void Enqueue(object content) => MessageQueue.Enqueue(content, true);
-
-        public void Enqueue(object content, bool neverConsiderToBeDuplicate) => MessageQueue.Enqueue(content, neverConsiderToBeDuplicate);
     }
 }

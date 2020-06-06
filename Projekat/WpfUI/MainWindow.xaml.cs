@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System.Threading.Tasks;
+using System.Windows;
+using WpfUI.Model;
 
 namespace WpfUI
 {
@@ -10,6 +12,13 @@ namespace WpfUI
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private async void Window_Activated(object sender, System.EventArgs e)
+        {
+            SnackbarMessageProvider.Instance.Enqueue("Connecting with server . . .");
+            _ = await Task.Run(DatabaseCommunicationProvider.Instance.GetKapetani);
+            SnackbarMessageProvider.Instance.Enqueue("Connected!");
         }
     }
 }

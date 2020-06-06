@@ -42,16 +42,16 @@ namespace Server
         public Common.Models.Tanker GetTanker(Guid id) => repository.TankerRepository.Get(id);
         public TeretniBrod GetTeretniBrod(Guid id) => repository.TeretniBrodRepository.Get(id);
 
-        public void RemoveKormilar(string jmbg) => repository.KormilarRepository.Remove(jmbg);
-        public void RemoveMornar(string jmbg) => repository.MornarRepository.Remove(jmbg);
-        public void RemoveBrodogradiliste(Guid idBrodogradililste) => repository.BrodogradilisteRepository.Remove(idBrodogradililste);
-        public void RemoveBrodskaLinija(Guid id) => repository.BrodskaLinijaRepository.Remove(id);
-        public void RemoveBrod(Guid id) => repository.BrodRepository.Remove(id);
-        public void RemoveKruzer(Guid id) => repository.KruzerRepository.Remove(id);
-        public void RemovePosada(Guid id) => repository.PosadaRepository.Remove(id);
-        public void RemoveTanker(Guid id) => repository.TankerRepository.Remove(id);
-        public void RemoveTeretniBrod(Guid id) => repository.TeretniBrodRepository.Remove(id);
-        public void RemoveKapetan(string jmbg) => repository.KapetanRepository.Remove(jmbg);
+        public bool RemoveKormilar(string jmbg) => repository.KormilarRepository.Remove(jmbg);
+        public bool RemoveMornar(string jmbg) => repository.MornarRepository.Remove(jmbg);
+        public bool RemoveBrodogradiliste(Guid idBrodogradililste) => repository.BrodogradilisteRepository.Remove(idBrodogradililste);
+        public bool RemoveBrodskaLinija(Guid id) => repository.BrodskaLinijaRepository.Remove(id);
+        public bool RemoveBrod(Guid id) => repository.BrodRepository.Remove(id);
+        public bool RemoveKruzer(Guid id) => repository.KruzerRepository.Remove(id);
+        public bool RemovePosada(Guid id) => repository.PosadaRepository.Remove(id);
+        public bool RemoveTanker(Guid id) => repository.TankerRepository.Remove(id);
+        public bool RemoveTeretniBrod(Guid id) => repository.TeretniBrodRepository.Remove(id);
+        public bool RemoveKapetan(string jmbg) => repository.KapetanRepository.Remove(jmbg);
 
         public void EditKormilar(Common.Models.Kormilar kormilar) => repository.KormilarRepository.Update(kormilar);
         public void EditMornar(Common.Models.Mornar mornar) => repository.MornarRepository.Update(mornar);

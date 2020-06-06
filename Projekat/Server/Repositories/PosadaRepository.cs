@@ -102,10 +102,18 @@ namespace Server.Repositories
             ctx.SaveChanges();
         }
 
-        public void Remove(Guid idPosade)
+        public bool Remove(Guid idPosade)
         {
-            ctx.Posada.Remove(ctx.Posada.FirstOrDefault((item) => item.ID == idPosade));
-            ctx.SaveChanges();
+            try
+            {
+                ctx.Posada.Remove(ctx.Posada.FirstOrDefault((item) => item.ID == idPosade));
+                ctx.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         ~PosadaRepository()

@@ -28,8 +28,14 @@ namespace WpfUI.ViewModel
 
         private void OnRemove(string jmbg)
         {
-            DatabaseCommunicationProvider.Instance.RemoveMornar(jmbg);
-            SnackbarMessageProvider.Instance.Enqueue("Mornar obrisan", true);
+            if (DatabaseCommunicationProvider.Instance.RemoveMornar(jmbg))
+            {
+                SnackbarMessageProvider.Instance.Enqueue("Mornar obrisan");
+            }
+            else
+            {
+                SnackbarMessageProvider.Instance.Enqueue("Nemoguce obrisati mornara");
+            }
             Mornari = Mornari;
         }
     }

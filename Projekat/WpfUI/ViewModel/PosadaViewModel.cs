@@ -29,8 +29,14 @@ namespace WpfUI.ViewModel
 
         private void OnRemove(Guid id)
         {
-            DatabaseCommunicationProvider.Instance.RemovePosada(id);
-            SnackbarMessageProvider.Instance.Enqueue("Posada obrisana", true);
+            if (DatabaseCommunicationProvider.Instance.RemovePosada(id))
+            {
+                SnackbarMessageProvider.Instance.Enqueue("Posada obrisana");
+            }
+            else
+            {
+                SnackbarMessageProvider.Instance.Enqueue("Nemoguce obrisati posadu");
+            }
             Posade = Posade;
         }
     }

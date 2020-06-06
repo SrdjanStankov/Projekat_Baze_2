@@ -7,24 +7,24 @@ namespace Common
     public interface IRemoveBrodOperations
     {
         [OperationContract]
-        void RemoveKruzer(Guid id);
+        bool RemoveKruzer(Guid id);
         [OperationContract]
-        void RemovePosada(Guid id);
+        bool RemovePosada(Guid id);
         [OperationContract]
-        void RemoveTanker(Guid id);
+        bool RemoveTanker(Guid id);
         [OperationContract]
-        void RemoveTeretniBrod(Guid id);
+        bool RemoveTeretniBrod(Guid id);
         [OperationContract]
-        void RemoveMornar(string jmbg);
+        bool RemoveMornar(string jmbg);
         [OperationContract]
-        void RemoveKormilar(string jmbg);
+        bool RemoveKormilar(string jmbg);
         [OperationContract]
-        void RemoveBrodogradiliste(Guid idBrodogradililste);
+        bool RemoveBrodogradiliste(Guid idBrodogradililste);
         [OperationContract]
-        void RemoveKapetan(string jmbg);
+        bool RemoveKapetan(string jmbg);
         [OperationContract]
-        void RemoveBrod(Guid id);
+        bool RemoveBrod(Guid id);
         [OperationContract]
-        void RemoveBrodskaLinija(Guid id);
+        bool RemoveBrodskaLinija(Guid id);
     }
 }

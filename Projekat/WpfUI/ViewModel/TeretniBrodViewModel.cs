@@ -29,8 +29,14 @@ namespace WpfUI.ViewModel
 
         private void OnRemove(Guid id)
         {
-            DatabaseCommunicationProvider.Instance.RemoveTeretniBrod(id);
-            SnackbarMessageProvider.Instance.Enqueue("Teretni Brod obrisan", true);
+            if (DatabaseCommunicationProvider.Instance.RemoveTeretniBrod(id))
+            {
+                SnackbarMessageProvider.Instance.Enqueue("Teretni brod obrisan");
+            }
+            else
+            {
+                SnackbarMessageProvider.Instance.Enqueue("Nemoguce obrisati teretni brod");
+            }
             Brodovi = Brodovi;
         }
     }

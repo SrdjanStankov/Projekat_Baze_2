@@ -29,8 +29,14 @@ namespace WpfUI.ViewModel
 
         private void OnRemove(Guid id)
         {
-            DatabaseCommunicationProvider.Instance.RemoveKruzer(id);
-            SnackbarMessageProvider.Instance.Enqueue("Kruzer obrisan", true);
+            if(DatabaseCommunicationProvider.Instance.RemoveKruzer(id))
+            {
+                SnackbarMessageProvider.Instance.Enqueue("Kruzer obrisan");
+            }
+            else
+            {
+                SnackbarMessageProvider.Instance.Enqueue("Nemoguce obrisati kruzer");
+            }
             Brodovi = Brodovi;
         }
     }

@@ -29,8 +29,14 @@ namespace WpfUI.ViewModel
 
         private void OnRemove(Guid id)
         {
-            DatabaseCommunicationProvider.Instance.RemoveBrodskaLinija(id);
-            SnackbarMessageProvider.Instance.Enqueue("Brodska linija obrisana", true);
+            if (DatabaseCommunicationProvider.Instance.RemoveBrodskaLinija(id))
+            {
+                SnackbarMessageProvider.Instance.Enqueue("Brodska linija obrisana");
+            }
+            else
+            {
+                SnackbarMessageProvider.Instance.Enqueue("Nemoguce obrisati brodsku liniju");
+            }
             Linije = Linije;
         }
     }

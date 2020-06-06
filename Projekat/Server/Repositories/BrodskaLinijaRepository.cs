@@ -68,10 +68,18 @@ namespace Server.Repositories
             ctx.SaveChanges();
         }
 
-        public void Remove(Guid brojLinije)
+        public bool Remove(Guid brojLinije)
         {
-            ctx.Brodska_Linija.Remove(ctx.Brodska_Linija.FirstOrDefault((item) => item.BrLin == brojLinije));
-            ctx.SaveChanges();
+            try
+            {
+                ctx.Brodska_Linija.Remove(ctx.Brodska_Linija.FirstOrDefault((item) => item.BrLin == brojLinije));
+                ctx.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         ~BrodskaLinijaRepository()

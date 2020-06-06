@@ -73,10 +73,18 @@ namespace Server.Repositories
             ctx.SaveChanges();
         }
 
-        public void Remove(string jmbg)
+        public bool Remove(string jmbg)
         {
-            ctx.Mornar.Remove(ctx.Mornar.FirstOrDefault((item) => item.JMBG == jmbg));
-            ctx.SaveChanges();
+            try
+            {
+                ctx.Mornar.Remove(ctx.Mornar.FirstOrDefault((item) => item.JMBG == jmbg));
+                ctx.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public void AddPosada(string jmbg, Guid posadaId)

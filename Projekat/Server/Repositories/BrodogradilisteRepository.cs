@@ -55,10 +55,18 @@ namespace Server.Repositories
             ctx.SaveChanges();
         }
 
-        public void Remove(Guid id)
+        public bool Remove(Guid id)
         {
-            ctx.Brodogradiliste.Remove(ctx.Brodogradiliste.FirstOrDefault((item) => item.IDBrodog == id));
-            ctx.SaveChanges();
+            try
+            {
+                ctx.Brodogradiliste.Remove(ctx.Brodogradiliste.FirstOrDefault((item) => item.IDBrodog == id));
+                ctx.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         ~BrodogradilisteRepository()

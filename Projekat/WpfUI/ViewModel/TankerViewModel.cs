@@ -29,8 +29,14 @@ namespace WpfUI.ViewModel
 
         private void OnRemove(Guid id)
         {
-            DatabaseCommunicationProvider.Instance.RemoveTanker(id);
-            SnackbarMessageProvider.Instance.Enqueue("Tanker obrisan", true);
+            if (DatabaseCommunicationProvider.Instance.RemoveTanker(id))
+            {
+                SnackbarMessageProvider.Instance.Enqueue("Tanker obrisan");
+            }
+            else
+            {
+                SnackbarMessageProvider.Instance.Enqueue("Nemoguce obrisati tanker");
+            }
             Brodovi = Brodovi;
         }
     }

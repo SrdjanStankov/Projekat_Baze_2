@@ -28,8 +28,14 @@ namespace WpfUI.ViewModel
 
         private void OnRemove(string jmbg)
         {
-            DatabaseCommunicationProvider.Instance.RemoveKapetan(jmbg);
-            SnackbarMessageProvider.Instance.Enqueue("Kapetan obrisan", true);
+            if (DatabaseCommunicationProvider.Instance.RemoveKapetan(jmbg))
+            {
+                SnackbarMessageProvider.Instance.Enqueue("Kapetan obrisan");
+            }
+            else
+            {
+                SnackbarMessageProvider.Instance.Enqueue("Nemoguce obrisati kapetana");
+            }
             Kapetani = Kapetani;
         }
     }

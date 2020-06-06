@@ -69,10 +69,18 @@ namespace Server.Repositories
             ctx.SaveChanges();
         }
 
-        public void Remove(Guid idBroda)
+        public bool Remove(Guid idBroda)
         {
-            ctx.Tanker.Remove(ctx.Tanker.FirstOrDefault((item) => item.IDBroda == idBroda));
-            ctx.SaveChanges();
+            try
+            {
+                ctx.Tanker.Remove(ctx.Tanker.FirstOrDefault((item) => item.IDBroda == idBroda));
+                ctx.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         ~TankerRepository()

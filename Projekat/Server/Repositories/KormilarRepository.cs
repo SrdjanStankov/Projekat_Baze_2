@@ -52,10 +52,18 @@ namespace Server.Repositories
             ctx.SaveChanges();
         }
 
-        public void Remove(string jmbg)
+        public bool Remove(string jmbg)
         {
-            ctx.Kormilar.Remove(ctx.Kormilar.FirstOrDefault((item) => item.JMBG == jmbg));
-            ctx.SaveChanges();
+            try
+            {
+                ctx.Kormilar.Remove(ctx.Kormilar.FirstOrDefault((item) => item.JMBG == jmbg));
+                ctx.SaveChanges();
+                return true;
+            }
+            catch (System.Exception)
+            {
+                return false;
+            }
         }
 
         ~KormilarRepository()

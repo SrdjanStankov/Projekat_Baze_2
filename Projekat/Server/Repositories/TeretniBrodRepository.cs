@@ -79,10 +79,18 @@ namespace Server.Repositories
             ctx.SaveChanges();
         }
 
-        public void Remove(Guid idBroda)
+        public bool Remove(Guid idBroda)
         {
-            ctx.Teretni_Brod.Remove(ctx.Teretni_Brod.FirstOrDefault((item) => item.IDBroda == idBroda));
-            ctx.SaveChanges();
+            try
+            {
+                ctx.Teretni_Brod.Remove(ctx.Teretni_Brod.FirstOrDefault((item) => item.IDBroda == idBroda));
+                ctx.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         ~TeretniBrodRepository()

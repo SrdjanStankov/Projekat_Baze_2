@@ -74,10 +74,18 @@ namespace Server.Repositories
             ctx.SaveChanges();
         }
 
-        public void Remove(string jmbg)
+        public bool Remove(string jmbg)
         {
-            ctx.Kapetan.Remove(ctx.Kapetan.FirstOrDefault((item) => item.JMBG == jmbg));
-            ctx.SaveChanges();
+            try
+            {
+                ctx.Kapetan.Remove(ctx.Kapetan.FirstOrDefault((item) => item.JMBG == jmbg));
+                ctx.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         ~KapetanRepository()

@@ -81,10 +81,18 @@ namespace Server.Repositories
             ctx.SaveChanges();
         }
 
-        public void Remove(Guid id)
+        public bool Remove(Guid id)
         {
-            ctx.Brod.Remove(ctx.Brod.FirstOrDefault((item) => item.IDBroda == id));
-            ctx.SaveChanges();
+            try
+            {
+                ctx.Brod.Remove(ctx.Brod.FirstOrDefault((item) => item.IDBroda == id));
+                ctx.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public void AddLinija(Guid brodId, Guid brojLinije)

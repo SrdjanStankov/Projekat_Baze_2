@@ -29,8 +29,14 @@ namespace WpfUI.ViewModel
 
         private void OnRemove(Guid idBrodogradiliste)
         {
-            DatabaseCommunicationProvider.Instance.RemoveBrodogradiliste(idBrodogradiliste);
-            SnackbarMessageProvider.Instance.Enqueue("Brodogradiliste obrisano", true);
+            if(DatabaseCommunicationProvider.Instance.RemoveBrodogradiliste(idBrodogradiliste))
+            {
+                SnackbarMessageProvider.Instance.Enqueue("Brodogradiliste obrisano");
+            }
+            else
+            {
+                SnackbarMessageProvider.Instance.Enqueue("Nemoguce obrisati brodogradiliste");
+            }
             Brodogradilista = Brodogradilista;
         }
     }

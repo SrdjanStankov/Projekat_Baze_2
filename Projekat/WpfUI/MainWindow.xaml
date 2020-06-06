@@ -10,8 +10,8 @@
  Title="MainWindow"
  Width="1000"
  Height="700"
- Activated="Window_Activated"
  Background="{DynamicResource MaterialDesignLightBackground}"
+ Loaded="Window_Loaded"
  mc:Ignorable="d">
 
     <Window.DataContext>

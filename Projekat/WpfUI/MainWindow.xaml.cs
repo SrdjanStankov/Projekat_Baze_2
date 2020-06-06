@@ -14,7 +14,7 @@ namespace WpfUI
             InitializeComponent();
         }
 
-        private async void Window_Activated(object sender, System.EventArgs e)
+        private async void Window_Loaded(object sender, RoutedEventArgs e)
         {
             SnackbarMessageProvider.Instance.Enqueue("Connecting with server . . .");
             _ = await Task.Run(DatabaseCommunicationProvider.Instance.GetKapetani);
